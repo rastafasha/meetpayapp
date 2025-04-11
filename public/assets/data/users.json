@@ -1,0 +1,724 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "María",
+      "lastName": "García",
+      "age": 28,
+      "profession": "Arquitecta",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4168,
+        "longitude": -3.7038
+      },
+      "photos": [
+        "/assets/images/foto-perfil.jpg",
+        "/assets/images/foto-1.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil.jpg"
+    },
+    {
+      "id": 2,
+      "firstName": "Carlos",
+      "lastName": "Martínez",
+      "age": 35,
+      "profession": "Ingeniero",
+      "gender": "male",
+      "maritalStatus": "casado",
+      "location": {
+        "latitude": 40.4175,
+        "longitude": -3.7045
+      },
+      "photos": [
+        "/assets/images/foto-perfil2.jpg",
+        "/assets/images/foto-2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil2.jpg"
+    },
+    {
+      "id": 3,
+      "firstName": "Laura",
+      "lastName": "Rodríguez",
+      "age": 31,
+      "profession": "Médica",
+      "gender": "female",
+      "maritalStatus": "divorciada",
+      "location": {
+        "latitude": 40.4182,
+        "longitude": -3.7052
+      },
+      "photos": [
+        "/assets/images/foto-perfil3.jpg",
+        "/assets/images/foto-3.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil3.jpg"
+    },
+    {
+      "id": 4,
+      "firstName": "Javier",
+      "lastName": "López",
+      "age": 42,
+      "profession": "Abogado",
+      "gender": "male",
+      "maritalStatus": "soltero",
+      "location": {
+        "latitude": 40.4189,
+        "longitude": -3.7059
+      },
+      "photos": [
+        "/assets/images/foto-perfil4.jpg",
+        "/assets/images/foto-1-2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil4.jpg"
+    },
+    {
+      "id": 5,
+      "firstName": "Ana",
+      "lastName": "Sánchez",
+      "age": 26,
+      "profession": "Diseñadora",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4196,
+        "longitude": -3.7066
+      },
+      "photos": [
+        "/assets/images/foto-perfil.jpg",
+        "/assets/images/foto-2-1.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil.jpg"
+    },
+    {
+      "id": 6,
+      "firstName": "David",
+      "lastName": "Pérez",
+      "age": 38,
+      "profession": "Profesor",
+      "gender": "male",
+      "maritalStatus": "casado",
+      "location": {
+        "latitude": 40.4203,
+        "longitude": -3.7073
+      },
+      "photos": [
+        "/assets/images/foto-perfil2.jpg",
+        "/assets/images/foto-3-1.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil2.jpg"
+    },
+    {
+      "id": 7,
+      "firstName": "Sofía",
+      "lastName": "Gómez",
+      "age": 29,
+      "profession": "Psicóloga",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4210,
+        "longitude": -3.7080
+      },
+      "photos": [
+        "/assets/images/foto-perfil3.jpg",
+        "/assets/images/foto-1-3.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil3.jpg"
+    },
+    {
+      "id": 8,
+      "firstName": "Alejandro",
+      "lastName": "Fernández",
+      "age": 45,
+      "profession": "Empresario",
+      "gender": "male",
+      "maritalStatus": "divorciado",
+      "location": {
+        "latitude": 40.4217,
+        "longitude": -3.7087
+      },
+      "photos": [
+        "/assets/images/foto-perfil4.jpg",
+        "/assets/images/foto-2-2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil4.jpg"
+    },
+    {
+      "id": 9,
+      "firstName": "Elena",
+      "lastName": "Díaz",
+      "age": 33,
+      "profession": "Enfermera",
+      "gender": "female",
+      "maritalStatus": "casada",
+      "location": {
+        "latitude": 40.4224,
+        "longitude": -3.7094
+      },
+      "photos": [
+        "/assets/images/foto-perfil.jpg",
+        "/assets/images/foto-3-2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil.jpg"
+    },
+    {
+      "id": 10,
+      "firstName": "Miguel",
+      "lastName": "Ruiz",
+      "age": 30,
+      "profession": "Programador",
+      "gender": "male",
+      "maritalStatus": "soltero",
+      "location": {
+        "latitude": 40.4231,
+        "longitude": -3.7101
+      },
+      "photos": [
+        "/assets/images/foto-perfil2.jpg",
+        "/assets/images/foto-1-4.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil2.jpg"
+    },
+    {
+      "id": 11,
+      "firstName": "Paula",
+      "lastName": "Hernández",
+      "age": 27,
+      "profession": "Periodista",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4238,
+        "longitude": -3.7108
+      },
+      "photos": [
+        "/assets/images/foto-perfil3.jpg",
+        "/assets/images/foto-2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil3.jpg"
+    },
+    {
+      "id": 12,
+      "firstName": "Daniel",
+      "lastName": "Jiménez",
+      "age": 40,
+      "profession": "Médico",
+      "gender": "male",
+      "maritalStatus": "casado",
+      "location": {
+        "latitude": 40.4245,
+        "longitude": -3.7115
+      },
+      "photos": [
+        "/assets/images/foto-perfil4.jpg",
+        "/assets/images/foto-3-3.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil4.jpg"
+    },
+    {
+      "id": 13,
+      "firstName": "Lucía",
+      "lastName": "Moreno",
+      "age": 32,
+      "profession": "Abogada",
+      "gender": "female",
+      "maritalStatus": "divorciada",
+      "location": {
+        "latitude": 40.4252,
+        "longitude": -3.7122
+      },
+      "photos": [
+        "/assets/images/foto-perfil.jpg",
+        "/assets/images/foto-3.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil.jpg"
+    },
+    {
+      "id": 14,
+      "firstName": "Pablo",
+      "lastName": "Álvarez",
+      "age": 36,
+      "profession": "Arquitecto",
+      "gender": "male",
+      "maritalStatus": "soltero",
+      "location": {
+        "latitude": 40.4259,
+        "longitude": -3.7129
+      },
+      "photos": [
+        "/assets/images/foto-perfil2.jpg",
+        "/assets/images/foto-3-4.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil2.jpg"
+    },
+    {
+      "id": 15,
+      "firstName": "Carmen",
+      "lastName": "Romero",
+      "age": 29,
+      "profession": "Diseñadora",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4266,
+        "longitude": -3.7136
+      },
+      "photos": [
+        "/assets/images/foto-perfil3.jpg",
+        "/assets/images/foto-perfil4.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil3.jpg"
+    },
+    {
+      "id": 16,
+      "firstName": "Jorge",
+      "lastName": "Gutiérrez",
+      "age": 44,
+      "profession": "Ingeniero",
+      "gender": "male",
+      "maritalStatus": "casado",
+      "location": {
+        "latitude": 40.4273,
+        "longitude": -3.7143
+      },
+      "photos": [
+        "/assets/images/foto-perfil4.jpg",
+        "/assets/images/foto-perfil.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil4.jpg"
+    },
+    {
+      "id": 17,
+      "firstName": "Isabel",
+      "lastName": "Torres",
+      "age": 31,
+      "profession": "Psicóloga",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4280,
+        "longitude": -3.7150
+      },
+      "photos": [
+        "/assets/images/foto-perfil.jpg",
+        "/assets/images/foto-perfil2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil.jpg"
+    },
+    {
+      "id": 18,
+      "firstName": "Francisco",
+      "lastName": "Navarro",
+      "age": 37,
+      "profession": "Profesor",
+      "gender": "male",
+      "maritalStatus": "divorciado",
+      "location": {
+        "latitude": 40.4287,
+        "longitude": -3.7157
+      },
+      "photos": [
+        "/assets/images/foto-perfil2.jpg",
+        "/assets/images/foto-perfil3.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil2.jpg"
+    },
+    {
+      "id": 19,
+      "firstName": "Teresa",
+      "lastName": "Domínguez",
+      "age": 34,
+      "profession": "Enfermera",
+      "gender": "female",
+      "maritalStatus": "casada",
+      "location": {
+        "latitude": 40.4294,
+        "longitude": -3.7164
+      },
+      "photos": [
+        "/assets/images/foto-perfil3.jpg",
+        "/assets/images/foto-perfil4.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil3.jpg"
+    },
+    {
+      "id": 20,
+      "firstName": "Alberto",
+      "lastName": "Vázquez",
+      "age": 39,
+      "profession": "Empresario",
+      "gender": "male",
+      "maritalStatus": "soltero",
+      "location": {
+        "latitude": 40.4301,
+        "longitude": -3.7171
+      },
+      "photos": [
+        "/assets/images/foto-perfil4.jpg",
+        "/assets/images/foto-perfil.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil4.jpg"
+    },
+    {
+      "id": 21,
+      "firstName": "Raquel",
+      "lastName": "Ortega",
+      "age": 28,
+      "profession": "Dentista",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4308,
+        "longitude": -3.7178
+      },
+      "photos": [
+        "/assets/images/foto-perfil.jpg",
+        "/assets/images/foto-1.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil.jpg"
+    },
+    {
+      "id": 22,
+      "firstName": "Sergio",
+      "lastName": "Castro",
+      "age": 34,
+      "profession": "Fotógrafo",
+      "gender": "male",
+      "maritalStatus": "casado",
+      "location": {
+        "latitude": 40.4315,
+        "longitude": -3.7185
+      },
+      "photos": [
+        "/assets/images/foto-perfil2.jpg",
+        "/assets/images/foto-2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil2.jpg"
+    },
+    {
+      "id": 23,
+      "firstName": "Natalia",
+      "lastName": "Molina",
+      "age": 31,
+      "profession": "Veterinaria",
+      "gender": "female",
+      "maritalStatus": "divorciada",
+      "location": {
+        "latitude": 40.4322,
+        "longitude": -3.7192
+      },
+      "photos": [
+        "/assets/images/foto-perfil3.jpg",
+        "/assets/images/foto-3.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil3.jpg"
+    },
+    {
+      "id": 24,
+      "firstName": "Rubén",
+      "lastName": "Iglesias",
+      "age": 37,
+      "profession": "Chef",
+      "gender": "male",
+      "maritalStatus": "soltero",
+      "location": {
+        "latitude": 40.4329,
+        "longitude": -3.7199
+      },
+      "photos": [
+        "/assets/images/foto-perfil4.jpg",
+        "/assets/images/foto-1-2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil4.jpg"
+    },
+    {
+      "id": 25,
+      "firstName": "Patricia",
+      "lastName": "Cortés",
+      "age": 26,
+      "profession": "Periodista",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4336,
+        "longitude": -3.7206
+      },
+      "photos": [
+        "/assets/images/foto-perfil.jpg",
+        "/assets/images/foto-2-1.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil.jpg"
+    },
+    {
+      "id": 26,
+      "firstName": "Guillermo",
+      "lastName": "Santos",
+      "age": 41,
+      "profession": "Piloto",
+      "gender": "male",
+      "maritalStatus": "casado",
+      "location": {
+        "latitude": 40.4343,
+        "longitude": -3.7213
+      },
+      "photos": [
+        "/assets/images/foto-perfil2.jpg",
+        "/assets/images/foto-3-1.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil2.jpg"
+    },
+    {
+      "id": 27,
+      "firstName": "Claudia",
+      "lastName": "Vega",
+      "age": 29,
+      "profession": "Actriz",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4350,
+        "longitude": -3.7220
+      },
+      "photos": [
+        "/assets/images/foto-perfil3.jpg",
+        "/assets/images/foto-1-3.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil3.jpg"
+    },
+    {
+      "id": 28,
+      "firstName": "Marcos",
+      "lastName": "Reyes",
+      "age": 43,
+      "profession": "Músico",
+      "gender": "male",
+      "maritalStatus": "divorciado",
+      "location": {
+        "latitude": 40.4357,
+        "longitude": -3.7227
+      },
+      "photos": [
+        "/assets/images/foto-perfil4.jpg",
+        "/assets/images/foto-2-2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil4.jpg"
+    },
+    {
+      "id": 29,
+      "firstName": "Silvia",
+      "lastName": "Fuentes",
+      "age": 33,
+      "profession": "Diseñadora",
+      "gender": "female",
+      "maritalStatus": "casada",
+      "location": {
+        "latitude": 40.4364,
+        "longitude": -3.7234
+      },
+      "photos": [
+        "/assets/images/foto-perfil.jpg",
+        "/assets/images/foto-3-2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil.jpg"
+    },
+    {
+      "id": 30,
+      "firstName": "Roberto",
+      "lastName": "Campos",
+      "age": 30,
+      "profession": "Ingeniero",
+      "gender": "male",
+      "maritalStatus": "soltero",
+      "location": {
+        "latitude": 40.4371,
+        "longitude": -3.7241
+      },
+      "photos": [
+        "/assets/images/foto-perfil2.jpg",
+        "/assets/images/foto-1-4.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil2.jpg"
+    },
+    {
+      "id": 31,
+      "firstName": "Beatriz",
+      "lastName": "Ríos",
+      "age": 27,
+      "profession": "Abogada",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4378,
+        "longitude": -3.7248
+      },
+      "photos": [
+        "/assets/images/foto-perfil3.jpg",
+        "/assets/images/foto-2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil3.jpg"
+    },
+    {
+      "id": 32,
+      "firstName": "Álvaro",
+      "lastName": "Méndez",
+      "age": 38,
+      "profession": "Médico",
+      "gender": "male",
+      "maritalStatus": "casado",
+      "location": {
+        "latitude": 40.4385,
+        "longitude": -3.7255
+      },
+      "photos": [
+        "/assets/images/foto-perfil4.jpg",
+        "/assets/images/foto-3-3.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil4.jpg"
+    },
+    {
+      "id": 33,
+      "firstName": "Lorena",
+      "lastName": "Soto",
+      "age": 32,
+      "profession": "Arquitecta",
+      "gender": "female",
+      "maritalStatus": "divorciada",
+      "location": {
+        "latitude": 40.4392,
+        "longitude": -3.7262
+      },
+      "photos": [
+        "/assets/images/foto-perfil.jpg",
+        "/assets/images/foto-3.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil.jpg"
+    },
+    {
+      "id": 34,
+      "firstName": "Joaquín",
+      "lastName": "Delgado",
+      "age": 36,
+      "profession": "Piloto",
+      "gender": "male",
+      "maritalStatus": "soltero",
+      "location": {
+        "latitude": 40.4399,
+        "longitude": -3.7269
+      },
+      "photos": [
+        "/assets/images/foto-perfil2.jpg",
+        "/assets/images/foto-3-4.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil2.jpg"
+    },
+    {
+      "id": 35,
+      "firstName": "Marta",
+      "lastName": "Peña",
+      "age": 29,
+      "profession": "Psicóloga",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4406,
+        "longitude": -3.7276
+      },
+      "photos": [
+        "/assets/images/foto-perfil3.jpg",
+        "/assets/images/foto-perfil4.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil3.jpg"
+    },
+    {
+      "id": 36,
+      "firstName": "Felipe",
+      "lastName": "Cruz",
+      "age": 42,
+      "profession": "Empresario",
+      "gender": "male",
+      "maritalStatus": "casado",
+      "location": {
+        "latitude": 40.4413,
+        "longitude": -3.7283
+      },
+      "photos": [
+        "/assets/images/foto-perfil4.jpg",
+        "/assets/images/foto-perfil.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil4.jpg"
+    },
+    {
+      "id": 37,
+      "firstName": "Eva",
+      "lastName": "Ramos",
+      "age": 31,
+      "profession": "Enfermera",
+      "gender": "female",
+      "maritalStatus": "soltera",
+      "location": {
+        "latitude": 40.4420,
+        "longitude": -3.7290
+      },
+      "photos": [
+        "/assets/images/foto-perfil.jpg",
+        "/assets/images/foto-perfil2.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil.jpg"
+    },
+    {
+      "id": 38,
+      "firstName": "Víctor",
+      "lastName": "Gil",
+      "age": 37,
+      "profession": "Profesor",
+      "gender": "male",
+      "maritalStatus": "divorciado",
+      "location": {
+        "latitude": 40.4427,
+        "longitude": -3.7297
+      },
+      "photos": [
+        "/assets/images/foto-perfil2.jpg",
+        "/assets/images/foto-perfil3.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil2.jpg"
+    },
+    {
+      "id": 39,
+      "firstName": "Olga",
+      "lastName": "Blanco",
+      "age": 34,
+      "profession": "Diseñadora",
+      "gender": "female",
+      "maritalStatus": "casada",
+      "location": {
+        "latitude": 40.4434,
+        "longitude": -3.7304
+      },
+      "photos": [
+        "/assets/images/foto-perfil3.jpg",
+        "/assets/images/foto-perfil4.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil3.jpg"
+    },
+    {
+      "id": 40,
+      "firstName": "Iván",
+      "lastName": "Serrano",
+      "age": 39,
+      "profession": "Programador",
+      "gender": "male",
+      "maritalStatus": "soltero",
+      "location": {
+        "latitude": 40.4441,
+        "longitude": -3.7311
+      },
+      "photos": [
+        "/assets/images/foto-perfil4.jpg",
+        "/assets/images/foto-perfil.jpg"
+      ],
+      "profilePhoto": "/assets/images/foto-perfil4.jpg"
+    }
+  ]
+}

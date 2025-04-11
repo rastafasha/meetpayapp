@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+
+/*Author: Malcolm cordova @malcolmcordova mercadocreativo@gmail.com www.malcolmcordova.com*/
+
+@import url("menus.css");
+@import url("retina.css");
+@import url("tabs.css");
+@import url("chat.css");
+@import url("slider-fotos.css");
+@import url("paypeermeetStyle.css");
+@import url("loader.css");
+@import url("pagetransition.css");
+@import url("normalize.css");
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: black;
+}

@@ -1,0 +1,161 @@
+@charset "UTF-8";
+/* CSS Document */
+/*Author: Malcolm cordova @malcolmcordova mercadocreativo@gmail.com www.malcolmcordova.com*/
+
+.clear{clear: both; visibility: hidden; margin: 0px; padding: 0px; height: 0;}
+
+
+
+header{
+    background-color: #000;
+    width: 100%;
+    height: 50px;
+    z-index: 2000;
+    position: fixed;
+    top: 0;
+     transition: all 300ms ease;
+     -webkit-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+}
+
+.btn-back {
+    position: relative;
+    top: 20px;
+    left: 40px;
+    float: left;
+}
+
+.btn-back i{
+    color: #fff;
+    font-size: 18px;
+}
+
+#mostrar-menu-secundario{
+    width: auto;
+    height: 3rem;
+    cursor: pointer;
+    padding-top: .8em;
+    float: left;
+}
+
+
+#mostrar-menu i{
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    z-index: 999;
+}
+
+.logo2 {
+    /*background: url(../svg/logoSolo.svg) no-repeat;*/
+    height: 24px;
+    width: 80%;
+    position: relative;
+    left: 50px;
+    top: 15px;
+}
+
+.caja2{
+    float: right;
+    top: -20px;
+    position: relative;
+    right: 15px;
+}
+
+
+
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/fondo-menu.jpg);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    right: 1px;
+    z-index: 20;
+}
+
+.menu a{
+    color: #eee;
+    text-decoration: none;
+}
+
+.menu-principal {
+    height: 100vh;
+    width: 90vw;
+    padding-top: 1.5em;
+    left: -100%;
+    transition: all .2s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    z-index: 9999;
+}
+
+.menu-principal li{
+    /*padding-left: 2em;*/
+    line-height: 3;
+    text-align: center;
+    
+}
+
+.menu-principal img{
+    width: 10ch;
+    height: auto;
+    display: block;
+    margin: auto;
+    border-radius: 100%;
+    border: 3px solid #fff
+}
+
+
+
+.menu-principal.mostrar-menu-principal{
+    left: 0;
+    transition: all .2s;
+    width: 100vw;
+}
+
+
+
+.toggle-vertical{
+    display: block;
+    position: relative;
+    margin: auto;
+    z-index: 999;
+}
+
+.toggle-vertical i{
+    color: #fff;
+    font-size: 20px;
+}
+
+#mostrar-menu-secundario .perfilf{
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+#mostrar-menu-secundario .perfilf img{
+    width: fit-content;
+    height: 30px;
+
+}
+
+
+.close{
+    display: flex
+;
+    justify-content: end;
+    margin-right: 20px;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+
+

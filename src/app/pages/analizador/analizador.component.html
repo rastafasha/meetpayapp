@@ -1,0 +1,16 @@
+<div id="contenedor_carga" *ngIf="!isMatchAdvise">
+    <app-loading></app-loading>
+    <div class="analizar">
+         <p>Analizando</p>
+     </div>
+</div>
+
+<div class="card " *ngIf="isMatchAdvise">
+    <div class="card-body">
+    <div class="match">
+        <h1>Your invitation,</h1>
+        <p><b>Jenny</b> has accepted !</p>
+    </div>
+    <a routerLink="/tracking"><button class="butonhome">Meet</button></a>    
+    </div>
+</div>

@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/* CSS Document */
+/*Author: Malcolm cordova @malcolmcordova mercadocreativo@gmail.com www.malcolmcordova.com*/
+
+@media
+only screen and (-webkit-min-device-pixel-ratio : 2),
+only screen and (min-device-pixel-ratio : 2) { 
+    /* Retina-specific stuff here */
+    
+body { font-size: 200%; }
+    
+.intro img{
+    width: 300px;
+    height: 300px;
+    z-index: 99;
+    top: 15%;
+    left: 30%;
+}
+  
+.butonhome{
+    background-color: var(--azul);
+    border-radius: 45px;
+    width: 654px;
+    height: 92px;
+    font-size: 32px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300
+}
+    
+  .home .butonhome {
+    position: absolute;
+    z-index: 99;
+    bottom: 90px;
+    left: calc(8%);
+}  
+    
+    
+}
+/*
+
+@media (-webkit-min-device-pixel-ratio: 1),
+       (min-device-pixel-ratio: 1) {
+ 
+   body {
+     background-color: yellow;
+   }
+}
+
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+ 
+   body {
+     background-color: red;
+   }
+}*/

@@ -1,0 +1,40 @@
+<header>
+    <nav id="menu-principal">
+        <ul class="menu menu-principal ">
+            <a href="javascript:void(0)" (click)="closeMenu()" class="close"><i class="fa fa-close"></i></a>
+           <img [src]="'/assets/images/foto-perfil.jpg'" alt="">
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="selection-action.html">Payment methods</a></li>
+            <li><a routerLink="/myprofile">My Profile</a></li>
+            <li><a routerLink="/tracking">Tracking</a></li>
+            <li><a (click)="onLogout()">Sign out</a></li>
+        </ul>
+    </nav>
+    <div id="top">
+           <div class="grupo row">
+               <div class="caja col-xs-10 nopadd">
+                   <div id="mostrar-menu" ><i class="fa fa-bars" (click)="openMenu()"></i></div>
+                   <div class="btn-back">
+                    <!-- <a routerLink="selection-action.html"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> -->
+                    <a (click)="goBack()">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </a>
+                </div>
+                   <div class="logo2"></div>
+                   <div class="caja2">
+                       <div id="mostrar-menu-secundario">
+                          <!-- <a routerLink="/"><div class="toggle-vertical"><i class="fa fa-sign-out"></i></div></a> -->
+                          <div class="perfilf">
+                            <a routerLink="/myprofile">
+                                <img [src]="'/assets/images/foto-perfil.jpg'" alt="">
+
+                            </a>
+                        </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+        
+</header>

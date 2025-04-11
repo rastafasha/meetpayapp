@@ -1,0 +1,44 @@
+@charset "UTF-8";
+/* CSS Document */
+/*Author: Malcolm Córdova @malcolmcordova mercadocreativo@gmail.com www.malcolmcordova.com*/
+
+
+#contenedor_carga{
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    transition: all 1s ease;
+    z-index: 10000;
+}
+
+
+#carga{
+    border: 5px solid #000;
+    border-top-color: var(--azul);
+    border-top-style: groove;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius:100% ;
+    -o-border-radius:100% ;
+    border-radius: 100%;
+    
+    -webkit-animation: girar 1.5s linear infinite;
+    -o-animation: girar 1.5s linear infinite;
+    animation: girar 1.5s linear infinite;
+    
+}
+
+@keyframes girar{
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
