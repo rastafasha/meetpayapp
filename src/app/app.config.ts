@@ -4,7 +4,6 @@ import { provideRouter } from '@angular/router';
 // import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { provideHttpClient, withInterceptors, HttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
-// import { provideServiceWorker } from '@angular/service-worker';
 import { HttpRequest, HttpHandlerFn, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpInterceptor } from '@angular/common/http';
@@ -23,10 +22,10 @@ export const appConfig: ApplicationConfig = {
             enabled: !isDevMode(),
             registrationStrategy: 'registerWhenStable:30000'
           }),
-    // provideServiceWorker('ngsw-worker.js', {
-    //   enabled: !isDevMode(),
-    //   registrationStrategy: 'registerWhenStable:30000'
-    // }),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
     // ...TranslateModule.forRoot({
     //   defaultLanguage: 'es',
     //   loader: {

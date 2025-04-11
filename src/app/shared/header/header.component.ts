@@ -1,6 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import {  Location } from '@angular/common';
+import { UserService } from '../../services/user.service';
+import { Usuario } from '../../models/user';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +12,20 @@ import {  Location } from '@angular/common';
 })
 export class HeaderComponent {
 
-  constructor(private _location: Location) {}
+  user = signal(Usuario);
+  private _location = inject(Location)
+  private userService = inject(UserService)
+  private router = inject(Router)
 
-  onLogout(){
-
+  ngOnInit(){
+    this.user = this.userService.getUser();
+    console.log(this.user);
+    setTimeout(()=>{
+      if(!this.user){
+        this.router.navigateByUrl('/login');
+      }
+    },1000 )
   }
-
   
 
   openMenu() {
@@ -36,4 +46,9 @@ export class HeaderComponent {
   goBack() {
     this._location.back();
   }
+
+  onLogout(){
+    this.userService.logout();
+  }
+
 }
