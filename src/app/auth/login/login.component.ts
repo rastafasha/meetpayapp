@@ -63,33 +63,34 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService
     
   ) {
-
+    
     // this.translate.setDefaultLang('es');
     // this.translate.setDefaultLang(this.activeLang);
     // this.translate.use('es');
     // this.translate.addLangs(["es", "en"]);
     // this.langs = this.translate.getLangs();
     // translate.get(this.langs).subscribe(res =>{
-    //   console.log(res);
-    // })
-    // console.log(this.translate);
-    this.registerForm = this.fb.group({
-      first_name: ['', Validators.required],
-      last_name: ['', Validators.required],
-      email: [ '', [Validators.required, Validators.email] ],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-      role: ['USER'],
-      // terminos: [false, Validators.required],
-      terminos: [false, ],
-  
-    }, {
-      validators: this.passwordsIguales('password', 'password2')
-  
+      //   console.log(res);
+      // })
+      // console.log(this.translate);
+      this.registerForm = this.fb.group({
+        first_name: ['', Validators.required],
+        last_name: ['', Validators.required],
+        email: [ '', [Validators.required, Validators.email] ],
+        password: ['', Validators.required],
+        confirmPassword: ['', Validators.required],
+        role: ['USER'],
+        // terminos: [false, Validators.required],
+        terminos: [false, ],
+        
+      }, {
+        validators: this.passwordsIguales('password', 'password2')
+        
     }); 
   }
   
-ngOnInit(){
+  ngOnInit(){
+    this.authService.getLocalStorage();
   
   // const lang = localStorage.getItem('lang');
   //   if (lang) {
@@ -103,8 +104,6 @@ ngOnInit(){
     remember: [false]
 
   });
-  // this.authService.getLocalStorage();
-  
 }
 
 

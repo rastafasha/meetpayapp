@@ -68,5 +68,5 @@
     transition: all 0.2s ease;
   }
   .checkbox-wrapper-6 .tgl-light:checked + .tgl-btn {
-    background: #9FD6AE;
+    background: var(--azul);
   }

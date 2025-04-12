@@ -7,7 +7,7 @@
 
 @import url("menus.css");
 @import url("retina.css");
-/* @import url("tabs.css"); */
+@import url("tabs.css");
 @import url("chat.css");
 @import url("slider-fotos.css");
 @import url("loader.css");
@@ -66,5 +66,5 @@ b {
 .card {
     position: relative;
     top: 50px;
-    padding-bottom: 50px;
+    margin-bottom: 50px;
 }

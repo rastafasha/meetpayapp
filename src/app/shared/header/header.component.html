@@ -27,7 +27,7 @@
                        <div id="mostrar-menu-secundario">
                           <!-- <a routerLink="/"><div class="toggle-vertical"><i class="fa fa-sign-out"></i></div></a> -->
                           <div class="perfilf">
-                            <a routerLink="/myprofile">
+                            <a [routerLink]="['/myprofile/', user.uid]">
                                 <img [src]="'/assets/images/foto-perfil.jpg'" alt="">
 
                             </a>

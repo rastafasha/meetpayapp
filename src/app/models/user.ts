@@ -18,6 +18,8 @@ export class Usuario {
     public twitter?: boolean,
     public genero?: string,
     public lang?: string,
+    public direccion?: string,
+    public descripcion?: string,
     public preferencia_sexo?: string,
     public preferencia_lang?:string,
     public preferencia_edad?: number,

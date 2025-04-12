@@ -60,8 +60,8 @@ export class UserService {
 
 
   getLocalStorage(){
-    if(localStorage.getItem('token') && localStorage.getItem('user')){
-      let USER = localStorage.getItem('user');
+    if(localStorage.getItem('token') && localStorage.getItem('usuario')){
+      let USER = localStorage.getItem('usuario');
       this.user = JSON.parse(USER ? USER: '');
       this.router.navigateByUrl('/start-meet');
     }else{
@@ -71,7 +71,7 @@ export class UserService {
   }
 
   getCurrentUser(): Usuario | null {
-    const userData = localStorage.getItem('user');
+    const userData = localStorage.getItem('usuario');
     return userData ? JSON.parse(userData) : null;
   }
 
@@ -121,7 +121,7 @@ export class UserService {
   logout(){
     this.refresh();
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem('usuario');
     // localStorage.removeItem('authenticated');
     // this.router.navigateByUrl('/home');
     // this.router.navigateByUrl('/');

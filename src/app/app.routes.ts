@@ -16,6 +16,7 @@ export const routes: Routes = [
     {path: 'start-meet', component: StartMeetComponent},
     {path: 'profile-view', component: ViewComponent},
     {path: 'myprofile', component: EditComponent},
+    {path: 'myprofile/:id', component: EditComponent},
     {path: 'profile-gallery', component: GaleriaComponent},
     {path: 'analizer', component: AnalizadorComponent},
     {path: 'tracking', component: TrackingComponent},

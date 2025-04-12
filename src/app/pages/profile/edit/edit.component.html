@@ -22,36 +22,37 @@
         <div class="tab-content-set">
             <ul class="nav">
                 <li>
-                    <a href="#" onclick="return false;" [ngClass]="{'active': option_selected == 1}" (click)="optionSelected(1)">{{'Profile'|translate}}</a>
+                    <a href="#" onclick="return false;" [ngClass]="{'active': option_selected === 1}" (click)="optionSelected(1)">{{'Profile'|translate}}</a>
                 </li>
                 <li>
-                    <a href="#" onclick="return false;" [ngClass]="{'active': option_selected == 2}" (click)="optionSelected(2)">{{'Show me'|translate}}</a>
+                    <a href="#" onclick="return false;" [ngClass]="{'active': option_selected === 2}" (click)="optionSelected(2)">{{'Show me'|translate}}</a>
                 </li>
                 <li>
-                    <a href="#" onclick="return false;" [ngClass]="{'active': option_selected == 3}" (click)="optionSelected(3)">{{'Contacts'|translate}}</a>
+                    <a href="#" onclick="return false;" [ngClass]="{'active': option_selected === 3}" (click)="optionSelected(3)">{{'Contacts'|translate}}</a>
                 </li>
             </ul>
         </div>
-        <div class="infoperfil" *ngIf="option_selected == 1">
-            <form action="" [formGroup]="userForm" class="form">
+        <form action="" [formGroup]="userForm" class="form">
+            <!-- perfil -->
+                <div class="infoperfil" *ngIf="option_selected === 1">
                 <div class="row ">
 
                     
                     <!-- Nombre -->
                     <div class="col-md-4 ">
                         <label for="validationCustom02" class="form-label labelgoogle">
-                            <input type="text" formControlName="nombre" class="input" id="validationCustom02" placeholder=" " required>
+                            <input type="text" formControlName="first_name" class="input" id="validationCustom02" placeholder=" " required>
                             <span class="label__name">
                                 <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{'formulario.First Name'| translate}} <span class="login-danger">*</span>
                             </span>
                         </label>
-                        @if(userForm.controls['nombre'].touched){
+                        @if(userForm.controls['first_name'].touched){
           
                             <div class="text-danger">
-                              @if(userForm.controls['nombre'].errors?.['required']){
+                              @if(userForm.controls['first_name'].errors?.['required']){
                                   <span >{{'formulario.Field Required' | translate}}</span>
                               }
-                              @if(userForm.controls['nombre'].errors?.['minlength']){
+                              @if(userForm.controls['first_name'].errors?.['minlength']){
                                   <span >{{'formulario.3 Charecters Minimal' | translate}}</span>
                               }
                             </div>
@@ -60,19 +61,19 @@
                       <!-- Apellido -->
                       <div class="col-md-4 ">
                         <label for="validationCustom02" class="form-label labelgoogle">
-                            <input type="text" formControlName="surname" class="input" id="validationCustom02" placeholder=" " required>
+                            <input type="text" formControlName="last_name" class="input" id="validationCustom02" placeholder=" " required>
                             <span class="label__name">
                                 <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{'formulario.Last Name'| translate}} <span class="login-danger">*</span>
 
                             </span>
                         </label>
-                        @if(userForm.controls['surname'].touched){
+                        @if(userForm.controls['last_name'].touched){
           
                             <div class="text-danger">
-                              @if(userForm.controls['surname'].errors?.['required']){
+                              @if(userForm.controls['last_name'].errors?.['required']){
                                   <span >{{'formulario.Field Required'| translate}}</span>
                               }
-                              @if(userForm.controls['surname'].errors?.['minlength']){
+                              @if(userForm.controls['last_name'].errors?.['minlength']){
                                   <span >{{'formulario.3 Charecters Minimal'| translate}}</span>
                               }
                             </div>
@@ -81,19 +82,19 @@
                       <!-- Edad -->
                       <div class="col-md-4 ">
                         <label for="validationCustom02" class="form-label labelgoogle">
-                            <input type="text" formControlName="surname" class="input" id="validationCustom02" placeholder=" " required>
+                            <input type="text" formControlName="edad" class="input" id="validationCustom02" placeholder=" " required>
                             <span class="label__name">
                                 <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{'formulario.Age'| translate}} <span class="login-danger">*</span>
 
                             </span>
                         </label>
-                        @if(userForm.controls['surname'].touched){
+                        @if(userForm.controls['edad'].touched){
           
                             <div class="text-danger">
-                              @if(userForm.controls['surname'].errors?.['required']){
+                              @if(userForm.controls['edad'].errors?.['required']){
                                   <span >{{'formulario.Field Required'| translate}}</span>
                               }
-                              @if(userForm.controls['surname'].errors?.['minlength']){
+                              @if(userForm.controls['edad'].errors?.['minlength']){
                                   <span >{{'formulario.3 Charecters Minimal'| translate}}</span>
                               }
                             </div>
@@ -102,58 +103,39 @@
                       <!-- Identificación -->
                       <div class="col-md-4 ">
                         <label for="validationCustom02" class="form-label labelgoogle">
-                            <input type="text" formControlName="n_doc" class="input" id="validationCustom02" placeholder=" " required>
+                            <input type="text" formControlName="numdoc" class="input" id="validationCustom02" placeholder=" " required>
                             <span class="label__name">
                                 <i class="fa fa-id-card" aria-hidden="true"></i>&nbsp;{{'formulario.Id Number'| translate}}<span class="login-danger">*</span>
                             </span>
                         </label>
-                        @if(userForm.controls['n_doc'].touched){
+                        @if(userForm.controls['numdoc'].touched){
           
                             <div class="text-danger">
-                              @if(userForm.controls['n_doc'].errors?.['required']){
+                              @if(userForm.controls['numdoc'].errors?.['required']){
                                   <span >{{'formulario.Field Required'| translate}}</span>
                               }
-                              @if(userForm.controls['n_doc'].errors?.['minlength']){
+                              @if(userForm.controls['numdoc'].errors?.['minlength']){
                                   <span >{{'formulario.3 Charecters Minimal'| translate}}</span>
                               }
                             </div>
                         }
                       </div>
+                      
                       <!-- Teléfono Casa -->
                       <div class="col-md-4 ">
                         <label for="validationCustom02" class="form-label labelgoogle">
-                            <input type="text" formControlName="telhome" class="input" id="validationCustom02" placeholder=" " required>
+                            <input type="text" formControlName="telefono" class="input" id="validationCustom02" placeholder=" " required>
                             <span class="label__name">
                                 <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;{{'formulario.Phome Home'| translate}}<span class="login-danger">*</span>
                             </span>
                         </label>
-                        @if(userForm.controls['telhome'].touched){
+                        @if(userForm.controls['telefono'].touched){
           
                             <div class="text-danger">
-                              @if(userForm.controls['telhome'].errors?.['required']){
+                              @if(userForm.controls['telefono'].errors?.['required']){
                                   <span >{{'formulario.Field Required'| translate}}</span>
                               }
-                              @if(userForm.controls['telhome'].errors?.['minlength']){
-                                  <span >{{'formulario.3 Charecters Minimal'| translate}}</span>
-                              }
-                            </div>
-                        }
-                      </div>
-                      <!-- Teléfono Móvil -->
-                      <div class="col-md-4 ">
-                        <label for="validationCustom02" class="form-label labelgoogle">
-                            <input type="text" formControlName="telmovil" class="input" id="validationCustom02" placeholder=" " required>
-                            <span class="label__name">
-                                <i class="fa fa-mobile-phone" aria-hidden="true"></i>&nbsp;{{'formulario.Phome Mobile'| translate}}<span class="login-danger">*</span>
-                            </span>
-                        </label>
-                        @if(userForm.controls['telmovil'].touched){
-          
-                            <div class="text-danger">
-                              @if(userForm.controls['telmovil'].errors?.['required']){
-                                  <span >{{'formulario.Field Required'| translate}}</span>
-                              }
-                              @if(userForm.controls['telmovil'].errors?.['minlength']){
+                              @if(userForm.controls['telefono'].errors?.['minlength']){
                                   <span >{{'formulario.3 Charecters Minimal'| translate}}</span>
                               }
                             </div>
@@ -161,8 +143,10 @@
                       </div>
                       <!-- Ciudad -->
                       <div class="col-md-4 ">
+                        
+
                         <label for="validationCustom02" class="form-label labelgoogle">
-                            <input type="text" formControlName="ciudad" class="input" id="validationCustom02" placeholder=" "  required>
+                            <input type="text" formControlName="ciudad" class="input" id="validationCustom02" placeholder=" " required>
                             <span class="label__name">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{'formulario.City'| translate}}<span class="login-danger">*</span>
                             </span>
@@ -179,6 +163,37 @@
                             </div>
                         }
                       </div>
+                        <!-- Lang -->
+                        <div class="col-md-4 ">
+                            <div class="input-group">
+                                <div class="label_form">
+                                    
+                                    <span class="input-group-text " id="basic-addon1">
+                                        <i class="fa fa-globe" aria-hidden="true"></i><span class="login-danger">*</span>
+                                    </span>
+                                    <label for="validationCustom02" class="form-label">{{'formulario.Language'| translate}} <span class="login-danger">*</span></label>
+                                </div>
+                                <select class="form-control input" formControlName="lang"  >
+                                    <option value="es"> ES</option>
+                                    <option value="en"> EN</option>
+                                    </select>
+    
+                            </div>
+                            @if(userForm.controls['lang'].touched){
+              
+                                <div class="text-danger">
+                                  @if(userForm.controls['lang'].errors?.['required']){
+                                      <span >{{'formulario.Field Required'| translate}}</span>
+                                  }
+                                  @if(userForm.controls['lang'].errors?.['minlength']){
+                                      <span >{{'formulario.3 Charecters Minimal'| translate}}</span>
+                                  }
+                                </div>
+                            }
+                          </div>
+                          <br>
+                          <br>
+                      
                       <!-- País -->
                       <div class="col-md-4 ">
                         <div class="input-group">
@@ -219,35 +234,73 @@
                                 </span>
                                 <label class="gen-label">{{'formulario.Gender'| translate}}<span class="login-danger">*</span></label><br>
                             </div>
-                            <!-- <div class="form-check-inline ">
-                                <label class="form-check-label ">
-                                    <input type="radio"  value="1" formControlName="gender" class="form-check-input input">{{'formulario.Male'| translate}}
-                                </label>
-                            </div>
-                            <div class="form-check-inline ">
-                                <label class="form-check-label ">
-                                    <input type="radio"  value="2" formControlName="gender" class="form-check-input input">{{'formulario.Female'| translate}}
-                                </label>
-                            </div>
-                            <div class="form-check-inline ">
-                                <label class="form-check-label ">
-                                    <input type="radio"  value="2" formControlName="gender" class="form-check-input input">{{'formulario.Both'| translate}}
-                                </label>
-                            </div> -->
                             <div class="gender_form">
+
+                                <div class="form-check-inline ">
+                                    <label class="form-check-label ">
+                                        <input type="radio"  value="1" formControlName="genero" class="form-check-input input">{{'formulario.Male'| translate}}
+                                    </label>
+                                </div>
+                                <div class="form-check-inline ">
+                                    <label class="form-check-label ">
+                                        <input type="radio"  value="2" formControlName="genero" class="form-check-input input">{{'formulario.Female'| translate}}
+                                    </label>
+                                </div>
+                                <div class="form-check-inline ">
+                                    <label class="form-check-label ">
+                                        <input type="radio"  value="3" formControlName="genero" class="form-check-input input">{{'formulario.Both'| translate}}
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- <div class="gender_form">
 
                                 <div class="checkbox-wrapper-6">
                                     <p>{{'formulario.Male'| translate}}</p>
                                    <input class="tgl tgl-light" id="cb1-6" type="checkbox"
-                                   name="status" formControlName="gender" value="1" />
+                                    formControlName="genero" value="1" />
                                    <label class="tgl-btn" for="cb1-6"  ></label>
                    
                                  </div>
                                 <div class="checkbox-wrapper-6">
                                     <p>{{'formulario.Female'| translate}}</p>
                                    <input class="tgl tgl-light" id="cb1-2" type="checkbox"
-                                   name="status" formControlName="gender" value="2" />
+                                    formControlName="genero" value="2" />
                                    <label class="tgl-btn" for="cb1-2"  ></label>
+                   
+                                 </div>
+                            </div> -->
+                        </div>
+                      </div>
+                      <!-- Redes sociales -->
+                      <div class="col-12 col-md-4  col-xl-4">
+                        <div class="form-group select-gender input-group gap-3">
+                            <div class="label_form">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                                <label class="gen-label">{{'formulario.Social Networks'| translate}}</label><br>
+                            </div>
+                            <div class="gender_form">
+
+                                <div class="checkbox-wrapper-6">
+                                    <p>Google</p>
+                                   <input class="tgl tgl-light" id="cb1-6" type="checkbox"
+                                    formControlName="google"  />
+                                   <label class="tgl-btn" for="cb1-6"  ></label>
+                   
+                                 </div>
+                                <div class="checkbox-wrapper-6">
+                                    <p>Facebook</p>
+                                   <input class="tgl tgl-light" id="cb1-2" type="checkbox"
+                                    formControlName="facebook"  />
+                                   <label class="tgl-btn" for="cb1-2"  ></label>
+                   
+                                 </div>
+                                <div class="checkbox-wrapper-6">
+                                    <p>Twitter</p>
+                                   <input class="tgl tgl-light" id="cb1-4" type="checkbox"
+                                    formControlName="twitter"  />
+                                   <label class="tgl-btn" for="cb1-4"  ></label>
                    
                                  </div>
                             </div>
@@ -275,148 +328,174 @@
                             </div>
                         }
                       </div>
+                      <br>
+                      <br>
                       <!-- Descripción -->
                       <div class="col-12 col-sm-6">
                         <label for="validationCustom02" class="form-label">
                             <i class="fa fa-user"></i>&nbsp;{{'formulario.Description'| translate}}
                         </label>
-                        <textarea formControlName="description" class="form-control input" id="validationCustom02"  required></textarea>
-                        @if(userForm.controls['description'].touched){
+                        <textarea formControlName="descripcion" class="form-control input" id="validationCustom02"  required></textarea>
+                        @if(userForm.controls['descripcion'].touched){
           
                             <div class="text-danger">
-                              @if(userForm.controls['description'].errors?.['required']){
+                              @if(userForm.controls['descripcion'].errors?.['required']){
                                   <span >{{'formulario.Field Required'| translate}}</span>
                               }
-                              @if(userForm.controls['description'].errors?.['minlength']){
+                              @if(userForm.controls['descripcion'].errors?.['minlength']){
                                   <span >{{'formulario.3 Charecters Minimal'| translate}}</span>
                               }
                             </div>
                         }
                       </div>
                       
-                </div>
-                <div class="row " >
-                    <div >
+                </div> <!-- Closing the row for perfil -->
+                <div class="row">
+                    <div>
                         <button type="button" class="butonhome" (click)="onUserSave()">{{'formulario.Save'|translate}}</button>
-                        
                     </div>
                 </div>
-            </form>
-        </div>
-        <div class="infoperfil" *ngIf="option_selected == 2">
-            <form action="" [formGroup]="preferenciaForm" class="form">
-                <div class="row ">
-
-                      <!-- Género -->
-                      <div class="col-12 col-md-4  col-xl-4">
-                        <div class="form-group select-gender input-group gap-3">
+                </div> <!-- Closing infoperfil for option_selected === 1 -->
+                <!-- preferencias -->
+                <div class="infoperfil" *ngIf="option_selected === 2">
+                    <div class="row">
+                        <!-- Género -->
+                        <div class="col-12 col-md-4 col-xl-4">
                             <div class="label_form">
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                 </span>
                                 <label class="gen-label">{{'formulario.Gender'| translate}}<span class="login-danger">*</span></label><br>
                             </div>
-                            <!-- <div class="form-check-inline ">
-                                <label class="form-check-label ">
-                                    <input type="radio"  value="1" formControlName="gender" class="form-check-input input">{{'formulario.Male'| translate}}
-                                </label>
-                            </div>
-                            <div class="form-check-inline ">
-                                <label class="form-check-label ">
-                                    <input type="radio"  value="2" formControlName="gender" class="form-check-input input">{{'formulario.Female'| translate}}
-                                </label>
-                            </div>
-                            <div class="form-check-inline ">
-                                <label class="form-check-label ">
-                                    <input type="radio"  value="2" formControlName="gender" class="form-check-input input">{{'formulario.Both'| translate}}
-                                </label>
-                            </div> -->
                             <div class="gender_form">
 
-                                <div class="checkbox-wrapper-6">
-                                    <p>{{'formulario.Male'| translate}}</p>
-                                   <input class="tgl tgl-light" id="cb1-6" type="checkbox"
-                                   name="status" formControlName="gender" value="1" />
-                                   <label class="tgl-btn" for="cb1-6"  ></label>
-                   
-                                 </div>
-                                <div class="checkbox-wrapper-6">
-                                    <p>{{'formulario.Female'| translate}}</p>
-                                   <input class="tgl tgl-light" id="cb1-2" type="checkbox"
-                                   name="status" formControlName="gender" value="2" />
-                                   <label class="tgl-btn" for="cb1-2"  ></label>
-                   
-                                 </div>
+                                <div class="form-check-inline ">
+                                    <label class="form-check-label ">
+                                        <input type="radio"  value="1" formControlName="genero" class="form-check-input input">{{'formulario.Male'| translate}}
+                                    </label>
+                                </div>
+                                <div class="form-check-inline ">
+                                    <label class="form-check-label ">
+                                        <input type="radio"  value="2" formControlName="genero" class="form-check-input input">{{'formulario.Female'| translate}}
+                                    </label>
+                                </div>
+                                <div class="form-check-inline ">
+                                    <label class="form-check-label ">
+                                        <input type="radio"  value="3" formControlName="genero" class="form-check-input input">{{'formulario.Both'| translate}}
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group select-gender input-group gap-3">
+                                <div class="label_form">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </span>
+                                    <label class="gen-label">{{'formulario.Gender'| translate}}<span class="login-danger">*</span></label><br>
+                                </div>
+                                <div class="gender_form">
+                                    <div class="checkbox-wrapper-6">
+                                        <p>{{'formulario.Male'| translate}}</p>
+                                        <input class="tgl tgl-light" id="cb1-6" type="checkbox" checked="false"
+                                                formControlName="preferencia_sexo" value="1"  />
+                                        <label class="tgl-btn" for="cb1-6"></label>
+                                    </div>
+                                    <div class="checkbox-wrapper-6">
+                                        <p>{{'formulario.Female'| translate}}</p>
+                                        <input class="tgl tgl-light" id="cb1-2" type="checkbox" checked="false"
+                                                formControlName="preferencia_sexo" value="2"   />
+                                        <label class="tgl-btn" for="cb1-2"></label>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <br>
+                        <br>
+                        <!-- Lang -->
+                      <div class="col-md-4 ">
+                        <div class="input-group">
+                            <div class="label_form">
+                                
+                                <span class="input-group-text " id="basic-addon1">
+                                    <i class="fa fa-globe" aria-hidden="true"></i><span class="login-danger">*</span>
+                                </span>
+                                <label for="validationCustom02" class="form-label">{{'formulario.Language'| translate}} <span class="login-danger">*</span></label>
+                            </div>
+                            <select class="form-control input" formControlName="preferencia_lang"  >
+                                <option value=""> Seleccione</option>
+                                <option value="es"> ES</option>
+                                <option value="en"> EN</option>
+                                </select>
+
+                        </div>
+                        @if(userForm.controls['preferencia_lang'].touched){
+          
+                            <div class="text-danger">
+                              @if(userForm.controls['preferencia_lang'].errors?.['required']){
+                                  <span >{{'formulario.Field Required'| translate}}</span>
+                              }
+                              @if(userForm.controls['preferencia_lang'].errors?.['minlength']){
+                                  <span >{{'formulario.3 Charecters Minimal'| translate}}</span>
+                              }
+                            </div>
+                        }
+                      </div>
+                      <br>
+                      <br>
+                        <!-- Edad -->
+                        <div class="col-12 col-md-4 col-xl-4">
+                            <div class="form-group select-gender input-group gap-3">
+                                <label class="gen-label">{{'formulario.Age'| translate}}<span class="login-danger">*</span></label><br>
+                                <div>
+                                    <input type="range" min="1" max="100"  class="slider" [value]="ageRange"   id="myRangeAge"
+                                    formControlName="preferencia_edad" name="preferencia_edad" (change)="onAgeRange($any($event.target).value)">
+                                    <b>{{ageRange}}</b> años.
+                                </div>
                             </div>
                         </div>
-                      </div>
-                      
-                      <br>
-                      <br>
-
-                       <!-- Distancia -->
-                       <div class="col-12 col-md-4  col-xl-4">
-                        <div class="form-group select-gender input-group gap-3">
+                        <br>
+                        <br>
+                        <!--  Distancia -->
+                        <div class="col-12 col-md-4 col-xl-4">
                             <label class="gen-label">{{'formulario.Distance'| translate}}<span class="login-danger">*</span></label><br>
-                            
-                            <div><input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                            <br><br><br><center> <b>100</b>mt.   </center></div>
-
+                            <div class="form-group select-gender input-group gap-3">
+                                <input type="range" min="1" max="100"  class="slider" value="distanceRange"   id="myRangeDistance"
+                                formControlName="preferencia_distancia" name="preferencia_distancia" (change)="ondistanceRange($any($event.target).value)">
+                                <b>{{distanceRange}} </b>mts.
+                            </div>
                         </div>
-                      </div>
-                       <!-- Edad -->
-                       <div class="col-12 col-md-4  col-xl-4">
-                        <div class="form-group select-gender input-group gap-3">
-                            <label class="gen-label">{{'formulario.Age'| translate}}<span class="login-danger">*</span></label><br>
-                            
-                            <div><input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                            <br><br><br><center> <b>20-40</b></center></div>
-                        </div>
-                      </div>
-                      
-                      <br>
-                      <br>
-                    
-                      
-                      
-
-                </div>
-
-                <div class="clear"></div>
-                 <br><br>
-                 <a (click)="onUserSave()"><button class="butonhome">{{'Start Meet'|translate}}</button></a>
-                 <br><br>
-                <!-- <div class="row " >
-                    <div >
-                        <button type="button" class=" submit-form me-2" (click)="onUserSave()">{{'formulario.Save'|translate}}</button>
-                        
+                        <br>
+                        <br>
                     </div>
-                </div> -->
-            </form>
-        </div>
-        <div class="infoperfil" *ngIf="option_selected == 3">
-            <div  *ngFor="let item of contacts"  >
+                    <div class="clear"></div>
+                    <br><br>
+                    <a (click)="onUserSave()"><button class="butonhome">{{'Start Meet'|translate}}</button></a>
+                    <br><br>
+                </div> <!-- Closing infoperfil for option_selected === 2 -->
+                
+        </form>
+        <div class="infoperfil" *ngIf="option_selected === 3">
+            <!-- <div  *ngFor="let item of contacts"  >
                 <div class="group itemFav shadow">
-                  <!-- <div class="fa fa-paypal"></div> -->
-                  <!-- <img *ngIf="!item.avatar" [src]="item.avatar  | imagenPipe: 'users' " alt=""> -->
-                  <img *ngIf="item.avatar" [src]="item.avatar  " alt="">
-      
-                  <div class="div1pagocon ">
-                      <div class="d-flex  justify-content-between">
+                <div class="fa fa-paypal"></div>
+                <img *ngIf="!item.avatar" [src]="item.avatar  | imagenPipe: 'users' " alt="">
+                <img *ngIf="item.avatar" [src]="item.avatar  " alt="">
+    
+                <div class="div1pagocon ">
+                    <div class="d-flex  justify-content-between">
                         <div class="inf">
-                          <p>{{item.username}}</p>
+                        <p>{{item.username}}</p>
                         <small>{{item.email}}</small>
                         </div>
                         <a [routerLink]="['/especialista/', item.id]">
-                          <button class="btn btn-outline-primary">
+                        <button class="btn btn-outline-primary">
                             <i class="fa fa-eye"></i>
-                          </button>
-          
+                        </button>
+        
                         </a>
-                      </div>
-                  </div>
+                    </div>
                 </div>
-              </div>
+                </div>
+            </div> -->
         </div>
     </div>
    </div>
