@@ -6,13 +6,15 @@ import { provideHttpClient, withInterceptors, HttpClient } from '@angular/common
 import { routes } from './app.routes';
 import { HttpRequest, HttpHandlerFn, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { HttpInterceptor } from '@angular/common/http';
 import { provideServiceWorker } from '@angular/service-worker';
+import { provideToastr } from 'ngx-toastr';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 export const appConfig: ApplicationConfig = {
+  
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(
@@ -23,9 +25,10 @@ export const appConfig: ApplicationConfig = {
             registrationStrategy: 'registerWhenStable:30000'
           }),
     provideServiceWorker('ngsw-worker.js', {
-      enabled: !isDevMode(),
+    // Move ToastrModule to imports
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    provideToastr(),
     ...TranslateModule.forRoot({
       defaultLanguage: 'es',
       loader: {

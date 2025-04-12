@@ -17,10 +17,7 @@
 /* @import url("pagetransition.css"); */
 /* Contenido basico */
 @import url("paypeermeetStyle.css");
-/* @import url("start-meet.css");
-@import url("profile.css");
-@import url("tracking.css"); */
-/* Contenido basico */
+@import url("../plugins/mdtoast.min.css");
 @import url("normalize.css");
 *,
 *:after,
@@ -35,6 +32,8 @@
 
 :root {
     --azul: #003471;
+    --vinotinto: #590505;
+    --blanco: #f6f6f6;
 }
 
 body {

@@ -1,7 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-// import Swal from 'sweetalert2';
 // import { ModalCondicionesComponent } from '../../components/modal-condiciones/modal-condiciones.component';
 import { NgIf } from '@angular/common';
 import { PwaNotifInstallerComponent } from '../../shared/pwa-notif-installer/pwa-notif-installer.component';
@@ -9,8 +8,8 @@ import { PwaNotifInstallerComponent } from '../../shared/pwa-notif-installer/pwa
 import { PlacesService } from '../../services/places.service';
 import { Usuario } from '../../models/user';
 import { UserService } from '../../services/user.service';
+import { ToastrService } from 'ngx-toastr';
 // declare const gapi: any;
-
 
 @Component({
   selector: 'app-login',
@@ -60,7 +59,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: UserService,
     // private translate: TranslateService,
-    private placesServices: PlacesService
+    private placesServices: PlacesService,
+    private toastr: ToastrService
     
   ) {
 
@@ -127,7 +127,9 @@ ngOnInit(){
     )
   }
 
-
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
+  }
 
 
 // Registro
@@ -140,7 +142,10 @@ crearUsuario(){
   this.authService.crearUsuario(this.registerForm.value).subscribe(
     resp =>{
       // Swal.fire('Registrado!', `Ya puedes ingresar`, 'success');
-      this.ngOnInit();
+      // this.ngOnInit();
+      this.toastr.success('Registrado!', 'Ya puedes ingresar');
+      
+      this.router.navigateByUrl('/myprofile');
     },(error) => {
       // Swal.fire('Error', error.error.msg, 'error');
       this.errors = error.error;

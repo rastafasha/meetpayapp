@@ -5,7 +5,7 @@
     position: relative;
     border-radius: 10px;
     box-shadow: 5px 20px 50px #000;
-    background: var(--vinotinto);
+    background: var(--blanco);
 }
 
 
@@ -43,7 +43,7 @@
 }
 
 label {
-    color: var(--vinotinto);
+    color: var(--blanco);
     justify-content: center;
     display: flex;
     /* margin: 60px; */
