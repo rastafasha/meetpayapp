@@ -1,0 +1,147 @@
+/*---start meeting--*/
+
+.mapa {
+    /*background-image:  url(../images/mapa.jpg);
+    background-position: left top;
+    background-size: contain;
+    background-repeat: no-repeat;*/
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.mapa iframe {
+    width: 100%;
+    height: calc(100%);
+    height: 100%;
+    min-height: 900px;
+    position: absolute;
+    top: -160px;
+    z-index: 1;
+}
+
+.fotos-perfiles {
+    position: relative;
+    top: 110px;
+    z-index: 3;
+    left: 0%;
+}
+
+.fotos-perfiles img {
+    width: 85%;
+    display: block;
+    margin: auto;
+}
+
+.fotos-trakin {
+    position: relative;
+    top: 75px;
+    z-index: 3;
+}
+
+.mapa .owl-carousel {
+    position: relative;
+    top: 170px;
+    z-index: 3;
+}
+
+.map {
+    -webkit-animation: map-animacion 1s 1 ease;
+    -moz-animation: map-animacion 1s 1 ease;
+    -o-animation: map-animacion 1s 1 ease;
+    -ms-animation: map-animacion 1s 1 ease;
+    animation: map-animacion 1s 1 ease;
+}
+
+@-ms-keyframes map-animacion {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes map-animacion {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes map-animacion {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes map-animacion {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.quehacer,
+.quehacer2,
+.quehacer3 {
+    width: 100%;
+    height: 200px;
+    padding: 20px 0;
+    position: absolute;
+    z-index: 99;
+    bottom: -100%;
+    background-color: #000;
+    transition: all 1s;
+}
+
+.mostrar-quehacer,
+.mostrar-quehacer2,
+.mostrar-quehacer3 {
+    bottom: 0%;
+}
+
+.quehacer h1,
+.quehacer2 h1,
+.quehacer3 h1 {
+    color: #fff;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.quehacer ul,
+.quehacer2 ul,
+.quehacer3 ul {
+    display: block;
+    width: 80%;
+    position: relative;
+}
+
+.quehacer select,
+.quehacer2 select,
+.quehacer3 select {
+    color: rgba(250, 250, 250, 1);
+    list-style: none;
+    text-align: center;
+    padding: 10px 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    background: transparent;
+    width: 100%;
+    border: none;
+    border-radius: none;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.3);
+    border-top: 1px solid rgba(250, 250, 250, 0.3);
+}

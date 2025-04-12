@@ -7,12 +7,20 @@
 
 @import url("menus.css");
 @import url("retina.css");
-@import url("tabs.css");
+/* @import url("tabs.css"); */
 @import url("chat.css");
 @import url("slider-fotos.css");
-@import url("paypeermeetStyle.css");
 @import url("loader.css");
-@import url("pagetransition.css");
+@import url("loginnuevo.css");
+@import url("checkbox.css");
+@import url("formulario-tipogoogle.css");
+/* @import url("pagetransition.css"); */
+/* Contenido basico */
+@import url("paypeermeetStyle.css");
+/* @import url("start-meet.css");
+@import url("profile.css");
+@import url("tracking.css"); */
+/* Contenido basico */
 @import url("normalize.css");
 *,
 *:after,
@@ -24,6 +32,40 @@
     margin: 0;
 }
 
-body{
+
+:root {
+    --azul: #003471;
+}
+
+body {
     background-color: black;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+b {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.card {
+    position: relative;
+    top: 50px;
+    padding-bottom: 50px;
 }

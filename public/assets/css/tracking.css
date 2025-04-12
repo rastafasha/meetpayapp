@@ -1,0 +1,387 @@
+
+/*---traking--*/
+
+.traking-perfil {
+    width: 96%;
+    height: auto;
+    padding: 0px;
+    position: absolute;
+    z-index: 99;
+    bottom: -410px;
+    background-color: transparent;
+    transition: all 1s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.perfil-galeria {
+    width: 96%;
+    height: auto;
+    padding: 0px;
+    position: absolute;
+    z-index: 99;
+    bottom: -120px;
+    background-color: transparent;
+    transition: all 1s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.trak-user-name {
+    /* width: 94%; */
+    height: auto;
+    padding: 20px;
+    position: relative;
+    background-color: #000;
+    left: 0px;
+}
+
+.trak-user-name h1 {
+    color: #fff;
+    text-align: left;
+    font-weight: 300;
+    font-size: 18px;
+    margin: 0;
+}
+
+.trak-user-name p {
+    color: #888;
+    text-align: left;
+    font-weight: 300;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    margin: 15px 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.trak-user-name h3 {
+    color: #888;
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.trak-user-name ul {
+    margin: 0;
+    padding: 0;
+}
+
+.trak-user-name ul li {
+    list-style: none;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 300;
+    text-align: left;
+}
+
+.trak-user-place {
+    width: 80%;
+    height: auto;
+    padding: 10px 20px;
+    position: relative;
+    background-color: #000;
+    left: 5%;
+    top: -50px;
+    transition: all 1s;
+}
+
+.waytopay {
+    width: auto;
+    height: 100px;
+    padding: 20px 0;
+    background-color: #000;
+    transition: all 1s;
+}
+
+.waytopay select {
+    color: rgba(250, 250, 250, 1);
+    list-style: none;
+    text-align: center;
+    padding: 10px 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    background: transparent;
+    width: 94%;
+    border: none;
+    border-radius: none;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.3);
+    border-top: 1px solid rgba(250, 250, 250, 0.3);
+}
+
+.traking {
+    width: 100%;
+    height: 230px;
+    padding: 10px 0;
+    position: absolute;
+    z-index: 99;
+    bottom: 0;
+    background-color: #000;
+    transition: all 1s;
+}
+
+.traking h1 {
+    color: #fff;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    margin: 0;
+}
+
+.traking h2 {
+    color: #888;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.traking img {
+    width: 22%;
+    display: block;
+    margin: auto;
+    border-radius: 100%;
+    position: relative;
+    z-index: 999999;
+    left: -120px;
+    top: -60px;
+    margin-bottom: -40px;
+    border: 3px solid #fff;
+}
+
+.circuloazul {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    z-index: 9;
+    bottom: 70%;
+    left: 30%;
+    border-radius: 100%;
+    -webkit-animation: circuloazul-animacion 3s infinite ease;
+    -moz-animation: circuloazul-animacion 3s infinite ease;
+    -o-animation: circuloazul-animacion 3s infinite ease;
+    -ms-animation: circuloazul-animacion 3s infinite ease;
+    animation: circuloazul-animacion 3s infinite ease;
+}
+
+@-ms-keyframes circuloazul-animacion {
+    0% {
+        border: 3px solid transparent
+    }
+    50% {
+        border: 3px solid #000
+    }
+    100% {
+        border: 3px solid transparent
+    }
+}
+
+@-o-keyframes circuloazul-animacion {
+    0% {
+        border: 3px solid transparent
+    }
+    50% {
+        border: 3px solid #000
+    }
+    100% {
+        border: 3px solid transparent
+    }
+}
+
+@-moz-keyframes circuloazul-animacion {
+    0% {
+        border: 3px solid transparent
+    }
+    50% {
+        border: 3px solid #000
+    }
+    100% {
+        border: 3px solid transparent
+    }
+}
+
+@-webkit-keyframes circuloazul-animacion {
+    0% {
+        border: 3px solid transparent
+    }
+    50% {
+        border: 3px solid #000
+    }
+    100% {
+        border: 3px solid transparent
+    }
+}
+
+.dragg2 {
+    position: relative;
+    z-index: 999;
+    float: right;
+    right: 0px;
+    bottom: -6px;
+    width: 50px;
+    transition: all 1s;
+}
+
+.dragg2rot {
+    position: relative;
+    z-index: 999;
+    float: right;
+    right: 0px;
+    bottom: -6px;
+    width: 50px;
+    transform: rotate(180deg);
+}
+
+.dragg {
+    position: relative;
+    z-index: 999;
+    float: right;
+    right: 20px;
+    bottom: -6px;
+    width: 50px;
+    border-radius: 100%;
+    -webkit-animation: borde-animacion 3s infinite ease;
+    -moz-animation: borde-animacion 3s infinite ease;
+    -o-animation: borde-animacion 3s infinite ease;
+    -ms-animation: borde-animacion 3s infinite ease;
+    animation: borde-animacion 3s infinite ease;
+}
+
+@-ms-keyframes borde-animacion {
+    0% {
+        border: 3px solid transparent
+    }
+    50% {
+        border: 3px solid #ccc
+    }
+    100% {
+        border: 3px solid transparent
+    }
+}
+
+@-o-keyframes borde-animacion {
+    0% {
+        border: 3px solid transparent
+    }
+    50% {
+        border: 3px solid #333
+    }
+    100% {
+        border: 3px solid transparent
+    }
+}
+
+@-moz-keyframes borde-animacion {
+    0% {
+        border: 3px solid transparent
+    }
+    50% {
+        border: 3px solid #333
+    }
+    100% {
+        border: 3px solid transparent
+    }
+}
+
+@-webkit-keyframes borde-animacion {
+    0% {
+        border: 3px solid transparent
+    }
+    50% {
+        border: 3px solid #333
+    }
+    100% {
+        border: 3px solid transparent
+    }
+}
+
+.mostrar-traking-perfil {
+    bottom: -90px;
+    transition: all 1s;
+}
+
+.reducir-slide {
+    height: 60%;
+    transition: all 1s;
+}
+
+.mostrar-traking {
+    height: 430px;
+}
+
+.infotrack {
+    position: relative;
+    z-index: 999;
+    background-color: #fff;
+    margin: 200px;
+    width: 82%;
+    height: 170px;
+    bottom: -100%;
+    left: calc(-177px);
+    padding: 10px;
+}
+
+.infotrack i {
+    color: green;
+    font-size: 20px;
+    display: block;
+    margin: auto;
+}
+
+.infotrack .icon {
+    float: left;
+    padding: 10px;
+    height: 50px;
+}
+
+.infotrack h4 {
+    color: #444;
+}
+
+.degradenegro {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
+    z-index: 3;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
+    /* IE6-9 */
+}
+
+.pin {
+    background-image: url(../images/pin@x3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 90px;
+    height: 90px;
+    position: relative;
+    top: 20px;
+    left: 30%;
+}
+
+.pin:nth-child(2) {
+    top: 50px;
+    left: 60%;
+}
+
+.pin:nth-child(3) {
+    top: 50px;
+    left: 10%;
+}
+
+.pin>.perfilimg {
+    border-radius: 50%;
+    display: block;
+    width: 55px;
+    position: absolute;
+    left: 12%;
+    top: 8px;
+}

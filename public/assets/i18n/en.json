@@ -1,7 +1,9 @@
 {
     "welcome-back": "Welcome back",
-    "Project": "Project",
+    "Start Meet": "Start Meet",
     "Language": "Lang",
+    "Show me": "Show me",
+    "Contacts": "Contacts",
     "English": "English",
     "Spanish": "Spanish",
     "Directory": "Directory",
@@ -111,7 +113,8 @@
         "Delete":"Delete",
         "Confirm":"Confirm",
         "Created At":"Created At",
-        
+        "Age":"Age",
+        "Distance":"Distance",
         "Save":"Save"
     },
     
