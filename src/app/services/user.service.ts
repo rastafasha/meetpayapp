@@ -29,7 +29,7 @@ export class UserService {
     private router: Router,
     private ngZone: NgZone
     ) {
-      // this.getLocalStorage();
+      this.getLocalStorage();
       // this.googleInit();
   }
 
@@ -149,7 +149,7 @@ export class UserService {
       map((resp: any) => {
         const { username, email, google, role,  uid} = resp.usuario;
 
-        this.usuario = new Usuario(username, email, '', google, role, uid, '');
+        this.usuario = new Usuario(username, email, '', google, role, uid, '', '', '');
 
         this.guardarLocalStorage(resp.token, resp.usuario);
         return true;
@@ -203,10 +203,12 @@ export class UserService {
               user.username,
               user.email,
               '',
-              user.google || '',
+              // user.google || '',
+              String(user.google) || '',
               String(user.terminos) || '',
               user.role || '',
-              user.uid || ''
+              user.uid || '',
+              user.numdoc || ''
             ));
 
           return {
