@@ -5,12 +5,12 @@
     <div class="card-body">
         <div class="fotoperfil">
           <div class="perfilf">
-              <img [src]="'/assets/images/foto-perfil.jpg'" alt="">
+              <img [src]="'./assets/images/foto-perfil.jpg'" alt="">
           </div>
             <ul>
-                <li><img [src]="'/assets/images/plus.jpg'" alt=""></li>
-                <li><img [src]="'/assets/images/plus.jpg'" alt=""></li>
-                <li><img [src]="'/assets/images/plus.jpg'" alt=""></li>
+                <li><img [src]="'./assets/images/plus.jpg'" alt=""></li>
+                <li><img [src]="'./assets/images/plus.jpg'" alt=""></li>
+                <li><img [src]="'./assets/images/plus.jpg'" alt=""></li>
             </ul>
         </div>
         <div class="profile_form">
@@ -360,120 +360,13 @@
                 </div>
                 </div> <!-- Closing infoperfil for option_selected === 1 -->
                 <!-- preferencias -->
+
                 <div class="infoperfil" *ngIf="option_selected === 2">
-                    <div class="row">
-                        <!-- Género -->
-                        <div class="col-12 col-md-4 col-xl-4">
-                            <div class="label_form">
-                                <span class="input-group-text" id="basic-addon1">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                </span>
-                                <label class="gen-label">{{'formulario.Gender'| translate}}<span class="login-danger">*</span></label><br>
-                            </div>
-                            <div class="gender_form">
-
-                                <div class="form-check-inline ">
-                                    <label class="form-check-label ">
-                                        <input type="radio"  value="1" formControlName="genero" class="form-check-input input">{{'formulario.Male'| translate}}
-                                    </label>
-                                </div>
-                                <div class="form-check-inline ">
-                                    <label class="form-check-label ">
-                                        <input type="radio"  value="2" formControlName="genero" class="form-check-input input">{{'formulario.Female'| translate}}
-                                    </label>
-                                </div>
-                                <div class="form-check-inline ">
-                                    <label class="form-check-label ">
-                                        <input type="radio"  value="3" formControlName="genero" class="form-check-input input">{{'formulario.Both'| translate}}
-                                    </label>
-                                </div>
-                            </div>
-                            <!-- <div class="form-group select-gender input-group gap-3">
-                                <div class="label_form">
-                                    <span class="input-group-text" id="basic-addon1">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                    </span>
-                                    <label class="gen-label">{{'formulario.Gender'| translate}}<span class="login-danger">*</span></label><br>
-                                </div>
-                                <div class="gender_form">
-                                    <div class="checkbox-wrapper-6">
-                                        <p>{{'formulario.Male'| translate}}</p>
-                                        <input class="tgl tgl-light" id="cb1-6" type="checkbox" checked="false"
-                                                formControlName="preferencia_sexo" value="1"  />
-                                        <label class="tgl-btn" for="cb1-6"></label>
-                                    </div>
-                                    <div class="checkbox-wrapper-6">
-                                        <p>{{'formulario.Female'| translate}}</p>
-                                        <input class="tgl tgl-light" id="cb1-2" type="checkbox" checked="false"
-                                                formControlName="preferencia_sexo" value="2"   />
-                                        <label class="tgl-btn" for="cb1-2"></label>
-                                    </div>
-                                </div>
-                            </div> -->
-                        </div>
-                        <br>
-                        <br>
-                        <!-- Lang -->
-                      <div class="col-md-4 ">
-                        <div class="input-group">
-                            <div class="label_form">
-                                
-                                <span class="input-group-text " id="basic-addon1">
-                                    <i class="fa fa-globe" aria-hidden="true"></i><span class="login-danger">*</span>
-                                </span>
-                                <label for="validationCustom02" class="form-label">{{'Language'| translate}} <span class="login-danger">*</span></label>
-                            </div>
-                            <select class="form-control input" formControlName="preferencia_lang"  >
-                                <option value=""> Seleccione</option>
-                                <option value="es"> ES</option>
-                                <option value="en"> EN</option>
-                                </select>
-
-                        </div>
-                        @if(userForm.controls['preferencia_lang'].touched){
-          
-                            <div class="text-danger">
-                              @if(userForm.controls['preferencia_lang'].errors?.['required']){
-                                  <span >{{'formulario.Field Required'| translate}}</span>
-                              }
-                              @if(userForm.controls['preferencia_lang'].errors?.['minlength']){
-                                  <span >{{'formulario.3 Charecters Minimal'| translate}}</span>
-                              }
-                            </div>
-                        }
-                      </div>
-                      <br>
-                      <br>
-                        <!-- Edad -->
-                        <div class="range__form">
-                            <div class="form-group select-gender input-group gap-3">
-                                <label class="gen-label">{{'formulario.Age'| translate}}<span class="login-danger">*</span></label><br>
-                                <div>
-                                    <input type="range" min="1" max="100"  class="slider" [value]="ageRange"   id="myRangeAge"
-                                    formControlName="preferencia_edad" name="preferencia_edad" (change)="onAgeRange($any($event.target).value)">
-                                    <b>{{ageRange}}</b> {{'Years Old'|translate}}
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <!--  Distancia -->
-                        <div class="range__form">
-                            <label class="gen-label">{{'formulario.Distance'| translate}}<span class="login-danger">*</span></label><br>
-                            <div class="form-group select-gender input-group gap-3">
-                                <input type="range" min="1" max="100"  class="slider" value="distanceRange"   id="myRangeDistance"
-                                formControlName="preferencia_distancia" name="preferencia_distancia" (change)="ondistanceRange($any($event.target).value)">
-                                <b>{{distanceRange}} </b>mts.
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="clear"></div>
-                    <br><br>
-                    <a (click)="onUserSavePreferencias()"><button type="submit" class="butonhome">{{'Start Meet'|translate}}</button></a>
-                    <br><br>
-                </div> <!-- Closing infoperfil for option_selected === 2 -->
+                    <app-preferencias></app-preferencias>
+                </div>
+               
+                
+                <!-- Closing infoperfil for option_selected === 2 -->
                 
         </form>
         <div class="infoperfil" *ngIf="option_selected === 3">

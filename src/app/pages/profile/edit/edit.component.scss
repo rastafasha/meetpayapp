@@ -2,7 +2,7 @@
     // background-color: #f2f2f2;
     background-color: var(--fondo-negro);
     color: var(--blanco);
-    & input, select, textarea{
+    & input, select, textarea, option{
         color: var(--blanco);
     }
     & input{

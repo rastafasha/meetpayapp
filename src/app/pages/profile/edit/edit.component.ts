@@ -12,6 +12,7 @@ import { PaisesService } from '../../../services/paises.service';
 import { LoadingComponent } from '../../../shared/loading/loading.component';
 import { LoadingSimpleComponent } from "../../../shared/loading-simple/loading-simple.component";
 import { BackAreaComponent } from '../../../shared/back-area/back-area.component';
+import { PreferenciasComponent } from "../components/preferencias/preferencias.component";
 
 @Component({
   selector: 'app-edit',
@@ -25,7 +26,7 @@ import { BackAreaComponent } from '../../../shared/back-area/back-area.component
     RouterModule,
     // LoadingComponent, 
     LoadingSimpleComponent,
-    BackAreaComponent
+    BackAreaComponent, PreferenciasComponent
   ],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.scss',
@@ -67,13 +68,6 @@ export class EditComponent {
 
   //   });
 
-  // preferenciaForm: FormGroup = new FormGroup({
-  //   preferencia_sexo: new FormControl('', [Validators.required]),
-  //   distance: new FormControl('',[Validators.required, Validators.minLength(3)]),
-  //   age: new FormControl('',[Validators.required, Validators.minLength(3)]),
-    
-
-  // });
   constructor(
       private fb: FormBuilder,
       private userService: UserService,
@@ -134,21 +128,10 @@ export class EditComponent {
               instagram: res.instagram,
               twitter: res.twitter,
               linkedin: res.linkedin,
-
-              preferencia_sexo: res.preferencia_sexo,
-              preferencia_lang: res.preferencia_lang,
-              preferencia_edad: res.preferencia_edad,
-              preferencia_distancia: res.preferencia_distancia,
-
               usuario: this.user.uid,
               img: res.img
             });
 
-            // this.preferenciaForm.patchValue({
-            //   preferencia_sexo: res.preferencia_sexo,
-            //   preferencia_lang: res.preferencia_lang,
-            //   preferencia_edad: res.preferencia_edad,
-            // });
             this.user_selected = res;
 
             this.ageRange = res.preferencia_edad;
@@ -182,10 +165,7 @@ export class EditComponent {
         numdoc: [''],
         genero: [''],
         descripcion: ['', Validators.required],
-        preferencia_edad: [''],
-        preferencia_distancia: [''],
-        preferencia_lang: [''],
-        preferencia_sexo: [''],
+       
         usuario: [this.user.uid],
         // id: [''],
       });
@@ -285,57 +265,7 @@ export class EditComponent {
     })
     }
 
-    onUserSavePreferencias(){
-
-      const formData = new FormData();
-      formData.append("email", this.user.email);
-      // formData.append("usuario", this.user.uid+'');
-      // formData.append("role", 'USER');
-
-      if (this.userForm.value.first_name) {
-      formData.append("first_name", this.userForm.value.first_name);
-      
-    }
-      if (this.userForm.value.last_name) {
-      formData.append("last_name", this.userForm.value.last_name);
-      
-    }
-      
-      if (this.userForm.value.numdoc) {
-      formData.append("numdoc", this.userForm.value.numdoc);
-      
-    }
     
-      
-      if (this.userForm.value.preferencia_edad) {
-      formData.append("preferencia_edad", this.userForm.value.preferencia_edad);
-      
-    }
-      if (this.userForm.value.preferencia_distancia) {
-      formData.append("preferencia_distancia", this.userForm.value.preferencia_distancia);
-      
-    }
-      if (this.userForm.value.preferencia_lang) {
-      formData.append("preferencia_lang", this.userForm.value.preferencia_lang);
-      
-    }
-      if (this.userForm.value.preferencia_sexo) {
-      formData.append("preferencia_sexo", this.userForm.value.preferencia_sexo);
-      
-    }
-
-    const data = {
-      ...this.userForm.value,
-      // usuario: this.user.uid,
-    }
-    console.log(data);
-    
-    this.userService.updateProfile(data, this.user.uid).subscribe((resp:any)=>{
-      console.log(resp);
-      this.toastr.success('Actualizado!', 'Ya conocer');
-      this.router.navigate(['/start-meet']);
-    })
-    }
 
     optionSelected(value:number){
       this.option_selected = value;

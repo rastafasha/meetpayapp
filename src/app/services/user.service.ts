@@ -12,7 +12,7 @@ import { LoginForm } from '../auth/interfaces/login-form.interface';
 import { environment } from '../environments/environment';
 
 const base_url = environment.baseUrl;
-const userGoogle = environment.client_idGoogle;
+// const userGoogle = environment.client_idGoogle;
 declare const gapi: any;
 
 @Injectable({
@@ -82,21 +82,23 @@ export class UserService {
   }
 
 
-  googleInit(){
+  // googleInit(){
 
-    return new Promise<void>((resolve) =>{
+  //   return new Promise<void>((resolve) =>{
 
-      gapi.load('auth2', () =>{
-        this.auth2 = gapi.auth2.init({
-          client_id: userGoogle,
-          cookiepolicy: 'single_host_origin',
-        });
-        resolve();
-      });
-    });
+  //     gapi.load('auth2', () =>{
+  //       this.auth2 = gapi.auth2.init({
+  //         client_id: userGoogle,
+  //         cookiepolicy: 'single_host_origin',
+  //       });
+  //       resolve();
+  //     });
+  //   });
 
 
-  }
+  // }
+
+  
   login(formData: LoginForm){
     return this.http.post(`${base_url}/auth/login`, formData)
     .pipe(

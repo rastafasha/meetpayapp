@@ -4,25 +4,28 @@ import { Router } from '@angular/router';
 // import { ModalCondicionesComponent } from '../../components/modal-condiciones/modal-condiciones.component';
 import { NgIf } from '@angular/common';
 import { PwaNotifInstallerComponent } from '../../shared/pwa-notif-installer/pwa-notif-installer.component';
-// import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { PlacesService } from '../../services/places.service';
 import { Usuario } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { LoadingComponent } from "../../shared/loading/loading.component";
 // declare const gapi: any;
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, 
+  imports: [ReactiveFormsModule,
     // ModalCondicionesComponent,
-     NgIf, 
-    //  TranslateModule,
-    //  PwaNotifInstallerComponent
-    ],
+    NgIf,
+    TranslateModule,
+    PwaNotifInstallerComponent, LoadingComponent],
   templateUrl: './login.component.html',
   styleUrls: [ './login.component.css' ]
 })
 export class LoginComponent implements OnInit {
+
+  isLoading:boolean = false;
+
   first_name = new FormControl();
   last_name = new FormControl();
   email = new FormControl();
@@ -52,6 +55,7 @@ export class LoginComponent implements OnInit {
   langs: string[] = [];
   public activeLang = 'es';
 
+  
   
 
   constructor(
@@ -109,6 +113,7 @@ export class LoginComponent implements OnInit {
 
 
   login(){
+    this.isLoading = true;
     this.authService.login(this.loginForm.value).subscribe(
       (resp: any) => {
         if(this.loginForm.get('remember')?.value){
@@ -118,6 +123,7 @@ export class LoginComponent implements OnInit {
         }
         // Store user data and navigate
         this.authService.guardarLocalStorage(resp.token, resp.usuario);
+        this.isLoading = false;
         this.router.navigateByUrl('/start-meet');
       },
       (err) => {
@@ -137,11 +143,12 @@ crearUsuario(){
   // if(this.registerForm.invalid){
   //   return;
   // }
-
+  this.isLoading = true;
   this.authService.crearUsuario(this.registerForm.value).subscribe(
     resp =>{
       // Swal.fire('Registrado!', `Ya puedes ingresar`, 'success');
       // this.ngOnInit();
+      this.isLoading = false;
       this.toastr.success('Registrado!', 'Ya puedes ingresar');
       
       this.router.navigateByUrl('/myprofile');

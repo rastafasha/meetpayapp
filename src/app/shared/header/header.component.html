@@ -2,7 +2,7 @@
     <nav id="menu-principal">
         <ul class="menu menu-principal ">
             <a href="javascript:void(0)" (click)="closeMenu()" class="close"><i class="fa fa-close"></i></a>
-           <img [src]="'/assets/images/foto-perfil.jpg'" alt="">
+           <img [src]="'./assets/images/foto-perfil.jpg'" alt="">
           
             <li> <h4 class="text-center" style="color: #fff;">{{'saludo'| translate}}, {{user.first_name}}!</h4></li>
             <li><a routerLink="/start-meet">Home</a></li>
@@ -30,7 +30,7 @@
                           <!-- <a routerLink="/"><div class="toggle-vertical"><i class="fa fa-sign-out"></i></div></a> -->
                           <div class="perfilf">
                             <a [routerLink]="['/myprofile/', user.uid]">
-                                <img [src]="'/assets/images/foto-perfil.jpg'" alt="">
+                                <img [src]="'./assets/images/foto-perfil.jpg'" alt="">
 
                             </a>
                         </div>
@@ -38,7 +38,7 @@
                    </div>
                </div>
            </div>
-       </div>
+    </div>
 
         
 </header>

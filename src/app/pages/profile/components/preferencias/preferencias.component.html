@@ -1,0 +1,157 @@
+<app-loading-simple *ngIf="isLoading"></app-loading-simple>
+<form action="" [formGroup]="preferenciaForm" class="form" *ngIf="!isLoading">
+    <div class="infoperfil">
+        <div class="row">
+            <!-- Me gusta -->
+            <div class="col-md-4 ">
+                <label for="validationCustom02" class="form-label labelgoogle">
+                    <input type="text" formControlName="gustos" class="input" id="validationCustom02" placeholder=" " required>
+                    <span class="label__name">
+                        <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{'formulario.Me Gusta'| translate}} <span class="login-danger">*</span>
+                    </span>
+                </label>
+                @if(preferenciaForm.controls['gustos'].touched){
+  
+                    <div class="text-danger">
+                      @if(preferenciaForm.controls['gustos'].errors?.['required']){
+                          <span >{{'formulario.Field Required' | translate}}</span>
+                      }
+                      @if(preferenciaForm.controls['gustos'].errors?.['minlength']){
+                          <span >{{'formulario.3 Charecters Minimal' | translate}}</span>
+                      }
+                    </div>
+                }
+              </div>
+            <!-- Quiero hacer -->
+            <div class="col-md-4 ">
+                <label for="validationCustom02" class="form-label labelgoogle">
+                    <input type="text" formControlName="quiero" class="input" id="validationCustom02" placeholder=" " required>
+                    <span class="label__name">
+                        <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{'formulario.Quiero hacer'| translate}} <span class="login-danger">*</span>
+                    </span>
+                </label>
+                @if(preferenciaForm.controls['quiero'].touched){
+  
+                    <div class="text-danger">
+                      @if(preferenciaForm.controls['quiero'].errors?.['required']){
+                          <span >{{'formulario.Field Required' | translate}}</span>
+                      }
+                      @if(preferenciaForm.controls['quiero'].errors?.['minlength']){
+                          <span >{{'formulario.3 Charecters Minimal' | translate}}</span>
+                      }
+                    </div>
+                }
+              </div>
+            <!-- Género -->
+            <div class="col-12 col-md-4 col-xl-4">
+                <div class="label_form">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                    <label class="gen-label">{{'formulario.Gender'| translate}}<span class="login-danger">*</span></label><br>
+                </div>
+                <div class="gender_form">
+
+                    <div class="form-check-inline ">
+                        <label class="form-check-label ">
+                            <input type="radio"  value="1" formControlName="genero" class="form-check-input input">{{'formulario.Male'| translate}}
+                        </label>
+                    </div>
+                    <div class="form-check-inline ">
+                        <label class="form-check-label ">
+                            <input type="radio"  value="2" formControlName="genero" class="form-check-input input">{{'formulario.Female'| translate}}
+                        </label>
+                    </div>
+                    <div class="form-check-inline ">
+                        <label class="form-check-label ">
+                            <input type="radio"  value="3" formControlName="genero" class="form-check-input input">{{'formulario.Both'| translate}}
+                        </label>
+                    </div>
+                </div>
+                <!-- <div class="form-group select-gender input-group gap-3">
+                    <div class="label_form">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                        <label class="gen-label">{{'formulario.Gender'| translate}}<span class="login-danger">*</span></label><br>
+                    </div>
+                    <div class="gender_form">
+                        <div class="checkbox-wrapper-6">
+                            <p>{{'formulario.Male'| translate}}</p>
+                            <input class="tgl tgl-light" id="cb1-6" type="checkbox" checked="false"
+                                    formControlName="sexo" value="1"  />
+                            <label class="tgl-btn" for="cb1-6"></label>
+                        </div>
+                        <div class="checkbox-wrapper-6">
+                            <p>{{'formulario.Female'| translate}}</p>
+                            <input class="tgl tgl-light" id="cb1-2" type="checkbox" checked="false"
+                                    formControlName="sexo" value="2"   />
+                            <label class="tgl-btn" for="cb1-2"></label>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <br>
+            <br>
+            <!-- Lang -->
+          <div class="col-md-4 ">
+            <div class="input-group">
+                <div class="label_form">
+                    
+                    <span class="input-group-text " id="basic-addon1">
+                        <i class="fa fa-globe" aria-hidden="true"></i><span class="login-danger">*</span>
+                    </span>
+                    <label for="validationCustom02" class="form-label">{{'Language'| translate}} <span class="login-danger">*</span></label>
+                </div>
+                <select class="form-control input" formControlName="lang"  >
+                    <option value=""> Seleccione</option>
+                    <option value="es" style="color: #fff;"> ES</option>
+                    <option value="en" style="color: #fff;"> EN</option>
+                    </select>
+
+            </div>
+            @if(preferenciaForm.controls['lang'].touched){
+
+                <div class="text-danger">
+                  @if(preferenciaForm.controls['lang'].errors?.['required']){
+                      <span >{{'formulario.Field Required'| translate}}</span>
+                  }
+                  @if(preferenciaForm.controls['lang'].errors?.['minlength']){
+                      <span >{{'formulario.3 Charecters Minimal'| translate}}</span>
+                  }
+                </div>
+            }
+          </div>
+          <br>
+          <br>
+            <!-- Edad -->
+            <div class="range__form">
+                <div class="form-group select-gender input-group gap-3">
+                    <label class="gen-label">{{'formulario.Age'| translate}}<span class="login-danger">*</span></label><br>
+                    <div>
+                        <input type="range" min="1" max="100"  class="slider" [value]="ageRange"   id="myRangeAge"
+                        formControlName="edad" name="edad" (change)="onAgeRange($any($event.target).value)">
+                        <b>{{ageRange}}</b> {{'Years Old'|translate}}
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <!--  Distancia -->
+            <div class="range__form">
+                <label class="gen-label">{{'formulario.Distance'| translate}}<span class="login-danger">*</span></label><br>
+                <div class="form-group select-gender input-group gap-3">
+                    <input type="range" min="1" max="100"  class="slider" value="distanceRange"   id="myRangeDistance"
+                    formControlName="distancia" name="distancia" (change)="ondistanceRange($any($event.target).value)">
+                    <b>{{distanceRange}} </b>mts.
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+        <div class="clear"></div>
+        <br><br>
+        <a (click)="onUserSavePreferencias()"><button type="submit" class="butonhome">{{'Start Meet'|translate}}</button></a>
+        <br><br>
+    </div> 
+</form>
