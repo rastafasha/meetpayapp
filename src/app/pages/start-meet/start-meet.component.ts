@@ -28,6 +28,8 @@ export class StartMeetComponent implements OnInit {
   edad!:number;
   distancia!:string;
   userLocation:any;
+  quiero!:any[];
+
   constructor(
     private renderer: Renderer2,
      private el: ElementRef,
