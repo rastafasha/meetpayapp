@@ -64,17 +64,17 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private authService: UserService,
-    // private translate: TranslateService,
+    private translate: TranslateService,
     private placesServices: PlacesService,
     private toastr: ToastrService
     
   ) {
     
     // this.translate.setDefaultLang('es');
-    // this.translate.setDefaultLang(this.activeLang);
-    // this.translate.use('es');
-    // this.translate.addLangs(["es", "en"]);
-    // this.langs = this.translate.getLangs();
+    this.translate.setDefaultLang(this.activeLang);
+    this.translate.use('es');
+    this.translate.addLangs(["es", "en"]);
+    this.langs = this.translate.getLangs();
     // translate.get(this.langs).subscribe(res =>{
       //   console.log(res);
       // })
@@ -98,11 +98,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(){
     this.authService.getLocalStorage();
   
-  // const lang = localStorage.getItem('lang');
-  //   if (lang) {
-  //     this.activeLang = lang;
-  //     this.translate.use(lang);
-  //     }
+  const lang = localStorage.getItem('lang');
+    if (lang) {
+      this.activeLang = lang;
+      this.translate.use(lang);
+      }
   
   this.loginForm = this.fb.group({
     email: [ localStorage.getItem('email') || '', [Validators.required, Validators.email] ],

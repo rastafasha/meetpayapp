@@ -8,7 +8,10 @@
     background: var(--blanco);
 }
 
-
+.butonhome{
+    border-radius: 100px;
+    width: 50%;
+}
 /* nuevo */
 
 .loginregister {
