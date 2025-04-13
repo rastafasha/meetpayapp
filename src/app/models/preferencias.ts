@@ -9,6 +9,8 @@ export class Preferencias {
     public genero: string,
     public lang: string,
     public edad: string,
+    public latitude: number,
+    public longitude: number,
   ){}
 
  

@@ -5,42 +5,60 @@
             <!-- Me gusta -->
             <div class="col-md-4 ">
                 <label for="validationCustom02" class="form-label labelgoogle">
-                    <input type="text" formControlName="gustos" class="input" id="validationCustom02" placeholder=" " required>
+                    <small>agrega una coma ( ,) para agregar opciones</small>
+                    <input type="text" class="input" id="validationCustom02" placeholder=" " required
+                    formControlName="gustos"
+                      [(ngModel)]="title"
+                      (keyup)="onGustosKeyUp($event)">
                     <span class="label__name">
                         <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{'formulario.Me Gusta'| translate}} <span class="login-danger">*</span>
                     </span>
                 </label>
-                @if(preferenciaForm.controls['gustos'].touched){
-  
-                    <div class="text-danger">
-                      @if(preferenciaForm.controls['gustos'].errors?.['required']){
-                          <span >{{'formulario.Field Required' | translate}}</span>
-                      }
-                      @if(preferenciaForm.controls['gustos'].errors?.['minlength']){
-                          <span >{{'formulario.3 Charecters Minimal' | translate}}</span>
-                      }
-                    </div>
-                }
               </div>
+
+              <div class="grupo_quiero">
+                <div *ngFor="let item of gustos ; let i=index">
+                        
+                    <div class="quiero_item">
+                        <h4>
+                            {{item.title}}
+                           
+                       </h4>
+                       <span>
+                           <button class="btn btn-danger btn-sm text-end" (click)="deleteGusto(i)">x</button>
+                       </span>
+                    </div>
+                </div>
+              </div>
+
             <!-- Quiero hacer -->
             <div class="col-md-4 ">
                 <label for="validationCustom02" class="form-label labelgoogle">
-                    <input type="text" formControlName="quiero" class="input" id="validationCustom02" placeholder=" " required>
+                    <small>agrega una coma ( ,) para agregar opciones</small>
+                    <input type="text"  
+                    formControlName="quiero" 
+                    [(ngModel)]="title_quiero"
+                    (keyup)="onQuieroKeyUp($event)" 
+                    class="input" id="validationCustom02" placeholder=" " required>
                     <span class="label__name">
                         <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{'formulario.Quiero hacer'| translate}} <span class="login-danger">*</span>
                     </span>
                 </label>
-                @if(preferenciaForm.controls['quiero'].touched){
-  
-                    <div class="text-danger">
-                      @if(preferenciaForm.controls['quiero'].errors?.['required']){
-                          <span >{{'formulario.Field Required' | translate}}</span>
-                      }
-                      @if(preferenciaForm.controls['quiero'].errors?.['minlength']){
-                          <span >{{'formulario.3 Charecters Minimal' | translate}}</span>
-                      }
+                    
+              </div>
+              <div class="grupo_quiero">
+                <div *ngFor="let item of quiero ; let i=index">
+                        
+                    <div class="quiero_item">
+                        <h4>
+                            {{item.title_quiero}}
+                           
+                       </h4>
+                       <span>
+                           <button class="btn btn-danger btn-sm text-end" (click)="deleteQuiero(i)">x</button>
+                       </span>
                     </div>
-                }
+                </div>
               </div>
             <!-- Género -->
             <div class="col-12 col-md-4 col-xl-4">

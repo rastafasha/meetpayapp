@@ -20,6 +20,8 @@ export class Usuario {
     public lang?: string,
     public direccion?: string,
     public descripcion?: string,
+    public latitude?: number,
+    public longitude?: number,
 
     public img?: string,
     public terminos?: boolean,

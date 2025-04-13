@@ -18,7 +18,9 @@ import { LoadingComponent } from "../../shared/loading/loading.component";
     // ModalCondicionesComponent,
     NgIf,
     TranslateModule,
-    PwaNotifInstallerComponent, LoadingComponent],
+    PwaNotifInstallerComponent, 
+    LoadingComponent
+  ],
   templateUrl: './login.component.html',
   styleUrls: [ './login.component.css' ]
 })

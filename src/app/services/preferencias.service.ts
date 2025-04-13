@@ -39,7 +39,7 @@ export class PreferenciasService {
     return this.http.get(url, this.headers);
   }
 
-  getByUserId(_id: string) {
+  getByUserId(_id: any) {
     const url = `${base_url}/preferencias/user/${_id}`;
     return this.http
       .get<any>(url, this.headers)

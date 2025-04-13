@@ -9,7 +9,7 @@
 //     navigator.serviceWorker.register(swLocation);
 // }
 
-
+mdtoast();
 // Detectar cambios de conexión
 function isOnline() {
     if (navigator.onLine) {

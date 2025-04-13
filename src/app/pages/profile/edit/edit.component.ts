@@ -13,7 +13,7 @@ import { LoadingComponent } from '../../../shared/loading/loading.component';
 import { LoadingSimpleComponent } from "../../../shared/loading-simple/loading-simple.component";
 import { BackAreaComponent } from '../../../shared/back-area/back-area.component';
 import { PreferenciasComponent } from "../components/preferencias/preferencias.component";
-
+import { PlacesService } from '../../../services/places.service';
 @Component({
   selector: 'app-edit',
   imports: [HeaderComponent,
@@ -52,21 +52,10 @@ export class EditComponent {
 
   userForm!: FormGroup;
   preferenciaForm!: FormGroup;
+  userLocation:any = [];
 
-
-// value: any;
-  // userForm: FormGroup = new FormGroup({
-  //   first_name: new FormControl('', [Validators.required]),
-  //   last_name: new FormControl('',[Validators.required, Validators.minLength(3)]),
-  //   userName: new FormControl('', [Validators.email, Validators.required]),
-  //   city: new FormControl('Caracas'),
-  //   age: new FormControl('',[Validators.required, Validators.minLength(3)]),
-  //   pais: new FormControl(''),
-  //   gender: new FormControl('', [Validators.required]),
-  //   zipCode: new FormControl(''),
-  //   isAgree: new FormControl(false),
-
-  //   });
+  longitude!:number;
+  latitude!:number;
 
   constructor(
       private fb: FormBuilder,
@@ -74,17 +63,33 @@ export class EditComponent {
       private activatedRoute: ActivatedRoute,
       private router: Router,
       private paisService:PaisesService,
-      private toastr: ToastrService
+      private placeService:PlacesService,
+      private toastr: ToastrService,
     ){
       this.user = this.userService.getUser();
+      this.loadUserLocation();
+    }
+
+    async loadUserLocation() {
+      try {
+        this.userLocation = await this.placeService.getUserLocation();
+        // console.log('User location loaded:', this.userLocation);
+        // console.log(this.userLocation[0]);
+        // console.log(this.userLocation[1]);
+      } catch (error) {
+        console.error('Error getting user location:', error);
+        this.userLocation = [0, 0]; // Default coordinates
+      }
     }
 
     ngOnInit(){
       window.scrollTo(0, 0);
       this.validarFormularioPerfil();
       this.activatedRoute.params.subscribe( ({id}) => this.getUserProfile(id));
-      this.getPaisList()
+      this.getPaisList();
     }
+
+    
 
     getPaisList(){
       this.paisService.getPaises().subscribe((resp:any)=>{
@@ -173,7 +178,7 @@ export class EditComponent {
       
     }
 
-    onUserSave(){
+    async onUserSave(){
 
       const formData = new FormData();
       formData.append("email", this.user.email);
@@ -253,15 +258,33 @@ export class EditComponent {
       
     }
 
+    if (!this.userLocation) {
+      await this.loadUserLocation();
+    }
+    
     const data = {
       ...this.userForm.value,
-      // usuario: this.user.uid,
+      latitude: this.userLocation?.[1] || 0,
+      longitude: this.userLocation?.[0] || 0
     }
     console.log(data);
     
-    this.userService.updateProfile(data, this.user.uid).subscribe((resp:any)=>{
-      console.log(resp);
-      this.toastr.success('Actualizado!', 'Ya conocer');
+    this.userService.updateProfile(data, this.user.uid).subscribe({
+      next: (resp: any) => {
+        console.log('Profile update response:', resp);
+        this.toastr.success('Perfil actualizado correctamente', 'Éxito', {
+          timeOut: 3000,
+          positionClass: 'toast-bottom-right',
+          progressBar: true
+        });
+      },
+      error: (err) => {
+        console.error('Profile update error:', err);
+        this.toastr.error('Error al actualizar el perfil', 'Error', {
+          timeOut: 3000,
+          positionClass: 'toast-bottom-right'
+        });
+      }
     })
     }
 
