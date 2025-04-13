@@ -47,6 +47,11 @@ export class HeaderComponent {
   ngOnInit(){
     this.user = this.userService.getUser();
     // console.log(this.user);
+    const lang = localStorage.getItem('lang');
+    if (lang) {
+      this.activeLang = lang;
+      this.translate.use(lang);
+      }
     
 
   }

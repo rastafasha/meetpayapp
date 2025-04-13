@@ -176,10 +176,24 @@
                                     </span>
                                     <label for="validationCustom02" class="form-label">{{'Language'| translate}} <span class="login-danger">*</span></label>
                                 </div>
-                                <select class="form-control input" formControlName="lang"  >
-                                    <option value="es"> ES</option>
-                                    <option value="en"> EN</option>
-                                    </select>
+                                <!-- (change)="cambiarLenguaje(lang)" -->
+                                <!-- <select class="form-control input" formControlName="lang"    >
+                                    <option value="es" > ES</option>
+                                    <option value="en" > EN</option>
+                                </select> -->
+                                <div class="gender_form">
+
+                                    <div class="form-check-inline ">
+                                        <label class="form-check-label ">
+                                            <input type="radio"  value="es" (change)="cambiarLenguaje('es')" formControlName="lang" class="form-check-input input">{{'Spanish'| translate}}
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline ">
+                                        <label class="form-check-label ">
+                                            <input type="radio"  value="en" (change)="cambiarLenguaje('en')" formControlName="lang" class="form-check-input input">{{'English'| translate}}
+                                        </label>
+                                    </div>
+                                </div>
     
                             </div>
                             @if(userForm.controls['lang'].touched){

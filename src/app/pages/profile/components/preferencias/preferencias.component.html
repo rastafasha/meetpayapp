@@ -5,18 +5,18 @@
             <!-- Me gusta -->
             <div class="col-md-4 ">
                 <label for="validationCustom02" class="form-label labelgoogle">
-                    <small>agrega una coma ( ,) para agregar opciones</small>
+                    <small> {{'agrega'| translate}}</small>
                     <input type="text" class="input" id="validationCustom02" placeholder=" " required
                     formControlName="gustos"
                       [(ngModel)]="title"
                       (keyup)="onGustosKeyUp($event)">
                     <span class="label__name">
-                        <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{'formulario.Me Gusta'| translate}} <span class="login-danger">*</span>
+                        <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{'formulario.I Like'| translate}} <span class="login-danger">*</span>
                     </span>
                 </label>
               </div>
 
-              <div class="grupo_quiero">
+              <div class="grupo_quiero" *ngIf="gustos">
                 <div *ngFor="let item of gustos ; let i=index">
                         
                     <div class="quiero_item">
@@ -34,19 +34,19 @@
             <!-- Quiero hacer -->
             <div class="col-md-4 ">
                 <label for="validationCustom02" class="form-label labelgoogle">
-                    <small>agrega una coma ( ,) para agregar opciones</small>
+                    <small>{{'agrega'| translate}}</small>
                     <input type="text"  
                     formControlName="quiero" 
                     [(ngModel)]="title_quiero"
                     (keyup)="onQuieroKeyUp($event)" 
                     class="input" id="validationCustom02" placeholder=" " required>
                     <span class="label__name">
-                        <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{'formulario.Quiero hacer'| translate}} <span class="login-danger">*</span>
+                        <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{'formulario.I Want'| translate}} <span class="login-danger">*</span>
                     </span>
                 </label>
                     
               </div>
-              <div class="grupo_quiero">
+              <div class="grupo_quiero" *ngIf="quiero">
                 <div *ngFor="let item of quiero ; let i=index">
                         
                     <div class="quiero_item">
@@ -147,7 +147,7 @@
                 <div class="form-group select-gender input-group gap-3">
                     <label class="gen-label">{{'formulario.Age'| translate}}<span class="login-danger">*</span></label><br>
                     <div>
-                        <input type="range" min="1" max="100"  class="slider" [value]="ageRange"   id="myRangeAge"
+                        <input type="range" min="18" max="100"  class="slider" [value]="ageRange"   id="myRangeAge"
                         formControlName="edad" name="edad" (change)="onAgeRange($any($event.target).value)">
                         <b>{{ageRange}}</b> {{'Years Old'|translate}}
                     </div>

@@ -16,7 +16,7 @@ export class Usuario {
     public google?: boolean,
     public facebook?: boolean,
     public twitter?: boolean,
-    public genero?: string,
+    public genero?: number,
     public lang?: string,
     public direccion?: string,
     public descripcion?: string,

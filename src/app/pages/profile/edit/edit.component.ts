@@ -3,7 +3,7 @@ import { HeaderComponent } from '../../../shared/header/header.component';
 import { ReactiveFormsModule, FormsModule, FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Usuario } from '../../../models/user';
 import { UserService } from '../../../services/user.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -57,6 +57,11 @@ export class EditComponent {
   longitude!:number;
   latitude!:number;
 
+  langs: string[] = [];
+  public activeLang = 'es';
+  flag = false;
+  lang!:string;
+
   constructor(
       private fb: FormBuilder,
       private userService: UserService,
@@ -65,9 +70,20 @@ export class EditComponent {
       private paisService:PaisesService,
       private placeService:PlacesService,
       private toastr: ToastrService,
+      private translate: TranslateService,
+
     ){
       this.user = this.userService.getUser();
       this.loadUserLocation();
+
+      this.translate.setDefaultLang('en');
+      // this.translate.setDefaultLang(this.activeLang);
+      this.translate.use('en');
+      this.translate.addLangs(["es", "en"]);
+      this.langs = this.translate.getLangs();
+      this.translate.get(this.langs).subscribe(res =>{
+        // console.log(res);
+      })
     }
 
     async loadUserLocation() {
@@ -89,6 +105,13 @@ export class EditComponent {
       this.getPaisList();
     }
 
+    public cambiarLenguaje(lang:any) {
+      this.activeLang = lang;
+      this.translate.use(lang);
+      this.flag = !this.flag;
+      localStorage.setItem('lang', this.activeLang);
+      this.userForm.patchValue({ lang: lang });
+    }
     
 
     getPaisList(){

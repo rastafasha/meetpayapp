@@ -45,8 +45,8 @@ export class PreferenciasComponent {
   preferencia_selected!: Preferencias;
   userLocation:any = [];
 
-  public gustos: any = [];
-  public quiero: any = [];
+  public gustos: any[] = [];
+  public quiero: any[] = [];
   public title!: string;
   public title_quiero!: string;
   
@@ -102,7 +102,7 @@ export class PreferenciasComponent {
           ciudad: res[0].ciudad,
 
           user: this.user.uid,
-          img: res.img,
+          img: res[0].img,
         });
 
         this.preferencia_selected = res[0];
@@ -139,6 +139,9 @@ export class PreferenciasComponent {
   }
 
   addGustos() {
+    if (!this.gustos) {
+      this.gustos = [];
+    }
     if (this.title) {
       // Remove trailing comma if present
       const cleanTitle = this.title.replace(/,\s*$/, '');
@@ -164,6 +167,9 @@ export class PreferenciasComponent {
   }
 
   addQuiero() {
+    if (!this.quiero) {
+      this.quiero = [];
+    }
     if (this.title_quiero) {
       // Remove trailing comma if present
       const cleanTitle = this.title_quiero.replace(/,\s*$/, '');
@@ -191,6 +197,14 @@ export class PreferenciasComponent {
     this.distanceRange = value;
     this.preferenciaForm.patchValue({ preferencia_distancia: value });
     // console.log(value);
+  }
+
+  cambiarLenguaje(lang: string) {
+    // Update the form value
+    this.preferenciaForm.patchValue({ lang });
+    
+    // If you need to trigger translation service updates:
+    // this.translate.use(lang);
   }
 
   async onUserSavePreferencias() {

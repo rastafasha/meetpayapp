@@ -42,6 +42,7 @@
     "Payment Methods": "Payment Methods",
     "Back": "Back",
     "Years Old": "Years",
+    "agrega": "add a coma ( ,) to add options",
     "paymentmethod":{
         "title":"Manage your payment methods",
         "text":"You can make payment methods with the following options",
@@ -117,6 +118,8 @@
         "Created At":"Created At",
         "Age":"Age",
         "Distance":"Distance",
+        "I Like":"I Like",
+        "I Want":"I Want",
         "Save":"Save"
     },
     
