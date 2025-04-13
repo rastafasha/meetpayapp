@@ -20,11 +20,24 @@ header{
 }
 
 .btn-back {
+    position: fixed;
+    background-color: black;
+    top: 30px;
+    padding: 20px;
+    left: 10px;
+    float: left;
+    height: auto;
+    z-index: 9;
+    width: 10vw;
+    border-radius: 0px 0px 25px 25px;
+    margin: auto;
+}
+/* .btn-back {
     position: relative;
     top: 20px;
     left: 40px;
     float: left;
-}
+} */
 
 .btn-back i{
     color: #fff;
@@ -50,7 +63,7 @@ header{
 }
 
 .logo2 {
-    /*background: url(../svg/logoSolo.svg) no-repeat;*/
+    background: url('../svg/logoSolo.svg') no-repeat;
     height: 24px;
     width: 80%;
     position: relative;

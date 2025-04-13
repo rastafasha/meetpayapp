@@ -9,18 +9,23 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Pais } from '../../../models/pais';
 import { PaisesService } from '../../../services/paises.service';
+import { LoadingComponent } from '../../../shared/loading/loading.component';
+import { LoadingSimpleComponent } from "../../../shared/loading-simple/loading-simple.component";
+import { BackAreaComponent } from '../../../shared/back-area/back-area.component';
 
 @Component({
   selector: 'app-edit',
   imports: [HeaderComponent,
     ReactiveFormsModule,
-        FormsModule,
-        TranslateModule,
-        NgIf,
-        NgFor,
-        CommonModule,
-        RouterModule
-        
+    FormsModule,
+    TranslateModule,
+    NgIf,
+    NgFor,
+    CommonModule,
+    RouterModule,
+    // LoadingComponent, 
+    LoadingSimpleComponent,
+    BackAreaComponent
   ],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.scss',
@@ -106,6 +111,7 @@ export class EditComponent {
     }
 
     iniciarFormularioPerfil(id:string){
+      this.isLoading = true;
       if (!id == null || !id == undefined || id) {
         this.userService.getUserById(id).subscribe(
           (res:any) => {
@@ -147,6 +153,7 @@ export class EditComponent {
             this.ageRange = res.preferencia_edad;
             this.distanceRange = res.preferencia_distancia;
             // console.log('user_selected',this.user_selected);
+            this.isLoading = false;
   
           }
   

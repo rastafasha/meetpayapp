@@ -6,7 +6,7 @@
     width: 100%;
     display: grid;
     grid-template-areas: "input";
-    padding-bottom: 20px;
+    margin-bottom: 30px;
 
 }
 /* .input */
@@ -74,4 +74,31 @@
     align-items: center;
     gap:20px;
     margin-bottom: 20px;
+    justify-content: space-evenly;
+    
+}
+.gender_form p{
+    margin-bottom: 10px;
+    
+}
+.gender_form .checkbox-wrapper-6{
+    align-items: center;
+    display: flex
+;
+    flex-direction: column;
+    
+}
+
+.range__form{
+    background-color: var(--negro-ranges);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.profile_form{
+    background-color: var(--negro-ranges);
+    border-radius: 12px;
+    padding: 20px;
+    margin: auto;
+    width: 90%;
 }

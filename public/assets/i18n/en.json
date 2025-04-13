@@ -41,6 +41,7 @@
     "File Documents": "File Documents",
     "Payment Methods": "Payment Methods",
     "Back": "Back",
+    "Years Old": "Years",
     "paymentmethod":{
         "title":"Manage your payment methods",
         "text":"You can make payment methods with the following options",

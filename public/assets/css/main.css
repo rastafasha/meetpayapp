@@ -18,6 +18,7 @@
 /* Contenido basico */
 @import url("paypeermeetStyle.css");
 @import url("../plugins/mdtoast.min.css");
+@import url("animating-scrolling.css");
 @import url("normalize.css");
 *,
 *:after,
@@ -32,8 +33,11 @@
 
 :root {
     --azul: #003471;
+    --fondo-blanco: #f2f2f2;
+    --fondo-negro: #272626;
     --vinotinto: #590505;
-    --blanco: #f6f6f6;
+    --blanco: #fff;
+    --negro-ranges: #1a1919;
 }
 
 body {
@@ -63,8 +67,12 @@ b {
     -o-background-size: cover;
 }
 
-.card {
-    position: relative;
+.playground {
+    /* position: relative; */
+    /* margin-bottom: 50px; */
+    width: 98vw;
+    margin: 0 auto;
     top: 50px;
-    margin-bottom: 50px;
+    margin-top: 50px;
+    padding-top: 20px;
 }

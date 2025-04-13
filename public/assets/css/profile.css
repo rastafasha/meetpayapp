@@ -2,9 +2,12 @@
 /*---pefil 1--*/
 
 .fotoperfil {
-    padding-top: 30px;
-    padding-left: 20px;
-    padding-right: 20px;
+    position: relative;
+    height: auto;
+    background-color: var(--negro-ranges);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 .fotoperfil .perfilf {

@@ -1,5 +1,7 @@
 <app-header></app-header>
-<div class="card profileedit">
+
+<app-back-area></app-back-area>
+<div class="playground profileedit" >
     <div class="card-body">
         <div class="fotoperfil">
           <div class="perfilf">
@@ -11,7 +13,7 @@
                 <li><img [src]="'/assets/images/plus.jpg'" alt=""></li>
             </ul>
         </div>
-        <div class="card">
+        <div class="profile_form">
             <h2>{{user.first_name}} {{user.last_name}}</h2>
             <p>{{user.username}}</p>
             <p>{{user.email}}</p>
@@ -34,8 +36,9 @@
         </div>
         <form action="" [formGroup]="userForm" class="form">
             <!-- perfil -->
-                <div class="infoperfil" *ngIf="option_selected === 1">
-                <div class="row ">
+            <div class="infoperfil" *ngIf="option_selected === 1 ">
+                <app-loading-simple *ngIf="isLoading"></app-loading-simple>
+                <div class="row " *ngIf="!isLoading" >
 
                     
                     <!-- Nombre -->
@@ -350,7 +353,7 @@
                       </div>
                       
                 </div> <!-- Closing the row for perfil -->
-                <div class="row">
+                <div class="row" *ngIf="!isLoading">
                     <div>
                         <button type="submit" class="butonhome" (click)="onUserSave()">{{'formulario.Save'|translate}}</button>
                     </div>
@@ -442,20 +445,20 @@
                       <br>
                       <br>
                         <!-- Edad -->
-                        <div class="col-12 col-md-4 col-xl-4">
+                        <div class="range__form">
                             <div class="form-group select-gender input-group gap-3">
                                 <label class="gen-label">{{'formulario.Age'| translate}}<span class="login-danger">*</span></label><br>
                                 <div>
                                     <input type="range" min="1" max="100"  class="slider" [value]="ageRange"   id="myRangeAge"
                                     formControlName="preferencia_edad" name="preferencia_edad" (change)="onAgeRange($any($event.target).value)">
-                                    <b>{{ageRange}}</b> años.
+                                    <b>{{ageRange}}</b> {{'Years Old'|translate}}
                                 </div>
                             </div>
                         </div>
                         <br>
                         <br>
                         <!--  Distancia -->
-                        <div class="col-12 col-md-4 col-xl-4">
+                        <div class="range__form">
                             <label class="gen-label">{{'formulario.Distance'| translate}}<span class="login-danger">*</span></label><br>
                             <div class="form-group select-gender input-group gap-3">
                                 <input type="range" min="1" max="100"  class="slider" value="distanceRange"   id="myRangeDistance"

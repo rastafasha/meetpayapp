@@ -3,10 +3,11 @@ import { HeaderComponent } from "../../shared/header/header.component";
 import { ModalfooterComponent } from '../../components/modalfooter/modalfooter.component';
 import { UsersRamdomService } from '../../services/users-ramdom.service';
 import { RouterModule } from '@angular/router';
+import { BackAreaComponent } from "../../shared/back-area/back-area.component";
 
 @Component({
   selector: 'app-start-meet',
-  imports: [HeaderComponent, RouterModule],
+  imports: [HeaderComponent, RouterModule, BackAreaComponent],
   templateUrl: './start-meet.component.html',
   styleUrl: './start-meet.component.scss'
 })
