@@ -5,7 +5,7 @@ import { Usuario } from '../../../models/user';
 import { UserService } from '../../../services/user.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Pais } from '../../../models/pais';
 import { PaisesService } from '../../../services/paises.service';
@@ -78,6 +78,7 @@ export class EditComponent {
       private fb: FormBuilder,
       private userService: UserService,
       private activatedRoute: ActivatedRoute,
+      private router: Router,
       private paisService:PaisesService,
       private toastr: ToastrService
     ){
@@ -281,6 +282,58 @@ export class EditComponent {
     this.userService.updateProfile(data, this.user.uid).subscribe((resp:any)=>{
       console.log(resp);
       this.toastr.success('Actualizado!', 'Ya conocer');
+    })
+    }
+
+    onUserSavePreferencias(){
+
+      const formData = new FormData();
+      formData.append("email", this.user.email);
+      // formData.append("usuario", this.user.uid+'');
+      // formData.append("role", 'USER');
+
+      if (this.userForm.value.first_name) {
+      formData.append("first_name", this.userForm.value.first_name);
+      
+    }
+      if (this.userForm.value.last_name) {
+      formData.append("last_name", this.userForm.value.last_name);
+      
+    }
+      
+      if (this.userForm.value.numdoc) {
+      formData.append("numdoc", this.userForm.value.numdoc);
+      
+    }
+    
+      
+      if (this.userForm.value.preferencia_edad) {
+      formData.append("preferencia_edad", this.userForm.value.preferencia_edad);
+      
+    }
+      if (this.userForm.value.preferencia_distancia) {
+      formData.append("preferencia_distancia", this.userForm.value.preferencia_distancia);
+      
+    }
+      if (this.userForm.value.preferencia_lang) {
+      formData.append("preferencia_lang", this.userForm.value.preferencia_lang);
+      
+    }
+      if (this.userForm.value.preferencia_sexo) {
+      formData.append("preferencia_sexo", this.userForm.value.preferencia_sexo);
+      
+    }
+
+    const data = {
+      ...this.userForm.value,
+      // usuario: this.user.uid,
+    }
+    console.log(data);
+    
+    this.userService.updateProfile(data, this.user.uid).subscribe((resp:any)=>{
+      console.log(resp);
+      this.toastr.success('Actualizado!', 'Ya conocer');
+      this.router.navigate(['/start-meet']);
     })
     }
 

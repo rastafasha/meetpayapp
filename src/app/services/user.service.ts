@@ -1,6 +1,5 @@
 import { Injectable, NgZone, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {environment} from '../../environments/environment';
 
 import { RegisterForm } from '../auth/interfaces/register-form.interface';
 import { CargarUsuario } from '../auth/interfaces/cargar-usuarios.interface';
@@ -10,6 +9,7 @@ import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { Usuario } from '../models/user';
 import { LoginForm } from '../auth/interfaces/login-form.interface';
+import { environment } from '../environments/environment';
 
 const base_url = environment.baseUrl;
 const userGoogle = environment.client_idGoogle;
