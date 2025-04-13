@@ -20,6 +20,7 @@ export class StartMeetComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     // const pinElement = this.el.nativeElement.querySelector('#pin');
     // if (pinElement) {
     //   this.renderer.listen(pinElement, 'click', () => this.toggleClasses());

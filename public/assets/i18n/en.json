@@ -1,7 +1,7 @@
 {
     "welcome-back": "Welcome back",
     "Start Meet": "Start Meet",
-    "Language": "Lang",
+    "Language": "Language",
     "Show me": "Show me",
     "Contacts": "Contacts",
     "English": "English",
@@ -71,6 +71,7 @@
         "Gender":"Gender",
         "Male":"Male",
         "Female":"Female",
+        "Both":"Both",
         "Speciality":"Speciality",
         "pleaseSelec":"Select a Speciality",
         "Address":"Address",

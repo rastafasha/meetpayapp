@@ -176,6 +176,8 @@ export class UserService {
     )
   }
 
+  
+
   actualizarPerfil(data: {email: string, nombre: string, role: string}){
 
     data = {
@@ -183,11 +185,16 @@ export class UserService {
       role: this.usuario.role || ''
     }
 
-    return this.http.put(`${base_url}/usuarios/editar/${this.uid}`, data, this.headers);
+    return this.http.put(`${base_url}/usuarios/update/${this.uid}`, data, this.headers);
+  }
+
+  updateProfile(usuario:Usuario, uid:any) {
+    const url = `${base_url}/usuarios/update/${uid}`;
+    return this.http.put(url, usuario, this.headers);
   }
 
   update(user: Usuario){
-    return this.http.put(`${base_url}/usuarios/editar/${user}`,this.headers);
+    return this.http.put(`${base_url}/usuarios/update/${user}`,this.headers);
   }
 
  

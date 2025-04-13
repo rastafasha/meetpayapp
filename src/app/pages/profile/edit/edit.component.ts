@@ -6,6 +6,9 @@ import { UserService } from '../../../services/user.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Pais } from '../../../models/pais';
+import { PaisesService } from '../../../services/paises.service';
 
 @Component({
   selector: 'app-edit',
@@ -31,7 +34,7 @@ export class EditComponent {
   public user_id!: string;
   
   contacts:Array <any> = [];
-  paises:Array <any> = [];
+  paises:Pais[]=[];
   
   public user_selected:any = null;
   public userProfile!:Usuario;
@@ -43,6 +46,8 @@ export class EditComponent {
 
   userForm!: FormGroup;
   preferenciaForm!: FormGroup;
+
+
 // value: any;
   // userForm: FormGroup = new FormGroup({
   //   first_name: new FormControl('', [Validators.required]),
@@ -68,21 +73,31 @@ export class EditComponent {
       private fb: FormBuilder,
       private userService: UserService,
       private activatedRoute: ActivatedRoute,
+      private paisService:PaisesService,
+      private toastr: ToastrService
     ){
       this.user = this.userService.getUser();
     }
 
     ngOnInit(){
+      window.scrollTo(0, 0);
       this.validarFormularioPerfil();
       this.activatedRoute.params.subscribe( ({id}) => this.getUserProfile(id));
-      
+      this.getPaisList()
+    }
+
+    getPaisList(){
+      this.paisService.getPaises().subscribe((resp:any)=>{
+        // console.log(resp);
+        this.paises = resp;
+      })
     }
 
     getUserProfile(id:string){
       this.userService.getUserById(id).subscribe(
         res =>{
           this.userProfile = res;
-          console.log('usuarioServer',this.userProfile)
+          // console.log('usuarioServer',this.userProfile)
           // error => this.error = error;
         }
       );
@@ -128,7 +143,10 @@ export class EditComponent {
             //   preferencia_edad: res.preferencia_edad,
             // });
             this.user_selected = res;
-            console.log('user_selected',this.user_selected);
+
+            this.ageRange = res.preferencia_edad;
+            this.distanceRange = res.preferencia_distancia;
+            // console.log('user_selected',this.user_selected);
   
           }
   
@@ -142,6 +160,7 @@ export class EditComponent {
     validarFormularioPerfil(){
       this.userForm = this.fb.group({
         first_name: ['', Validators.required],
+        email: [this.user.email],
         last_name: ['', Validators.required],
         edad: ['', Validators.required],
         pais: [''],
@@ -151,9 +170,7 @@ export class EditComponent {
         direccion: [''],
         google: [''],
         facebook: [''],
-        instagram: [''],
         twitter: [''],
-        linkedin: [''],
         numdoc: [''],
         genero: [''],
         descripcion: ['', Validators.required],
@@ -161,43 +178,103 @@ export class EditComponent {
         preferencia_distancia: [''],
         preferencia_lang: [''],
         preferencia_sexo: [''],
-        usuario: [this.user._id],
-        id: [''],
+        usuario: [this.user.uid],
+        // id: [''],
       });
 
       
     }
 
     onUserSave(){
-      const formValue = this.userForm.value;
 
-    // const data ={
-    //   redessociales: this.redessociales,
-    //   precios: this.tarifas,
+      const formData = new FormData();
+      formData.append("email", this.user.email);
+      // formData.append("usuario", this.user.uid+'');
+      // formData.append("role", 'USER');
 
-    //   nombre: formValue.nombre,
-    //   apellidos: formValue.apellidos,
-    //   pais: formValue.pais,
-    //   estado: formValue.estado,
-
-    //   ciudad: formValue.ciudad,
-    //   telhome: formValue.telhome,
-    //   telmovil: formValue.telmovil,
-    //   shortdescription: formValue.shortdescription,
-    //   usuario: this.user.id,
-    //   id: formValue.id,
-    //   user_id :this.user_id,
-    //   profile_id :this.profile_id,
-    //   // img: this.profile.img,
-    //   // imagen: this.FILE_AVATAR.,
-    //   avatar: this.FILE_AVATAR.name,
-    //   ...this.userForm.value,
-
+      if (this.userForm.value.first_name) {
+      formData.append("first_name", this.userForm.value.first_name);
       
-    // }
+    }
+      if (this.userForm.value.last_name) {
+      formData.append("last_name", this.userForm.value.last_name);
+      
+    }
+      
+      if (this.userForm.value.numdoc) {
+      formData.append("numdoc", this.userForm.value.numdoc);
+      
+    }
+      if (this.userForm.value.genero) {
+      formData.append("genero", this.userForm.value.genero);
+      
+    }
+      if (this.userForm.value.direccion) {
+      formData.append("direccion", this.userForm.value.direccion);
+      
+    }
+      if (this.userForm.value.descripcion) {
+      formData.append("descripcion", this.userForm.value.descripcion);
+      
+    }
+      if (this.userForm.value.edad) {
+      formData.append("edad", this.userForm.value.edad);
+      
+    }
+      if (this.userForm.value.lang) {
+      formData.append("lang", this.userForm.value.lang);
+      
+    }
+      if (this.userForm.value.pais) {
+      formData.append("pais", this.userForm.value.pais);
+      
+    }
+      if (this.userForm.value.ciudad) {
+      formData.append("ciudad", this.userForm.value.ciudad);
+      
+    }
+      if (this.userForm.value.telefono) {
+      formData.append("telefono", this.userForm.value.telefono);
+      
+    }
+    
+      if (this.userForm.value.google) {
+      formData.append("google", this.userForm.value.google);
+      
+    }
+    
+      if (this.userForm.value.facebook) {
+      formData.append("facebook", this.userForm.value.facebook);
+      
+    }
+      
+      if (this.userForm.value.preferencia_edad) {
+      formData.append("preferencia_edad", this.userForm.value.preferencia_edad);
+      
+    }
+      if (this.userForm.value.preferencia_distancia) {
+      formData.append("preferencia_distancia", this.userForm.value.preferencia_distancia);
+      
+    }
+      if (this.userForm.value.preferencia_lang) {
+      formData.append("preferencia_lang", this.userForm.value.preferencia_lang);
+      
+    }
+      if (this.userForm.value.preferencia_sexo) {
+      formData.append("preferencia_sexo", this.userForm.value.preferencia_sexo);
+      
+    }
 
-    console.log(formValue);
-    // console.log(data);
+    const data = {
+      ...this.userForm.value,
+      // usuario: this.user.uid,
+    }
+    console.log(data);
+    
+    this.userService.updateProfile(data, this.user.uid).subscribe((resp:any)=>{
+      console.log(resp);
+      this.toastr.success('Actualizado!', 'Ya conocer');
+    })
     }
 
     optionSelected(value:number){
@@ -218,11 +295,11 @@ export class EditComponent {
     onAgeRange(value:any){
       this.ageRange = value;
       this.userForm.patchValue({preferencia_edad: value});
-      console.log('Age range changed to:', value);
+      // console.log('Age range changed to:', value);
     }
     ondistanceRange(value:any){
       this.distanceRange = value;
       this.userForm.patchValue({preferencia_distancia: value});
-      console.log(value);
+      // console.log(value);
     }
 }

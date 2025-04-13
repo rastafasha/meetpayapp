@@ -32,7 +32,7 @@ export class HeaderComponent {
     this.translate.addLangs(["es", "en"]);
     this.langs = this.translate.getLangs();
     this.translate.get(this.langs).subscribe(res =>{
-      console.log(res);
+      // console.log(res);
     })
     // console.log(this.translate);
   }
@@ -46,12 +46,8 @@ export class HeaderComponent {
 
   ngOnInit(){
     this.user = this.userService.getUser();
-    console.log(this.user);
-    // setTimeout(()=>{
-    //   if(!this.user){
-    //     this.router.navigateByUrl('/login');
-    //   }
-    // },1000 )
+    // console.log(this.user);
+    
 
   }
   

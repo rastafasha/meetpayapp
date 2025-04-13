@@ -171,7 +171,7 @@
                                     <span class="input-group-text " id="basic-addon1">
                                         <i class="fa fa-globe" aria-hidden="true"></i><span class="login-danger">*</span>
                                     </span>
-                                    <label for="validationCustom02" class="form-label">{{'formulario.Language'| translate}} <span class="login-danger">*</span></label>
+                                    <label for="validationCustom02" class="form-label">{{'Language'| translate}} <span class="login-danger">*</span></label>
                                 </div>
                                 <select class="form-control input" formControlName="lang"  >
                                     <option value="es"> ES</option>
@@ -352,7 +352,7 @@
                 </div> <!-- Closing the row for perfil -->
                 <div class="row">
                     <div>
-                        <button type="button" class="butonhome" (click)="onUserSave()">{{'formulario.Save'|translate}}</button>
+                        <button type="submit" class="butonhome" (click)="onUserSave()">{{'formulario.Save'|translate}}</button>
                     </div>
                 </div>
                 </div> <!-- Closing infoperfil for option_selected === 1 -->
@@ -418,7 +418,7 @@
                                 <span class="input-group-text " id="basic-addon1">
                                     <i class="fa fa-globe" aria-hidden="true"></i><span class="login-danger">*</span>
                                 </span>
-                                <label for="validationCustom02" class="form-label">{{'formulario.Language'| translate}} <span class="login-danger">*</span></label>
+                                <label for="validationCustom02" class="form-label">{{'Language'| translate}} <span class="login-danger">*</span></label>
                             </div>
                             <select class="form-control input" formControlName="preferencia_lang"  >
                                 <option value=""> Seleccione</option>
@@ -468,7 +468,7 @@
                     </div>
                     <div class="clear"></div>
                     <br><br>
-                    <a (click)="onUserSave()"><button class="butonhome">{{'Start Meet'|translate}}</button></a>
+                    <a (click)="onUserSave()"><button type="submit" class="butonhome">{{'Start Meet'|translate}}</button></a>
                     <br><br>
                 </div> <!-- Closing infoperfil for option_selected === 2 -->
                 
