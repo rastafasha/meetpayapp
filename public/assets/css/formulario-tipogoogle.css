@@ -114,4 +114,5 @@
     padding: 20px;
     margin: auto;
     width: 90%;
+    border: var(--borde-fino)
 }

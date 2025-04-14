@@ -1,27 +1,31 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from "../../../shared/header/header.component";
 import { SliderGalleryComponent } from '../../../components/slider-gallery/slider-gallery.component';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { BackAreaComponent } from '../../../shared/back-area/back-area.component';
 import { FormBuilder } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../services/auth.service';
 import { UserService } from '../../../services/user.service';
 import { Usuario } from '../../../models/user';
 import { UserContactService } from '../../../services/user-contact.service';
+import { LoadingComponent } from "../../../shared/loading/loading.component";
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-view',
   imports: [HeaderComponent, SliderGalleryComponent,
     RouterModule, BackAreaComponent,
-    TranslateModule
+    TranslateModule, LoadingComponent,
+    NgIf,ToastrModule
   ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss'
 })
 export class ViewComponent {
 
+  public isLoading = false;
 public user!: Usuario;
 public user_selected!:any;
 public users!:any;
@@ -39,6 +43,7 @@ langs: string[] = [];
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
     private translate: TranslateService,
+    private router: Router,
     
 
   ){
@@ -62,17 +67,19 @@ langs: string[] = [];
   
   getUserLocal(id:string){
     // console.log(id);
+    this.isLoading = true
     this.userService.getUsersLocal().subscribe((resp:any)=>{
       // console.log(resp);
       this.users = resp.users;
       //filtramos el usuario seleccionado
       this.user_selected = this.users.find((user: any) => user.uid === id);
       console.log(this.user_selected);
+      this.isLoading = false;
     })
   }
 
   getUserProfile(id:string){
-    // this.isLoading = true;
+    this.isLoading = true;
     if (!id == null || !id == undefined || id) {
       this.userService.getUserById(id).subscribe(
         (res:any) => {
@@ -82,7 +89,7 @@ langs: string[] = [];
           // this.ageRange = res.preferencia_edad;
           // this.distanceRange = res.preferencia_distancia;
           // // console.log('user_selected',this.user_selected);
-          // this.isLoading = false;
+          this.isLoading = false;
 
         }
 
@@ -95,7 +102,7 @@ langs: string[] = [];
 
   onAddContact(){
     // console.log(this.user_selected);
-
+    this.isLoading = true
     const data ={
       user: this.user.uid,
       contact: this.user_selected.uid,
@@ -103,6 +110,9 @@ langs: string[] = [];
     
     this.userContactService.createUserContacts(data).subscribe((resp:any)=>{
       console.log(resp);
+      this.isLoading = false;
+      this.router.navigate(['/myprofile', this.user.uid]);
+      
     })
   }
 

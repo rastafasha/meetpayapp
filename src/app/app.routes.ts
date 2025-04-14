@@ -19,6 +19,7 @@ export const routes: Routes = [
     {path: 'myprofile', component: EditComponent},
     {path: 'myprofile/:id', component: EditComponent},
     {path: 'profile-gallery', component: GaleriaComponent},
+    {path: 'profile-contac/:id', component: GaleriaComponent},
     {path: 'analizer', component: AnalizadorComponent},
     {path: 'tracking', component: TrackingComponent},
     {path: 'chat', component: ChatComponent},

@@ -127,6 +127,7 @@ export class StartMeetComponent implements OnInit {
     })
   }
   getUsersbyGender(){
+    this.isLoading = true;
     // this.userRandomService.getCharactersGender(this.genero, this.distancia, this.edad).subscribe((resp:any)=>{
     //   // console.log('por genero',resp);
     //   this.usersLocal = resp.results;    })
@@ -140,6 +141,7 @@ export class StartMeetComponent implements OnInit {
           randomLeft: Math.floor(Math.random() * 300) // example max 300px
         };
       });
+      this.isLoading = false;
     })
 
   }

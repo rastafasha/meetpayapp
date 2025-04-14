@@ -1,0 +1,13 @@
+.buttons_group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    & .butonhome{
+        width: 60vw;
+        padding: 5px;
+    }
+}

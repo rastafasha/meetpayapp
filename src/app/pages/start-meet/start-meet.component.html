@@ -16,58 +16,65 @@
     <div class="card ">
         <div class="card-body">
             <div *ngIf="option_selected === 1">
-                <ul class=" itemFav scrollinganimate" *ngFor="let userl of usersLocal">
-                    <li>
-                        <div class="user_list">
-                            <div class="image_container">
-                                <img [src]="'./assets/images/foto-perfil2.jpg'"  alt="">
+                <div *ngIf="!isLoading">
+
+                    <ul class=" itemFav scrollinganimate" *ngFor="let userl of usersLocal">
+                        <li>
+                            
+                            <div class="user_list cursor" (click)="showUser(userl)" >
+                                <div class="image_container">
+                                    <img [src]="'./assets/images/foto-perfil2.jpg'"  alt="">
+                                </div>
+                                <div class="user_info">
+                                    <h4>{{userl.first_name}} {{userl.last_name}}</h4>
+                                    <p>{{userl.genero}}</p>
+                                </div>
+                                <div class="actions">
+                                    <button class="butonhome" (click)="showUser(userl)"><i class="fa fa-eye"></i></button>
+                                </div>
                             </div>
-                            <div class="user_info">
-                                <h4>{{userl.first_name}} {{userl.last_name}}</h4>
-                                <p>{{userl.genero}}</p>
-                            </div>
-                            <div class="actions">
-                                <button class="butonhome" (click)="showUser(userl)"><i class="fa fa-eye"></i></button>
-                            </div>
-                        </div>
-                    </li>  
-                </ul>
+                        </li>  
+                    </ul>
+                </div>
             </div>
             <div *ngIf="option_selected === 2">
-
-                <div class="fotos-perfiles " *ngFor="let userl of usersLocal" >
-                    
-                    <div class="pin " id="pin" (click)="showUser(userl)" [ngStyle]="{'top.px': userl.randomTop, 'left.px': userl.randomLeft, 'position': 'absolute'}">
-                        <img [src]="userl.profilePhoto" alt="" class="perfilimg">
+                <app-loading *ngIf="isLoading"></app-loading>
+                <div *ngIf="!isLoading">
+                    <div class="fotos-perfiles " *ngFor="let userl of usersLocal" >
+                        
+                        <div class="pin " id="pin" (click)="showUser(userl)" [ngStyle]="{'top.px': userl.randomTop, 'left.px': userl.randomLeft, 'position': 'absolute'}">
+                            <img [src]="userl.profilePhoto" alt="" class="perfilimg">
+                        </div>
+                        <!-- <div class="pin" [id]="'pin2'" (click)="showUser(value)">
+                            <img [src]="'./assets/images/foto-perfil3.jpg'" alt="" class="perfilimg">
+                        </div>
+                        <div class="pin" [id]="'pin3'" (click)="showUser(value)">
+                            <img [src]="'./assets/images/foto-perfil4.jpg'" alt="" class="perfilimg">
+                        </div> -->
                     </div>
-                    <!-- <div class="pin" [id]="'pin2'" (click)="showUser(value)">
-                        <img [src]="'./assets/images/foto-perfil3.jpg'" alt="" class="perfilimg">
+                    <div class="mapafondo">
+                        <!-- <google-map
+                        mapId="dc579dc9045a416e"
+                        width="100%"
+                        height="100%"
+                        [center]="center()"
+                        [zoom]="zoom()"
+                        (mapClick)="moveMap($event)"
+                        (mapMousemove)="move($event)">
+                        <map-advanced-marker *ngFor="let userl of usersLocal" 
+                        [position]="{lat: userl.location.latitude, lng: userl.location.longitude}"></map-advanced-marker>
+                          
+                        </google-map> -->
+                        
+                        <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114964.38943709867!2d-80.29949911440481!3d25.78254531203274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a20ec8c111%3A0xff96f271ddad4f65!2sMiami%2C+Florida%2C+EE.+UU.!5e0!3m2!1ses!2sve!4v1522276704175" frameborder="0" style="border:0" allowfullscreen></iframe>
+    
                     </div>
-                    <div class="pin" [id]="'pin3'" (click)="showUser(value)">
-                        <img [src]="'./assets/images/foto-perfil4.jpg'" alt="" class="perfilimg">
+                    <!-- <div class="zoom_mapa">
+                        <input type="range" min="1" max="20"  class="slider"id="myRangeDistance"
+                        [(ngModel)]="zoom" >
                     </div> -->
-                </div>
-                <div class="mapafondo">
-                    <google-map
-                    mapId="dc579dc9045a416e"
-                    width="100%"
-                    height="100%"
-                    [center]="center()"
-                    [zoom]="zoom()"
-                    (mapClick)="moveMap($event)"
-                    (mapMousemove)="move($event)">
-                    <map-advanced-marker *ngFor="let userl of usersLocal" 
-                    [position]="{lat: userl.location.latitude, lng: userl.location.longitude}"></map-advanced-marker>
-                      
-                    </google-map>
-                    
 
                 </div>
-                <div class="zoom_mapa">
-                    <input type="range" min="1" max="20"  class="slider"id="myRangeDistance"
-                    [(ngModel)]="zoom" >
-                </div>
-                <!-- <iframe class="mapafondo" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114964.38943709867!2d-80.29949911440481!3d25.78254531203274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a20ec8c111%3A0xff96f271ddad4f65!2sMiami%2C+Florida%2C+EE.+UU.!5e0!3m2!1ses!2sve!4v1522276704175" frameborder="0" style="border:0" allowfullscreen></iframe> -->
             </div>
         </div>
         <!---perfil1--->

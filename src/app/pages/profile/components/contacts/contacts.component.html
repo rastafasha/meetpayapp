@@ -7,18 +7,22 @@
     <div *ngIf="usercontacts && !isLoading">
         <ul class=" itemFav scrollinganimate" *ngFor="let userl of usercontacts" >
             <li>
-                <div class="user_list">
-                    <div class="image_container">
-                        <img [src]="'./assets/images/foto-perfil2.jpg'"  alt="">
+                <a [routerLink]="['/profile-contac/', userl?.contact]">
+                    <div class="user_list">
+                        <div class="image_container">
+                            <img [src]="'./assets/images/foto-perfil2.jpg'"  alt="">
+                        </div>
+                        <div class="user_info">
+                            <h4>{{userl.user.first_name}} {{userl.user.last_name}}</h4>
+                            <p>{{userl.createdAt | date: 'dd/MM/yyyy: HH:mm:ss'}}</p>
+                            <p>{{userl.user.genero}}</p>
+                        </div>
+                        <div class="actions">
+                            <button type="button" class="butonhome" [routerLink]="['/profile-contac/', userl?.contact]"><i class="fa fa-eye"></i></button>
+                        </div>
                     </div>
-                    <div class="user_info">
-                        <h4>{{userl.user.first_name}} {{userl.user.last_name}}</h4>
-                        <p>{{userl.user.genero}}</p>
-                    </div>
-                    <div class="actions">
-                        <button type="button" class="butonhome" [routerLink]="['/profile-view/', userl?.contact]"><i class="fa fa-eye"></i></button>
-                    </div>
-                </div>
+
+                </a>
             </li>  
         </ul>
     </div>

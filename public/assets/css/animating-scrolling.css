@@ -1,11 +1,12 @@
-*, ::after, ::before{
+*,
+::after,
+::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-#progress-bar{
+#progress-bar {
     position: fixed;
     top: 0;
     width: 0%;
@@ -13,13 +14,17 @@
     height: 1em;
     z-index: 1;
 
-    animation: progress-grow  auto linear;
+    animation: progress-grow auto linear;
     animation-timeline: scroll(root block);
 }
 
 @keyframes progress-grow {
-    from { width: 0%;}
-    to { width: 100%;}
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 .images__container {
@@ -61,7 +66,7 @@
     animation-range: 0 200px;
 } */
 
-.menu-top  {
+.menu-top {
     animation: enhance-header linear both;
     animation-timeline: scroll(root block);
     /* filter: drop-shadow(2px 4px 6px black); */
@@ -70,10 +75,9 @@
     animation: enhance-back linear both;
     animation-timeline: scroll(root block);
     transform: translateY(-70px);
-    transition: all .5 ease;
+    transition: all 0.5 ease;
     /* filter: drop-shadow(2px 4px 6px black); */
 }
-
 
 @keyframes enhance-back {
     to {
@@ -83,7 +87,7 @@
         opacity: 1;
 
         transform: translateY(5px);
-        
+
         /* font-size: 12px; */
         /* color:black; */
     }
@@ -92,18 +96,17 @@
     to {
         /* background: rgba(205, 205, 205, 0.4); */
         backdrop-filter: blur(60px);
-        
+
         /* font-size: 12px; */
         /* color:black; */
     }
 }
 
-
 @keyframes reveal {
-    from { 
+    from {
         opacity: 0;
         translate: 0 100px;
-        scale: .5;
+        scale: 0.5;
     }
     to {
         opacity: 1;
@@ -112,8 +115,12 @@
     }
 }
 
-.scrollinganimate{
+.scrollinganimate {
     animation: reveal linear both;
-        animation-timeline: view();
-        animation-range: entry 20% cover 30%;
+    animation-timeline: view();
+    animation-range: entry 20% cover 30%;
+    /* -webkit-animation: reveal linear both;
+    -webkit-animation-timeline: view();
+    -webkit-animation-range: entry 20% cover 30%; */
+
 }

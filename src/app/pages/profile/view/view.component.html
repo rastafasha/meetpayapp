@@ -1,6 +1,7 @@
 <app-header></app-header>
 <app-back-area></app-back-area>
-<div class="playground">
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="playground" *ngIf="!isLoading">
     <div class="card">
         <div class="card-body">
             <app-slider-gallery ></app-slider-gallery>

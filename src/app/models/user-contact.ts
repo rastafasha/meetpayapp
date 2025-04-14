@@ -5,4 +5,5 @@ export class UserContact{
     user!:Usuario;
     contact!:Usuario;
     status!:boolean;
+    createdAt?:Date;
 }
