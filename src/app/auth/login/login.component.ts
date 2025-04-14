@@ -10,6 +10,7 @@ import { Usuario } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoadingComponent } from "../../shared/loading/loading.component";
+import { AuthService } from '../../services/auth.service';
 // declare const gapi: any;
 
 @Component({
@@ -58,12 +59,10 @@ export class LoginComponent implements OnInit {
   public activeLang = 'es';
 
   
-  
-
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private authService: UserService,
+    private authService: AuthService,
     private translate: TranslateService,
     private placesServices: PlacesService,
     private toastr: ToastrService

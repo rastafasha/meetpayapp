@@ -5,6 +5,7 @@ import { UserService } from '../../services/user.service';
 import { Usuario } from '../../models/user';
 import {TranslateService} from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent {
   year: number = new Date().getFullYear();
   user! : Usuario;
   private _location = inject(Location);
-  private userService = inject(UserService);
+  private authService = inject(AuthService);
   private router = inject(Router);
   private translate = inject(TranslateService);
 
@@ -45,7 +46,7 @@ export class HeaderComponent {
   }
 
   ngOnInit(){
-    this.user = this.userService.getUser();
+    this.user = this.authService.getUser();
     // console.log(this.user);
     const lang = localStorage.getItem('lang');
     if (lang) {
@@ -77,7 +78,7 @@ export class HeaderComponent {
   }
 
   onLogout(){
-    this.userService.logout();
+    this.authService.logout();
   }
 
 }

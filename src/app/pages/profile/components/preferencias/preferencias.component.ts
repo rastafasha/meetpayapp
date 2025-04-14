@@ -18,6 +18,7 @@ import { UserService } from '../../../../services/user.service';
 import { Preferencias } from '../../../../models/preferencias';
 import { PreferenciasService } from '../../../../services/preferencias.service';
 import { PlacesService } from '../../../../services/places.service';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-preferencias',
@@ -53,6 +54,7 @@ export class PreferenciasComponent {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
+    private authService: AuthService,
     private preferenciasService: PreferenciasService,
     private activatedRoute: ActivatedRoute,
     private placeService: PlacesService,
@@ -60,7 +62,7 @@ export class PreferenciasComponent {
     // private paisService:PaisesService,
     private toastr: ToastrService
   ) {
-    this.user = this.userService.getUser();
+    this.user = this.authService.getUser();
     this.loadUserLocation();
   }
 

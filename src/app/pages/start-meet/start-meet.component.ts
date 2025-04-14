@@ -10,6 +10,7 @@ import { UserService } from '../../services/user.service';
 import { LoadingComponent } from "../../shared/loading/loading.component";
 import { NgIf } from '@angular/common';
 import { PlacesService } from '../../services/places.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-start-meet',
@@ -29,6 +30,7 @@ export class StartMeetComponent implements OnInit {
   distancia!:string;
   userLocation:any;
   quiero!:any[];
+  users!:any[];
 
   constructor(
     private renderer: Renderer2,
@@ -36,9 +38,10 @@ export class StartMeetComponent implements OnInit {
      private userRandomService:UsersRamdomService,
      private prefereciasService:PreferenciasService,
      private usuarioService:UserService,
+     private authService:AuthService,
      private placesServices: PlacesService,
     ) {
-      this.user = this.usuarioService.getUser();
+      this.user = this.authService.getUser();
     }
 
   ngOnInit(): void {
@@ -74,6 +77,21 @@ export class StartMeetComponent implements OnInit {
       this.getUsersbyGender();
   }
 
+  
+
+  //buscamos los usuarios segun los datos recibidos de genero
+  
+  getUsers(){
+    this.userRandomService.getCharacters().subscribe((resp:any)=>{
+      // console.log(resp);
+    })
+  }
+  getUsersbyGender(){
+    this.userRandomService.getCharactersGender(this.genero, this.distancia, this.edad).subscribe((resp:any)=>{
+      console.log('por genero',resp);
+      this.users = resp.results;    })
+  }
+
   toggleClasses(value:any): void {
     this.value = value;
     this.isToggled = !this.isToggled;
@@ -87,18 +105,5 @@ export class StartMeetComponent implements OnInit {
       }
     }
     
-  }
-
-  //buscamos los usuarios segun los datos recibidos de genero
-  
-  getUsers(){
-    this.userRandomService.getCharacters().subscribe((resp:any)=>{
-      // console.log(resp);
-    })
-  }
-  getUsersbyGender(){
-    this.userRandomService.getCharactersGender(this.genero, this.distancia, this.edad).subscribe((resp:any)=>{
-      console.log('por genero',resp);
-    })
   }
 }

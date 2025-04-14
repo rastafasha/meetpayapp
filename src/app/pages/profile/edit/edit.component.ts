@@ -14,6 +14,7 @@ import { LoadingSimpleComponent } from "../../../shared/loading-simple/loading-s
 import { BackAreaComponent } from '../../../shared/back-area/back-area.component';
 import { PreferenciasComponent } from "../components/preferencias/preferencias.component";
 import { PlacesService } from '../../../services/places.service';
+import { AuthService } from '../../../services/auth.service';
 @Component({
   selector: 'app-edit',
   imports: [HeaderComponent,
@@ -64,6 +65,7 @@ export class EditComponent {
 
   constructor(
       private fb: FormBuilder,
+      private authService: AuthService,
       private userService: UserService,
       private activatedRoute: ActivatedRoute,
       private router: Router,
@@ -71,9 +73,10 @@ export class EditComponent {
       private placeService:PlacesService,
       private toastr: ToastrService,
       private translate: TranslateService,
+      
 
     ){
-      this.user = this.userService.getUser();
+      this.user = this.authService.getUser();
       this.loadUserLocation();
 
       this.translate.setDefaultLang('en');
