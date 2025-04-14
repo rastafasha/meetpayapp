@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../services/auth.service';
 import { UserService } from '../../../services/user.service';
 import { Usuario } from '../../../models/user';
+import { UserContactService } from '../../../services/user-contact.service';
 
 @Component({
   selector: 'app-view',
@@ -34,6 +35,7 @@ langs: string[] = [];
     private fb: FormBuilder,
     private authService: AuthService,
     private userService: UserService,
+    private userContactService: UserContactService,
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
     private translate: TranslateService,
@@ -59,9 +61,9 @@ langs: string[] = [];
   }
   
   getUserLocal(id:string){
-    console.log(id);
+    // console.log(id);
     this.userService.getUsersLocal().subscribe((resp:any)=>{
-      console.log(resp);
+      // console.log(resp);
       this.users = resp.users;
       //filtramos el usuario seleccionado
       this.user_selected = this.users.find((user: any) => user.uid === id);
@@ -75,7 +77,7 @@ langs: string[] = [];
       this.userService.getUserById(id).subscribe(
         (res:any) => {
           this.user_selected = res;
-          console.log(res);
+          // console.log(res);
 
           // this.ageRange = res.preferencia_edad;
           // this.distanceRange = res.preferencia_distancia;
@@ -89,6 +91,19 @@ langs: string[] = [];
       // this.pageTitle = 'Crear Perfil';
     }
 
+  }
+
+  onAddContact(){
+    // console.log(this.user_selected);
+
+    const data ={
+      user: this.user.uid,
+      contact: this.user_selected.uid,
+    }
+    
+    this.userContactService.createUserContacts(data).subscribe((resp:any)=>{
+      console.log(resp);
+    })
   }
 
 }

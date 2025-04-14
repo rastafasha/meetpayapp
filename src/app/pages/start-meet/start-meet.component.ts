@@ -76,7 +76,7 @@ export class StartMeetComponent implements OnInit {
     
 
   this.placesServices.getAllLocations({ lat: 4.0,lng: -72.0}).subscribe((resp:any)=>{
-    console.log('userAll',resp);
+    // console.log('userAll',resp);
     this.users = resp;
   })
   }
@@ -101,8 +101,8 @@ export class StartMeetComponent implements OnInit {
       this.genero = response[0].genero;
       this.distancia = response[0].distancia;
       this.edad = response[0].edad;
-      console.log(this.genero);
-      console.log(this.edad);
+      // console.log(this.genero);
+      // console.log(this.edad);
       if(this.genero === '1'){
         this.genero = 'male'
       }
@@ -131,8 +131,8 @@ export class StartMeetComponent implements OnInit {
     //   // console.log('por genero',resp);
     //   this.usersLocal = resp.results;    })
     this.usuarioService.getCharactersGender(this.genero,this.edad, this.distancia ).subscribe((resp:any)=>{
-      console.log('por genero',resp);
-      // Add random positions to each user
+      // console.log('por genero',resp);
+      // posicion aleatoria para el demo
       this.usersLocal = resp.users.map((user:any) => {
         return {
           ...user,
@@ -170,7 +170,7 @@ export class StartMeetComponent implements OnInit {
     this.user_selected = userl;
     this.value = isToggled;
     
-    console.log(this.user_selected);
+    // console.log(this.user_selected);
     const quehacer = this.el.nativeElement.querySelector('.quehacer');
 
     if (quehacer) {
@@ -196,7 +196,7 @@ export class StartMeetComponent implements OnInit {
 
   toggleClassesCancel(value:any): void {
     this.value = value;
-    console.log(this.isToggled);
+    // console.log(this.isToggled);
     const quehacer = this.el.nativeElement.querySelector('.quehacer');
 
     if (quehacer) {

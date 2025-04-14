@@ -384,28 +384,7 @@
                 
         </form>
         <div class="infoperfil" *ngIf="option_selected === 3">
-            <!-- <div  *ngFor="let item of contacts"  >
-                <div class="group itemFav shadow">
-                <div class="fa fa-paypal"></div>
-                <img *ngIf="!item.avatar" [src]="item.avatar  | imagenPipe: 'users' " alt="">
-                <img *ngIf="item.avatar" [src]="item.avatar  " alt="">
-    
-                <div class="div1pagocon ">
-                    <div class="d-flex  justify-content-between">
-                        <div class="inf">
-                        <p>{{item.username}}</p>
-                        <small>{{item.email}}</small>
-                        </div>
-                        <a [routerLink]="['/especialista/', item.id]">
-                        <button class="btn btn-outline-primary">
-                            <i class="fa fa-eye"></i>
-                        </button>
-        
-                        </a>
-                    </div>
-                </div>
-                </div>
-            </div> -->
+            <app-contacts></app-contacts>
         </div>
     </div>
    </div>
