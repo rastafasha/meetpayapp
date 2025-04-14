@@ -1,7 +1,7 @@
 {
     "welcome-back": "Welcome back",
     "Start Meet": "Start Meet",
-    "Language": "Lang",
+    "Language": "Language",
     "Show me": "Show me",
     "Contacts": "Contacts",
     "English": "English",
@@ -41,6 +41,8 @@
     "File Documents": "File Documents",
     "Payment Methods": "Payment Methods",
     "Back": "Back",
+    "Years Old": "Years",
+    "agrega": "add a coma ( ,) to add options",
     "paymentmethod":{
         "title":"Manage your payment methods",
         "text":"You can make payment methods with the following options",
@@ -71,6 +73,7 @@
         "Gender":"Gender",
         "Male":"Male",
         "Female":"Female",
+        "Both":"Both",
         "Speciality":"Speciality",
         "pleaseSelec":"Select a Speciality",
         "Address":"Address",
@@ -115,6 +118,8 @@
         "Created At":"Created At",
         "Age":"Age",
         "Distance":"Distance",
+        "I Like":"I Like",
+        "I Want":"I Want",
         "Save":"Save"
     },
     

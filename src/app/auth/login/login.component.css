@@ -5,10 +5,13 @@
     position: relative;
     border-radius: 10px;
     box-shadow: 5px 20px 50px #000;
-    background: var(--vinotinto);
+    background: var(--blanco);
 }
 
-
+.butonhome{
+    border-radius: 100px;
+    width: 50%;
+}
 /* nuevo */
 
 .loginregister {
@@ -43,7 +46,7 @@
 }
 
 label {
-    color: var(--vinotinto);
+    color: var(--blanco);
     justify-content: center;
     display: flex;
     /* margin: 60px; */

@@ -7,7 +7,7 @@
 
 @import url("menus.css");
 @import url("retina.css");
-/* @import url("tabs.css"); */
+@import url("tabs.css");
 @import url("chat.css");
 @import url("slider-fotos.css");
 @import url("loader.css");
@@ -17,10 +17,8 @@
 /* @import url("pagetransition.css"); */
 /* Contenido basico */
 @import url("paypeermeetStyle.css");
-/* @import url("start-meet.css");
-@import url("profile.css");
-@import url("tracking.css"); */
-/* Contenido basico */
+@import url("../plugins/mdtoast.min.css");
+@import url("animating-scrolling.css");
 @import url("normalize.css");
 *,
 *:after,
@@ -35,6 +33,11 @@
 
 :root {
     --azul: #003471;
+    --fondo-blanco: #f2f2f2;
+    --fondo-negro: #272626;
+    --vinotinto: #590505;
+    --blanco: #fff;
+    --negro-ranges: #1a1919;
 }
 
 body {
@@ -64,8 +67,12 @@ b {
     -o-background-size: cover;
 }
 
-.card {
-    position: relative;
+.playground {
+    /* position: relative; */
+    /* margin-bottom: 50px; */
+    width: 98vw;
+    margin: 0 auto;
     top: 50px;
-    padding-bottom: 50px;
+    margin-top: 50px;
+    padding-top: 20px;
 }

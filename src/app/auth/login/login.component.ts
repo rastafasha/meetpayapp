@@ -1,29 +1,34 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-// import Swal from 'sweetalert2';
 // import { ModalCondicionesComponent } from '../../components/modal-condiciones/modal-condiciones.component';
 import { NgIf } from '@angular/common';
 import { PwaNotifInstallerComponent } from '../../shared/pwa-notif-installer/pwa-notif-installer.component';
-// import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { PlacesService } from '../../services/places.service';
 import { Usuario } from '../../models/user';
 import { UserService } from '../../services/user.service';
+import { ToastrService } from 'ngx-toastr';
+import { LoadingComponent } from "../../shared/loading/loading.component";
+import { AuthService } from '../../services/auth.service';
 // declare const gapi: any;
-
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, 
+  imports: [ReactiveFormsModule,
     // ModalCondicionesComponent,
-     NgIf, 
-    //  TranslateModule,
-    //  PwaNotifInstallerComponent
-    ],
+    NgIf,
+    TranslateModule,
+    PwaNotifInstallerComponent, 
+    LoadingComponent
+  ],
   templateUrl: './login.component.html',
   styleUrls: [ './login.component.css' ]
 })
 export class LoginComponent implements OnInit {
+
+  isLoading:boolean = false;
+
   first_name = new FormControl();
   last_name = new FormControl();
   email = new FormControl();
@@ -54,48 +59,49 @@ export class LoginComponent implements OnInit {
   public activeLang = 'es';
 
   
-
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private authService: UserService,
-    // private translate: TranslateService,
-    private placesServices: PlacesService
+    private authService: AuthService,
+    private translate: TranslateService,
+    private placesServices: PlacesService,
+    private toastr: ToastrService
     
   ) {
-
+    
     // this.translate.setDefaultLang('es');
-    // this.translate.setDefaultLang(this.activeLang);
-    // this.translate.use('es');
-    // this.translate.addLangs(["es", "en"]);
-    // this.langs = this.translate.getLangs();
+    this.translate.setDefaultLang(this.activeLang);
+    this.translate.use('es');
+    this.translate.addLangs(["es", "en"]);
+    this.langs = this.translate.getLangs();
     // translate.get(this.langs).subscribe(res =>{
-    //   console.log(res);
-    // })
-    // console.log(this.translate);
-    this.registerForm = this.fb.group({
-      first_name: ['', Validators.required],
-      last_name: ['', Validators.required],
-      email: [ '', [Validators.required, Validators.email] ],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-      role: ['USER'],
-      // terminos: [false, Validators.required],
-      terminos: [false, ],
-  
-    }, {
-      validators: this.passwordsIguales('password', 'password2')
-  
+      //   console.log(res);
+      // })
+      // console.log(this.translate);
+      this.registerForm = this.fb.group({
+        first_name: ['', Validators.required],
+        last_name: ['', Validators.required],
+        email: [ '', [Validators.required, Validators.email] ],
+        password: ['', Validators.required],
+        confirmPassword: ['', Validators.required],
+        role: ['USER'],
+        // terminos: [false, Validators.required],
+        terminos: [false, ],
+        
+      }, {
+        validators: this.passwordsIguales('password', 'password2')
+        
     }); 
   }
   
-ngOnInit(){
+  ngOnInit(){
+    this.authService.getLocalStorage();
   
-  // const lang = localStorage.getItem('lang');
-  //   if (lang) {
-  //     this.activeLang = lang;
-  //     this.translate.use(lang);
-  //     }
+  const lang = localStorage.getItem('lang');
+    if (lang) {
+      this.activeLang = lang;
+      this.translate.use(lang);
+      }
   
   this.loginForm = this.fb.group({
     email: [ localStorage.getItem('email') || '', [Validators.required, Validators.email] ],
@@ -103,13 +109,12 @@ ngOnInit(){
     remember: [false]
 
   });
-  // this.authService.getLocalStorage();
-  
 }
 
 
 
   login(){
+    this.isLoading = true;
     this.authService.login(this.loginForm.value).subscribe(
       (resp: any) => {
         if(this.loginForm.get('remember')?.value){
@@ -119,6 +124,7 @@ ngOnInit(){
         }
         // Store user data and navigate
         this.authService.guardarLocalStorage(resp.token, resp.usuario);
+        this.isLoading = false;
         this.router.navigateByUrl('/start-meet');
       },
       (err) => {
@@ -127,7 +133,9 @@ ngOnInit(){
     )
   }
 
-
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
+  }
 
 
 // Registro
@@ -136,11 +144,15 @@ crearUsuario(){
   // if(this.registerForm.invalid){
   //   return;
   // }
-
+  this.isLoading = true;
   this.authService.crearUsuario(this.registerForm.value).subscribe(
     resp =>{
       // Swal.fire('Registrado!', `Ya puedes ingresar`, 'success');
-      this.ngOnInit();
+      // this.ngOnInit();
+      this.isLoading = false;
+      this.toastr.success('Registrado!', 'Ya puedes ingresar');
+      
+      this.router.navigateByUrl('/myprofile');
     },(error) => {
       // Swal.fire('Error', error.error.msg, 'error');
       this.errors = error.error;

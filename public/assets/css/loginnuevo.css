@@ -5,6 +5,10 @@
     background-color: #fff;
     min-height: 100vh;
     overflow: hidden;
+    background-image: url(../images/fondo-2.jpg);
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   
   .logincontainer .forms-container {
@@ -50,7 +54,7 @@
   
   .logincontainer .title {
     font-size: 2.2rem;
-    color: #444;
+    color: var(--blanco);
     margin-bottom: 10px;
   }
   
@@ -116,7 +120,7 @@
   }
   
   .logincontainer .social-icon:hover {
-    color: var(--vinotinto);
+    color: var(--blanco);
     border-color: var(--vinotinto);
   }
   .logincontainer label[_ngcontent-qto-c61] {
@@ -164,11 +168,15 @@
     top: -10%;
     right: 48%;
     transform: translateY(-50%);
-    background-image: linear-gradient(-45deg, var(--azul) 0%, var(--rojooscuro) 100%);
+    background-image: url(../images/fondo-home.jpg),linear-gradient(-45deg, var(--azul) 0%, var(--vinotinto) 100%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     transition: 1.8s ease-in-out;
     border-radius: 50%;
     z-index: 6;
   }
+  
   
   .logincontainer .image {
     width: 100%;
@@ -273,7 +281,7 @@
     }
     .logincontainer .signin-signup {
       width: 100%;
-      top: 88%;
+      top: 96%;
       transform: translate(-50%, -100%);
       transition: 1s 0.8s ease-in-out;
     }

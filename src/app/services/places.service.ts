@@ -26,7 +26,7 @@ export class PlacesService {
           resolve (this.userLocation);
           //convertimos los datos para obtener el nombre del pais
           this.getCountryName();
-          // console.log(coords);
+          // console.log('coordenadas',coords);
           if(!coords){
             alert('No se pudo obtener la geolocalización')
               // console.error('Error obteniendo la ubicación', error);

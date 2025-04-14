@@ -1,0 +1,26 @@
+.grupo_quiero{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 5px;
+    border: 1px solid #2e2d2d;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    & .quiero_item{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 5px;
+        background-color: var(--azul);
+        border-radius: 4px;
+        padding: 5px;
+        & span{
+            font-size: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

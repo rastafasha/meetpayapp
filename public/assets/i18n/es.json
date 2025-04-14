@@ -7,17 +7,17 @@
     "recent":"Recientes",
     "Category":"Categoría",
     "Refreshing":"Refrescando",
-    "Language": "Lang",
+    "Language": "Idioma",
     "English": "Inglés",
     "Spanish": "Español",
     "Directory": "Directorio",
-    
+    "Show me": "Muestrame",
+    "Contacts": "Contactos",
     "SUPERADMIN":"SUPERADMIN",
     "ADMIN":"ADMIN",
     "MEMBER":"MIEMBRO",
     "GUEST":"INVITADO",
     "saludo": "Hola",
-    
     "Home": "Inicio",
     "Profile": "Perfil",
     "Wallet": "Billetera",
@@ -39,6 +39,8 @@
     "File Documents": "Archivo de Documentos",
     "Payment Methods": "Metodos de Pago",
     "Back": "Regresar",
+    "Years Old": "Años",
+    "agrega": "agrega una coma ( ,) para agregar opciones",
     "paymentmethod":{
         "title":"Administre sus Metodos de pago",
         "text":"Puede crear metodos de pago con la información de su entidad finaciera o cuenta",
@@ -68,6 +70,7 @@
         "Gender":"Género",
         "Male":"Masculino",
         "Female":"Femenino",
+        "Both":"Ambos",
         "Speciality":"Especialidad",
         "pleaseSelec":"Favor seleccione una Especialidad.",
         "Address":"Dirección",
@@ -111,6 +114,11 @@
         "Delete":"Borrar",
         "Confirm":"Confirmar",
         "Created At":"Creado",
+        "Age":"Edad",
+        "Distance":"Distancia",
+        "I Like":"Me Gusta",
+        "I Want":"Quiero",
+
         "Save":"Guardar"
     },
     "aviso":{

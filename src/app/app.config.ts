@@ -6,8 +6,10 @@ import { provideHttpClient, withInterceptors, HttpClient } from '@angular/common
 import { routes } from './app.routes';
 import { HttpRequest, HttpHandlerFn, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { HttpInterceptor } from '@angular/common/http';
 import { provideServiceWorker } from '@angular/service-worker';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideToastr } from 'ngx-toastr';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -15,17 +17,14 @@ export function HttpLoaderFactory(http: HttpClient) {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(
-      withInterceptors([imageInterceptor])
-    ),
-    provideRouter(routes), provideServiceWorker('ngsw-worker.js', {
-            enabled: !isDevMode(),
-            registrationStrategy: 'registerWhenStable:30000'
-          }),
+    provideHttpClient(withInterceptors([imageInterceptor])),
+    provideRouter(routes), 
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    provideAnimationsAsync(),
+    provideToastr(),
     ...TranslateModule.forRoot({
       defaultLanguage: 'es',
       loader: {

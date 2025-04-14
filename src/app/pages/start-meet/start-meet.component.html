@@ -1,69 +1,38 @@
 <app-header></app-header>
-<div class="card mapa">
-    <div class="card-body">
-        <div class="fotos-perfiles ">
-            <div class="pin " [id]="'pin'" (click)="toggleClasses(value)">
-                <img [src]="'/assets/images/foto-perfil2.jpg'" alt="" class="perfilimg">
-            </div>
-            <div class="pin" [id]="'pin2'" (click)="toggleClasses(value)">
-                <img [src]="'/assets/images/foto-perfil3.jpg'" alt="" class="perfilimg">
-            </div>
-            <div class="pin" [id]="'pin3'" (click)="toggleClasses(value)">
-                <img [src]="'/assets/images/foto-perfil4.jpg'" alt="" class="perfilimg">
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="playground" *ngIf="!isLoading">
+    <app-back-area></app-back-area>
+    <div class="card mapa">
+        <div class="card-body">
+            <div class="fotos-perfiles ">
+                <div class="pin " [id]="'pin'" (click)="toggleClasses(value)">
+                    <img [src]="'./assets/images/foto-perfil2.jpg'" alt="" class="perfilimg">
+                </div>
+                <div class="pin" [id]="'pin2'" (click)="toggleClasses(value)">
+                    <img [src]="'./assets/images/foto-perfil3.jpg'" alt="" class="perfilimg">
+                </div>
+                <div class="pin" [id]="'pin3'" (click)="toggleClasses(value)">
+                    <img [src]="'./assets/images/foto-perfil4.jpg'" alt="" class="perfilimg">
+                </div>
             </div>
         </div>
-    </div>
-    <!---perfil1--->
-    <!-- <app-modalfooter></app-modalfooter> -->
-    <div class="quehacer">
-        <h1>What do you want?</h1>
-        
-        <select name="paisEs" class="form-control cuadroInput" required>
-           <option value="">Select..</option>
-           <option value="">Drinks</option>
-           <option value="">Dinner</option>
-           <option value="">Events</option>
-           <option value="">Full Party</option>
-       </select>
-       <a routerLink="/profile-view"><button class="butonhome">Meet</button></a>
-        
-    </div>
-    <!---fin perfil1--->
-    <!---perfil2--->
-   <!-- <div class="quehacer2">
-        <h1>What do you want?</h1>
-        
-        <select name="paisEs" class="form-control cuadroInput" required>
-           <option value="">Select..</option>
-           <option value="">Drinks</option>
-           <option value="">Dinner</option>
-           <option value="">Events</option>
-           <option value="">Full Party</option>
-       </select>
-       <a href="perfil-chica2.html"><button class="butonhome">Meet</button></a>
-        
-    </div> -->
-    <!---fin perfil2--->
-    <!---perfil3--->
-   <!-- <div class="quehacer3">
-        <h1>What do you want?</h1>
-        
-        <select name="paisEs" class="form-control cuadroInput" required>
-           <option value="">Select..</option>
-           <option value="">Drinks</option>
-           <option value="">Dinner</option>
-           <option value="">Events</option>
-           <option value="">Full Party</option>
-       </select>
-       <a href="perfil-chica3.html"><button class="butonhome">Meet</button></a>
-        
-    </div> -->
-    <!---fin perfil3--->
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114964.38943709867!2d-80.29949911440481!3d25.78254531203274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a20ec8c111%3A0xff96f271ddad4f65!2sMiami%2C+Florida%2C+EE.+UU.!5e0!3m2!1ses!2sve!4v1522276704175" frameborder="0" style="border:0" allowfullscreen></iframe>
-   </div>
+        <!---perfil1--->
+        <!-- <app-modalfooter></app-modalfooter> -->
+        <div class="quehacer">
+            <h1>What do you want?</h1>
+            
+            <select name="paisEs" class="form-control cuadroInput" required>
+               <option value="">Select..</option>
+               <option value="">Drinks</option>
+               <option value="">Dinner</option>
+               <option value="">Events</option>
+               <option value="">Full Party</option>
+           </select>
+           <a routerLink="/profile-view"><button class="butonhome">Meet</button></a>
+            
+        </div>
+        <!---fin perfil1--->
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114964.38943709867!2d-80.29949911440481!3d25.78254531203274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a20ec8c111%3A0xff96f271ddad4f65!2sMiami%2C+Florida%2C+EE.+UU.!5e0!3m2!1ses!2sve!4v1522276704175" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+       </div>
+</div>
  
-   <div class="loader">
-       <svg viewBox="0 0 32 32" width="32" height="32">
-       <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-       </svg>
-   </div>

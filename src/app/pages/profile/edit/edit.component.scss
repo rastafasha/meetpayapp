@@ -1,5 +1,13 @@
 .profileedit{
-    background-color: #f2f2f2;
+    // background-color: #f2f2f2;
+    background-color: var(--fondo-negro);
+    color: var(--blanco);
+    & input, select, textarea, option{
+        color: var(--blanco);
+    }
+    & input{
+        margin-bottom: 10px;
+    }
 }
 
 .form{
@@ -26,11 +34,58 @@
         justify-content: space-around;
         align-items: center;
         padding: 20px;
+        list-style: none;
         
     }
     & li {
-
+        cursor: pointer;
+        
+        & :not(.active)::before{
+            content: '';
+            display: block;
+            position: relative;
+            top: 22px;
+            width: 100%;
+            transition: all .3s ease;
+            transform: translateY(0);
+            transform: scale(0);
+            left: 0;
+            border-top: 1px solid transparent;
+        }
+        & a:hover::before{
+            content: '';
+            display: block;
+            position: relative;
+            top: 22px;
+            width: 100%;
+            left: 0;
+            transform: translateY(100%);
+            transform: scale(1);
+            border-top: 1px solid var(--blanco);
+            transition: all .3s ease;
+        }
+        & a {
+            color: var(--blanco);
+        }
+        & .active{
+            color: var(--blanco);
+            // color: var(--azul);
+        }
+        & a.active::before{
+            content: '';
+            display: block;
+            position: relative;
+            top: 22px;
+            width: 100%;
+            left: 0;
+            border-top: 1px solid var(--blanco);
+        }
+        
+        
     }
+
+    
 }
+
 
 

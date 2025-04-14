@@ -1,5 +1,5 @@
-import { environment } from "../../environments/environment";
-
+import { environment } from "../environments/environment";
+import { Preferencias } from "./preferencias";
 
 const base_url = environment.mediaUrlRemoto;
 export class Usuario {
@@ -16,12 +16,17 @@ export class Usuario {
     public google?: boolean,
     public facebook?: boolean,
     public twitter?: boolean,
-    public genero?: string,
+    public genero?: number,
     public lang?: string,
-    public preferencia_sexo?: string,
-    public preferencia_lang?:string,
-    public preferencia_edad?: number,
-    public preferencia_distancia?: number,
+    public direccion?: string,
+    public descripcion?: string,
+    public latitude?: number,
+    public longitude?: number,
+    public ocupacion?: string,
+    public want_kids?: boolean,
+    public smoke?: boolean,
+    public alcohol?: boolean,
+
     public img?: string,
     public terminos?: boolean,
     public role?: 'ADMIN' | 'USER' | 'MEMBER',
