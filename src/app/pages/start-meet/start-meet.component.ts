@@ -1,4 +1,4 @@
-import { Component, Renderer2, ElementRef, OnInit } from '@angular/core';
+import { Component, Renderer2, ElementRef, OnInit, signal } from '@angular/core';
 import { HeaderComponent } from "../../shared/header/header.component";
 import { ModalfooterComponent } from '../../components/modalfooter/modalfooter.component';
 import { UsersRamdomService } from '../../services/users-ramdom.service';
@@ -12,12 +12,13 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
 import { PlacesService } from '../../services/places.service';
 import { AuthService } from '../../services/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
-
+import {GoogleMap, MapAdvancedMarker} from '@angular/google-maps';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-start-meet',
   imports: [HeaderComponent, RouterModule, 
     BackAreaComponent, LoadingComponent, NgIf, NgFor, NgClass,
-    TranslateModule
+    TranslateModule,GoogleMap, MapAdvancedMarker, FormsModule,
   ],
   templateUrl: './start-meet.component.html',
   styleUrl: './start-meet.component.scss'
@@ -41,6 +42,10 @@ export class StartMeetComponent implements OnInit {
 
   user_selected!:any;
 
+  center = signal<google.maps.LatLngLiteral>({lat: 10.498306269999997, lng: -66.90258025999998});
+  zoom =  signal(4);
+  
+  
   constructor(
     private renderer: Renderer2,
      private el: ElementRef,
@@ -60,10 +65,20 @@ export class StartMeetComponent implements OnInit {
     //   this.renderer.listen(pinElement, 'click', () => this.toggleClasses());
     // }
     this.user;
-    // this.getPreferenciasbyUser();
+    this.getPreferenciasbyUser();
     // this.getUsers();
     // this.getUsersbyGender();
-    this.getUserLocal();
+    // this.getUserLocal();
+    // this.getLocationsAll();
+  }
+
+  getLocationsAll(){
+    
+
+  this.placesServices.getAllLocations({ lat: 4.0,lng: -72.0}).subscribe((resp:any)=>{
+    console.log('userAll',resp);
+    this.users = resp;
+  })
   }
 
   optionSelected(value:number){
@@ -86,6 +101,8 @@ export class StartMeetComponent implements OnInit {
       this.genero = response[0].genero;
       this.distancia = response[0].distancia;
       this.edad = response[0].edad;
+      console.log(this.genero);
+      console.log(this.edad);
       if(this.genero === '1'){
         this.genero = 'male'
       }
@@ -95,9 +112,9 @@ export class StartMeetComponent implements OnInit {
       if(this.genero === '3'){
         this.genero = ''
       }
+      this.getUsersbyGender();
       });
       this.isLoading = false;
-      this.getUsersbyGender();
   }
 
   
@@ -110,9 +127,12 @@ export class StartMeetComponent implements OnInit {
     })
   }
   getUsersbyGender(){
-    this.userRandomService.getCharactersGender(this.genero, this.distancia, this.edad).subscribe((resp:any)=>{
-      // console.log('por genero',resp);
-      this.users = resp.results;    })
+    // this.userRandomService.getCharactersGender(this.genero, this.distancia, this.edad).subscribe((resp:any)=>{
+    //   // console.log('por genero',resp);
+    //   this.usersLocal = resp.results;    })
+    this.usuarioService.getCharactersGender(this.genero,this.edad, this.distancia ).subscribe((resp:any)=>{
+      console.log('por genero',resp);
+      this.usersLocal = resp.users;    })
   }
 
 
@@ -175,5 +195,13 @@ export class StartMeetComponent implements OnInit {
       
     }
     
+  }
+
+  moveMap(event: google.maps.MapMouseEvent) {
+    // this.center = (event.latLng.toJSON());
+  }
+
+  move(event: google.maps.MapMouseEvent) {
+    // this.display = event.latLng.toJSON();
   }
 }

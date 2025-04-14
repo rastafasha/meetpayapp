@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { Usuario } from '../models/user';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -6,10 +8,12 @@ import { Injectable } from '@angular/core';
 export class PlacesService {
 
   public userLocation?: [number, number,] ;
- 
+  
+  private http = inject(HttpClient);
   get isUserLocationReady():boolean{
     return !!this.userLocation;
   }
+
 
   constructor() {
     setTimeout(()=>{
@@ -61,6 +65,15 @@ export class PlacesService {
       console.error('Error fetching location data:', error);
       return null;
     }
+  }
+
+  getAllLocations(center: {lat:number, lng:number}){
+    const url = './assets/data/users.json'
+    return this.http.get<[Usuario]>(url, {
+      params: {
+        origin: `${center.lat}, ${center.lng}`
+      }
+    })
   }
   
 }

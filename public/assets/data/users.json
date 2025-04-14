@@ -6,7 +6,7 @@
       "last_name": "García",
       "edad": 28,
       "profesion": "Arquitecta",
-      "genero": "2",
+      "genero": "female",
       "maritalStatus": "soltera",
       "location": {
         "latitude": 40.4168,
@@ -25,7 +25,7 @@
       "last_name": "Martínez",
       "edad": 35,
       "profesion": "Ingeniero",
-      "genero": "1",
+      "genero": "male",
       "maritalStatus": "casado",
       "location": {
         "latitude": 40.4175,
@@ -44,7 +44,7 @@
       "last_name": "Rodríguez",
       "edad": 31,
       "profesion": "Médica",
-      "genero": "2",
+      "genero": "female",
       "maritalStatus": "divorciada",
       "location": {
         "latitude": 40.4182,
@@ -63,7 +63,7 @@
       "last_name": "López",
       "edad": 42,
       "profesion": "Abogado",
-      "genero": "1",
+      "genero": "male",
       "maritalStatus": "soltero",
       "location": {
         "latitude": 40.4189,
@@ -82,7 +82,7 @@
       "last_name": "Sánchez",
       "edad": 26,
       "profesion": "Diseñadora",
-      "genero": "2",
+      "genero": "female",
       "maritalStatus": "soltera",
       "location": {
         "latitude": 40.4196,
@@ -101,7 +101,7 @@
       "last_name": "Pérez",
       "edad": 38,
       "profesion": "Profesor",
-      "genero": "1",
+      "genero": "male",
       "maritalStatus": "casado",
       "location": {
         "latitude": 40.4203,
@@ -120,7 +120,7 @@
       "last_name": "Gómez",
       "edad": 29,
       "profesion": "Psicóloga",
-      "genero": "2",
+      "genero": "female",
       "maritalStatus": "soltera",
       "location": {
         "latitude": 40.4210,
@@ -139,7 +139,7 @@
       "last_name": "Fernández",
       "edad": 45,
       "profesion": "Empresario",
-      "genero": "1",
+      "genero": "male",
       "maritalStatus": "divorciado",
       "location": {
         "latitude": 40.4217,
@@ -158,7 +158,7 @@
       "last_name": "Díaz",
       "edad": 33,
       "profesion": "Enfermera",
-      "genero": "2",
+      "genero": "female",
       "maritalStatus": "casada",
       "location": {
         "latitude": 40.4224,
@@ -177,7 +177,7 @@
       "last_name": "Ruiz",
       "edad": 30,
       "profesion": "Programador",
-      "genero": "1",
+      "genero": "male",
       "maritalStatus": "soltero",
       "location": {
         "latitude": 40.4231,

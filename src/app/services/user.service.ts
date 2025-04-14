@@ -57,6 +57,67 @@ getUserLocal(id:string): Observable<Usuario[]> {
   return this.http.get<Usuario[]>(`./assets/data/users.json/${id}`);
   }
 
+  getCharactersGender(
+    genero?: string,
+    edad?:  number, // Accepts either dob string or age number
+    distancia?: string,
+) {
+
+  let LINK = '';
+
+  if (genero) LINK += `&genero=${genero}`;
+  // si viene la edad buscamos dentro de dob.age
+if (edad !== undefined) {
+    const age = typeof edad === 'number' 
+        ? edad 
+        : new Date().getFullYear() - new Date(edad).getFullYear();
+    LINK += `&edad=${edad}`;
+}
+    if (distancia) LINK += `&distancia=${distancia}`;
+    
+    // Fix URL to add '?' before first query parameter
+    if (LINK.length > 0) {
+      LINK = '?' + LINK.substring(1);
+    }
+
+    return this.http.get<Usuario[]>(`./assets/data/users.json${LINK}`);
+
+
+  }
+//   getCharactersGender(
+//     genero?: string,
+//     distancia?: string,
+//     dobOrAge?: string | number // Accepts either dob string or age number
+// ) {
+
+//   let LINK = '';
+
+//     if (distancia) LINK += `&distance=${distancia}`;
+//     if (genero) LINK += `&gender=${genero}`;
+    
+//     // si viene la edad buscamos dentro de dob.age
+//   if (dobOrAge !== undefined) {
+//       const age = typeof dobOrAge === 'number' 
+//           ? dobOrAge 
+//           : new Date().getFullYear() - new Date(dobOrAge).getFullYear();
+//       LINK += `&dob_age=${age}`;
+//   }
+
+
+//     const url =
+//       this.base_url +
+//       '?exc=login,registered' +
+//       // '&exc=registered' +
+//       // page +
+//       LINK;
+
+//     // const url = `${this.base_url}/?gender=${genero}`;
+
+//     return this.httpClient
+//       .get<any>(url)
+//       // .pipe(map((resp: { ok: boolean; resp }) => resp));
+//   }
+
   
 
   actualizarPerfil(data: {email: string, nombre: string, role: string}){
