@@ -290,7 +290,8 @@ export class EditComponent {
       latitude: this.userLocation?.[1] || 0,
       longitude: this.userLocation?.[0] || 0
     }
-    console.log(data);
+    // console.log(data);
+    this.isLoading = true;
     
     this.userService.updateProfile(data, this.user.uid).subscribe({
       next: (resp: any) => {
@@ -300,6 +301,7 @@ export class EditComponent {
           positionClass: 'toast-bottom-right',
           progressBar: true
         });
+        this.isLoading = false;
       },
       error: (err) => {
         console.error('Profile update error:', err);
@@ -307,8 +309,10 @@ export class EditComponent {
           timeOut: 3000,
           positionClass: 'toast-bottom-right'
         });
+        this.isLoading = false;
       }
     })
+
     }
 
     

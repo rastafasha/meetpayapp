@@ -22,6 +22,10 @@ export class Usuario {
     public descripcion?: string,
     public latitude?: number,
     public longitude?: number,
+    public ocupacion?: string,
+    public want_kids?: boolean,
+    public smoke?: boolean,
+    public alcohol?: boolean,
 
     public img?: string,
     public terminos?: boolean,
