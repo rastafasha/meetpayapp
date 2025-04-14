@@ -50,7 +50,12 @@ export class UserService {
     }
   }
 
-
+getUsersLocal(): Observable<Usuario[]> {
+  return this.http.get<Usuario[]>('./assets/data/users.json');
+  }
+getUserLocal(id:string): Observable<Usuario[]> {
+  return this.http.get<Usuario[]>(`./assets/data/users.json/${id}`);
+  }
 
   
 

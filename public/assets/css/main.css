@@ -38,6 +38,7 @@
     --vinotinto: #590505;
     --blanco: #fff;
     --negro-ranges: #1a1919;
+    --borde-fino: 1px solid #2e2d2d;
 }
 
 body {

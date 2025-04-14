@@ -8,14 +8,16 @@ import { PreferenciasService } from '../../services/preferencias.service';
 import { Usuario } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { LoadingComponent } from "../../shared/loading/loading.component";
-import { NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { PlacesService } from '../../services/places.service';
 import { AuthService } from '../../services/auth.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-start-meet',
   imports: [HeaderComponent, RouterModule, 
-    BackAreaComponent, LoadingComponent, NgIf,
+    BackAreaComponent, LoadingComponent, NgIf, NgFor, NgClass,
+    TranslateModule
   ],
   templateUrl: './start-meet.component.html',
   styleUrl: './start-meet.component.scss'
@@ -23,6 +25,10 @@ import { AuthService } from '../../services/auth.service';
 export class StartMeetComponent implements OnInit {
   private isToggled = false;
   public isLoading = false;
+
+  public option_selected:number = 1;
+  public solicitud_selected:any = null;
+
   value:any;
   user!:Usuario
   genero!:string;
@@ -31,6 +37,9 @@ export class StartMeetComponent implements OnInit {
   userLocation:any;
   quiero!:any[];
   users!:any[];
+  usersLocal!:any[];
+
+  user_selected!:any;
 
   constructor(
     private renderer: Renderer2,
@@ -51,15 +60,29 @@ export class StartMeetComponent implements OnInit {
     //   this.renderer.listen(pinElement, 'click', () => this.toggleClasses());
     // }
     this.user;
-    this.getPreferenciasbyUser();
+    // this.getPreferenciasbyUser();
     // this.getUsers();
     // this.getUsersbyGender();
+    this.getUserLocal();
+  }
+
+  optionSelected(value:number){
+    this.option_selected = value;
+    if(this.option_selected === 1){
+
+      this.ngOnInit();
+    }
+    if(this.option_selected === 2){
+      this.solicitud_selected = null;
+      
+      
+    }
   }
 
   getPreferenciasbyUser(){
     this.isLoading = true;
     this.prefereciasService.getByUserId(this.user.uid).subscribe((response:any)=>{
-      console.log(response);
+      // console.log(response);
       this.genero = response[0].genero;
       this.distancia = response[0].distancia;
       this.edad = response[0].edad;
@@ -88,13 +111,37 @@ export class StartMeetComponent implements OnInit {
   }
   getUsersbyGender(){
     this.userRandomService.getCharactersGender(this.genero, this.distancia, this.edad).subscribe((resp:any)=>{
-      console.log('por genero',resp);
+      // console.log('por genero',resp);
       this.users = resp.results;    })
   }
 
-  toggleClasses(value:any): void {
-    this.value = value;
-    this.isToggled = !this.isToggled;
+
+  getUserLocal(){
+    this.usuarioService.getUsersLocal().subscribe((resp:any)=>{
+      console.log(resp);
+      this.usersLocal = resp.users;
+    })
+  }
+
+  // toggleClasses(value:any): void {
+  //   this.value = value;
+  //   this.isToggled = !this.isToggled;
+  //   const quehacer = this.el.nativeElement.querySelector('.quehacer');
+
+  //   if (quehacer) {
+  //     if (this.isToggled) {
+  //       this.renderer.addClass(quehacer, 'mostrar-quehacer');
+  //     } else {
+  //       this.renderer.removeClass(quehacer, 'mostrar-quehacer');
+  //     }
+  //   }
+    
+  // }
+  toggleClasses(userl:any, isToggled:boolean): void {
+    this.user_selected = userl;
+    this.value = isToggled;
+    
+    console.log(this.user_selected);
     const quehacer = this.el.nativeElement.querySelector('.quehacer');
 
     if (quehacer) {
@@ -103,6 +150,29 @@ export class StartMeetComponent implements OnInit {
       } else {
         this.renderer.removeClass(quehacer, 'mostrar-quehacer');
       }
+    }
+    
+  }
+
+  showUser(userl:any){
+    this.toggleClasses(userl, this.isToggled = true);
+    // this.toggleClasses(true);
+
+  }
+  cancerlOptions(){
+    this.toggleClassesCancel(this.isToggled = false);
+    // this.toggleClasses(true);
+
+  }
+
+  toggleClassesCancel(value:any): void {
+    this.value = value;
+    console.log(this.isToggled);
+    const quehacer = this.el.nativeElement.querySelector('.quehacer');
+
+    if (quehacer) {
+      this.renderer.removeClass(quehacer, 'mostrar-quehacer');
+      
     }
     
   }

@@ -7,7 +7,7 @@
             <li> <h4 class="text-center" style="color: #fff;">{{'saludo'| translate}}, {{user.first_name}}!</h4></li>
             <li><a routerLink="/start-meet">{{'Home'| translate}}</a></li>
             <li><a routerLink="selection-action.html">{{'Payment Methods'| translate}}</a></li>
-            <li><a routerLink="/myprofile">{{'Profile'| translate}}</a></li>
+            <li><a [routerLink]="['/myprofile/', user.uid]">{{'Profile'| translate}}</a></li>
             <li><a routerLink="/tracking">Tracking</a></li>
             <li><a href="#" (click)="onLogout()">{{'auth.Logout'| translate}}</a></li>
         </ul>
