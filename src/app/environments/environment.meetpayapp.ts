@@ -7,7 +7,7 @@ export const environment = {
     mediaUrl: 'https://back-meetpay-api.vercel.app/api/uploads/',
     mediaUrlRemoto: 'https://res.cloudinary.com/dmv6aukai/image/upload/v1741218430/mallConnect',
     soketServer : 'https://back-meetpay-api.vercel.app/',
-
+    googleApiKey: 'AIzaSyAA-EjsTgfHYjNS_ntrFLYRbGypxXmZAUg'
     //plugins
     // rapidapiKey: 'a7036a3222mshc2920e679cd1cafp141e56jsn81cbe707ac15',
     // rapidapiHost: 'apidojo-17track-v1.p.rapidapi.com',

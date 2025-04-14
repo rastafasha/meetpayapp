@@ -15,6 +15,8 @@ import { BackAreaComponent } from '../../../shared/back-area/back-area.component
 import { PreferenciasComponent } from "../components/preferencias/preferencias.component";
 import { PlacesService } from '../../../services/places.service';
 import { AuthService } from '../../../services/auth.service';
+import { ChatComponent } from "../../chat/chat.component";
+import { ContactsComponent } from "../components/contacts/contacts.component";
 @Component({
   selector: 'app-edit',
   imports: [HeaderComponent,
@@ -27,8 +29,7 @@ import { AuthService } from '../../../services/auth.service';
     RouterModule,
     // LoadingComponent, 
     LoadingSimpleComponent,
-    BackAreaComponent, PreferenciasComponent
-  ],
+    BackAreaComponent, PreferenciasComponent, ContactsComponent],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.scss',
 })

@@ -9,13 +9,14 @@
              <div class="clear"></div>
             <div class="traking-perfil">
                 <div class="trak-user-name">
-                    <h1><b>Jenny,</b> 26</h1>
+                    <h1><b>{{user_selected.first_name}} {{user_selected.last_name}},</b>
+                        {{user_selected.edad}}</h1>
                     <p>Active today <br>
                        Now more than 6 ml away</p>
                    <div class="clear"></div>
                    <ul>
-                       <li>Occupation: Layer</li>
-                       <li>Wants kids: No</li>
+                       <li>{{'Profession'| translate }}: {{user_selected.profesion}}</li>
+                       <li>Status: {{user_selected.maritalStatus}}</li>
                        <li>Smoke: No</li>
                        <li>Drink: Casual</li>
                     </ul>
@@ -49,7 +50,11 @@
                            <option value="">Master</option>
                            <option value="">Paypal</option>
                        </select>
-                       <a routerLink="/analizer"><button class="butonhome" style="margin-bottom: 30px;">Meet</button></a>    
+                       <!-- <a routerLink="/analizer"><button class="butonhome" style="margin-bottom: 30px;">Meet</button></a>   -->
+                       <div class="buttons_group">
+                        <a ><button class="butonhome" (click)="onAddContact()" >Add Contact</button></a>
+                       <a [routerLink]="['/profile-view/', user_selected?.uid]"><button class="butonhome">Meet</button></a>
+                       </div>  
                      </div>
             </div>
        </div>

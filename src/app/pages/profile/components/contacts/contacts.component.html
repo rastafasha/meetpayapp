@@ -1,0 +1,25 @@
+<app-loading-simple *ngIf="isLoading"></app-loading-simple>
+
+<div *ngIf="!isLoading">
+    <div *ngIf="!usercontacts && !isLoading">
+        <h1>no tienes contactos</h1>
+    </div>
+    <div *ngIf="usercontacts && !isLoading">
+        <ul class=" itemFav scrollinganimate" *ngFor="let userl of usercontacts" >
+            <li>
+                <div class="user_list">
+                    <div class="image_container">
+                        <img [src]="'./assets/images/foto-perfil2.jpg'"  alt="">
+                    </div>
+                    <div class="user_info">
+                        <h4>{{userl.user.first_name}} {{userl.user.last_name}}</h4>
+                        <p>{{userl.user.genero}}</p>
+                    </div>
+                    <div class="actions">
+                        <button type="button" class="butonhome" [routerLink]="['/profile-view/', userl?.contact]"><i class="fa fa-eye"></i></button>
+                    </div>
+                </div>
+            </li>  
+        </ul>
+    </div>
+</div>
