@@ -8,7 +8,7 @@ import { PreferenciasService } from '../../services/preferencias.service';
 import { Usuario } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { LoadingComponent } from "../../shared/loading/loading.component";
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { PlacesService } from '../../services/places.service';
 import { AuthService } from '../../services/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-start-meet',
   imports: [HeaderComponent, RouterModule, 
-    BackAreaComponent, LoadingComponent, NgIf, NgFor, NgClass,
+    BackAreaComponent, LoadingComponent, NgIf, NgFor, NgClass, NgStyle,
     TranslateModule,GoogleMap, MapAdvancedMarker, FormsModule,
   ],
   templateUrl: './start-meet.component.html',
@@ -132,7 +132,16 @@ export class StartMeetComponent implements OnInit {
     //   this.usersLocal = resp.results;    })
     this.usuarioService.getCharactersGender(this.genero,this.edad, this.distancia ).subscribe((resp:any)=>{
       console.log('por genero',resp);
-      this.usersLocal = resp.users;    })
+      // Add random positions to each user
+      this.usersLocal = resp.users.map((user:any) => {
+        return {
+          ...user,
+          randomTop: Math.floor(Math.random() * 300), // example max 300px
+          randomLeft: Math.floor(Math.random() * 300) // example max 300px
+        };
+      });
+    })
+
   }
 
 

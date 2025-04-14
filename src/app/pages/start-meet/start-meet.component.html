@@ -35,18 +35,18 @@
             </div>
             <div *ngIf="option_selected === 2">
 
-                <!-- <div class="fotos-perfiles " >
+                <div class="fotos-perfiles " *ngFor="let userl of usersLocal" >
                     
-                    <div class="pin " [id]="'pin'" (click)="showUser(value)">
-                        <img [src]="'./assets/images/foto-perfil2.jpg'" alt="" class="perfilimg">
+                    <div class="pin " id="pin" (click)="showUser(userl)" [ngStyle]="{'top.px': userl.randomTop, 'left.px': userl.randomLeft, 'position': 'absolute'}">
+                        <img [src]="userl.profilePhoto" alt="" class="perfilimg">
                     </div>
-                    <div class="pin" [id]="'pin2'" (click)="showUser(value)">
+                    <!-- <div class="pin" [id]="'pin2'" (click)="showUser(value)">
                         <img [src]="'./assets/images/foto-perfil3.jpg'" alt="" class="perfilimg">
                     </div>
                     <div class="pin" [id]="'pin3'" (click)="showUser(value)">
                         <img [src]="'./assets/images/foto-perfil4.jpg'" alt="" class="perfilimg">
-                    </div>
-                </div> -->
+                    </div> -->
+                </div>
                 <div class="mapafondo">
                     <google-map
                     mapId="dc579dc9045a416e"
