@@ -76,7 +76,7 @@ export class UserContactService {
   
   
     deleteById(usuario: Usuario) {
-      const url = `${base_url}/usercontact/delete/${usuario}`;
+      const url = `${base_url}/usercontact/delete/${usuario._id}`;
       return this.http.delete(url, this.headers);
     }
 }

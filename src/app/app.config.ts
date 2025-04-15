@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection, isDevMode } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, isDevMode, InjectionToken, FactoryProvider } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -9,10 +9,24 @@ import { Observable } from 'rxjs';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideToastr } from 'ngx-toastr';
+import { SocketIoModule, SocketIoConfig, Socket, provideSocketIo } from 'ngx-socket-io';
+// import { Socket } from 'socket.io-client';
+import { environment } from './environments/environment';
+
+const config: SocketIoConfig = { url: environment.soketServer, options: {} };
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+// Create a new injection token for the socket instance
+export const SOCKET_INSTANCE = new InjectionToken<Socket>('SOCKET_INSTANCE');
+
+// Provide the socket instance directly using SocketIoModule
+const socketFactoryProvider: FactoryProvider = {
+  provide: SOCKET_INSTANCE,
+  useFactory: () => new Socket(config)
+};
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,6 +39,8 @@ export const appConfig: ApplicationConfig = {
     }),
     provideAnimationsAsync(),
     provideToastr(),
+    provideSocketIo(config),
+    socketFactoryProvider,
     ...TranslateModule.forRoot({
       defaultLanguage: 'es',
       loader: {

@@ -18,7 +18,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   selector: 'app-start-meet',
   imports: [HeaderComponent, RouterModule, 
     BackAreaComponent, LoadingComponent, NgIf, NgFor, NgClass, NgStyle,
-    TranslateModule,GoogleMap, MapAdvancedMarker, FormsModule,
+    TranslateModule,
+    // GoogleMap, MapAdvancedMarker, 
+    FormsModule,
   ],
   templateUrl: './start-meet.component.html',
   styleUrl: './start-meet.component.scss'
@@ -65,16 +67,14 @@ export class StartMeetComponent implements OnInit {
     //   this.renderer.listen(pinElement, 'click', () => this.toggleClasses());
     // }
     this.user;
-    this.getPreferenciasbyUser();
-    // this.getUsers();
+    // this.getPreferenciasbyUser();
+    this.getUsers();
     // this.getUsersbyGender();
     // this.getUserLocal();
     // this.getLocationsAll();
   }
 
   getLocationsAll(){
-    
-
   this.placesServices.getAllLocations({ lat: 4.0,lng: -72.0}).subscribe((resp:any)=>{
     // console.log('userAll',resp);
     this.users = resp;
@@ -112,7 +112,8 @@ export class StartMeetComponent implements OnInit {
       if(this.genero === '3'){
         this.genero = ''
       }
-      this.getUsersbyGender();
+      // this.getUsersbyGender();
+      this.getUsers();
       });
       this.isLoading = false;
   }
@@ -121,7 +122,7 @@ export class StartMeetComponent implements OnInit {
 
   //buscamos los usuarios segun los datos recibidos de genero
   
-  getUsers(){
+  getUsersRandom(){
     this.userRandomService.getCharacters().subscribe((resp:any)=>{
       // console.log(resp);
     })
@@ -151,6 +152,13 @@ export class StartMeetComponent implements OnInit {
     this.usuarioService.getUsersLocal().subscribe((resp:any)=>{
       console.log(resp);
       this.usersLocal = resp.users;
+    })
+  }
+
+  getUsers(){
+    this.usuarioService.getUsuarios().subscribe((resp:any)=>{
+      console.log(resp);
+      this.usersLocal = resp;
     })
   }
 

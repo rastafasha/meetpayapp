@@ -23,6 +23,7 @@ export const routes: Routes = [
     {path: 'analizer', component: AnalizadorComponent},
     {path: 'tracking', component: TrackingComponent},
     {path: 'chat', component: ChatComponent},
+    {path: 'chat/:id', component: ChatComponent},
     
 
     {path: '**', redirectTo: '', pathMatch: 'full'},

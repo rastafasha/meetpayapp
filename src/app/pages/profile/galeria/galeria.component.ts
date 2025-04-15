@@ -67,12 +67,12 @@ langs: string[] = [];
   getUserLocal(id:string){
     // console.log(id);
     this.isLoading = true
-    this.userService.getUsersLocal().subscribe((resp:any)=>{
+    this.userService.getUsuarios().subscribe((resp:any)=>{
       // console.log(resp);
-      this.users = resp.users;
+      this.users = resp;
       //filtramos el usuario seleccionado
       this.user_selected = this.users.find((user: any) => user.uid === id);
-      console.log(this.user_selected);
+      // console.log(this.user_selected);
       this.isLoading = false;
     })
   }

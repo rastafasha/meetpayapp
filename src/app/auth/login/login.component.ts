@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private translate: TranslateService,
-    private placesServices: PlacesService,
+    // private placesServices: PlacesService,
     private toastr: ToastrService
     
   ) {

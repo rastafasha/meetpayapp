@@ -7,14 +7,35 @@
             <div class="perfilf">
                 <a href="perfil-galeria.html"><img [src]="'./assets/images/foto-perfil2.jpg'" alt=""></a>
             </div>
-             <h2 class="name"><b>Jenny,</b> 26</h2>
+             <h2 class="name"><b>{{user_selected?.first_name}},</b> {{user_selected?.edad}}</h2>
            <h4 class="job-title">Caracas, Venezuela</h4>
           </div>
        </div>
        
        <div class="clear"></div>
-       
-       <main class="chat">
+       <div  *ngIf="messages">
+        <ul  *ngFor="let message of messages">
+          <!-- <li class="other">
+            <div class="avatar"><img [src]="'./assets/images/foto-perfil.jpg'" draggable="false"/></div>
+          <div class="msg">
+            <p>{{message}}</p>
+            <time>20:17</time>
+          </div>
+        </li> -->
+        <li class="self">
+            <!-- <div class="avatar"><img [src]="'./assets/images/foto-perfil2.jpg'" draggable="false"/></div> -->
+          <div class="msg">
+            <p>{{message}}</p>
+            <!-- <time>20:18</time> -->
+          </div>
+        </li>
+        </ul>
+       </div>
+       <form action="" class="escribir_data">
+          <input type="text" name="message" class="textinput" [(ngModel)]="message" placeholder="Escribe un mensaje...">
+          <button type="submit" class="butonhome" (click)="sendMessage()">Enviar</button>
+       </form>
+       <!-- <main class="chat">
      <ol class="chat">
      <li class="other">
          <div class="avatar"><img [src]="'./assets/images/foto-perfil.jpg'" draggable="false"/></div>
@@ -118,7 +139,7 @@
      </li>
      </ol>
   <input class="textarea" type="text" placeholder="Type here!"/><div class="emojis"></div>
-       </main>
+       </main> -->
        
        
      </div>

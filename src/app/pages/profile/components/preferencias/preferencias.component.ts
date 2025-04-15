@@ -50,6 +50,7 @@ export class PreferenciasComponent {
   public quiero: any[] = [];
   public title!: string;
   public title_quiero!: string;
+  _id!:string;
   
   constructor(
     private fb: FormBuilder,
@@ -79,6 +80,7 @@ export class PreferenciasComponent {
     this.userLocation = this.placeService.getUserLocation();
     this.validarFormularioPerfil();
     this.activatedRoute.params.subscribe(({ id }) => this.getUserProfile(id));
+    this.iniciarFormularioPerfil2();
   }
 
   getUserProfile(id: string) {
@@ -90,6 +92,18 @@ export class PreferenciasComponent {
     this.activatedRoute.params.subscribe(({ id }) =>
       this.iniciarFormularioPerfil(id)
     );
+    
+  
+  }
+
+  iniciarFormularioPerfil2() {
+    this.isLoading = true;
+    this.preferenciasService.getByUserId(this.user.uid).subscribe((res: any) => {
+      if (res && res.length > 0) {
+        this.preferencia_selected = res[0];
+      } 
+      this.isLoading = false;
+    });
   }
 
   iniciarFormularioPerfil(id: string) {
@@ -216,6 +230,9 @@ export class PreferenciasComponent {
     if (this.preferenciaForm.value.lang) {
       formData.append('lang', this.preferenciaForm.value.lang);
     }
+    if (this.preferenciaForm.value.lang) {
+      formData.append('lang', this.preferenciaForm.value.lang);
+    }
 
     if (this.preferenciaForm.value.genero) {
       formData.append('genero', this.preferenciaForm.value.genero);
@@ -234,7 +251,7 @@ export class PreferenciasComponent {
     
     const data = {
       ...this.preferenciaForm.value,
-      _id: this.preferencia_selected._id,
+      // _id: this.preferencia_selected?._id || null,
       gustos:this.gustos,
       quiero:this.quiero,
       latitude: this.userLocation[1],
@@ -244,7 +261,7 @@ export class PreferenciasComponent {
     console.log(data);
 
     //si viene con datos
-    if (this.preferencia_selected._id) {
+    if (this.preferencia_selected && this.preferencia_selected._id) {
       this.isLoading = true;
       this.preferenciasService
         .updatePreferencias(data,this.user.uid  )

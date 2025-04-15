@@ -80,7 +80,8 @@ if (edad !== undefined) {
       LINK = '?' + LINK.substring(1);
     }
 
-    return this.http.get<Usuario[]>(`./assets/data/users.json${LINK}`);
+    return this.http.get<Usuario[]>(`/usuarios/${LINK}`);
+    // return this.http.get<Usuario[]>(`./assets/data/users.json${LINK}`);
 
 
   }
@@ -177,10 +178,10 @@ if (edad !== undefined) {
         );
   }
   getUsuarios()  {
-    const url = `${base_url}/usuarios/all`;
+    const url = `${base_url}/usuarios/all/`;
     return this.http.get<any>(url, this.headers)
       .pipe(
-        map((resp:{ok: boolean, usuarios: Usuario}) => resp.usuarios)
+        map((resp:{ok: boolean, allusuarios: Usuario}) => resp.allusuarios)
       )
   }
   getRecientes()  {

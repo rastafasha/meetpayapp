@@ -64,4 +64,12 @@ export class ContactsComponent {
  
 
   showUser(){}
+
+  deleteContact(userl:any){
+    this.isLoading = true;
+    this.userContactService.deleteById(userl).subscribe((resp:any)=>{
+      this.getContactsbyUser();
+      this.isLoading = false;
+      })
+  }
 }
