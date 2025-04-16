@@ -13,8 +13,8 @@
        </div>
        
        <div class="clear"></div>
-       <div  *ngIf="messages">
-        <ul  *ngFor="let message of messages">
+       <div  style="margin-top: 50px;"  *ngIf="messages">
+        <ul  *ngFor="let message of messages" >
           <!-- <li class="other">
             <div class="avatar"><img [src]="'./assets/images/foto-perfil.jpg'" draggable="false"/></div>
           <div class="msg">
@@ -35,113 +35,6 @@
           <input type="text" name="message" class="textinput" [(ngModel)]="message" placeholder="Escribe un mensaje...">
           <button type="submit" class="butonhome" (click)="sendMessage()">Enviar</button>
        </form>
-       <!-- <main class="chat">
-     <ol class="chat">
-     <li class="other">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <p>Hola!</p>
-         <p>Te vienes a cenar al centro? <emoji class="pizza"/></p>
-         <time>20:17</time>
-       </div>
-     </li>
-     <li class="self">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil2.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <p>Hola!</p>
-         <p>Si, en una hora salgo, estoy comprando una novela ! <emoji class="books"/></p>
-         <p>y tu ya estas listo?</p>
-         <time>20:18</time>
-       </div>
-     </li>
-     <li class="other">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <p>Si!, aunque creo que va a llover <emoji class="suffocated"/></p>
-         <time>20:18</time>
-       </div>
-     </li>
-     <li class="self">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil2.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <p>No importa!</p>
-         <p>Me gusta la lluvia!! <emoji class="funny"/></p>
-         <time>20:18</time>
-       </div>
-     </li>
-     <li class="other">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <p><emoji class="scream"/></p>
-         <p>a mi tambien! <emoji class="please"/></p>
-         <time>20:18</time>
-       </div>
-     </li>
-     <li class="self">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil2.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <img [src]="'./assets/images/lluvia-fenomeno-atmosferico-b-655x368.jpg'" draggable="false"/>
-         <time>20:19</time>
-       </div>
-     </li>
-     <li class="other">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <p>Gracias! <emoji class="hearth_blue"/></p>
-         <time>20:20</time>
-       </div>
-     </li>
-         <div class="day">Hoy</div>
-     <li class="self">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil2.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <p>Te apetece cenar despues?</p>
-         <time>18:03</time>
-       </div>
-     </li>
-     <li class="other">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <p>Si va!, ya me esta dando hambre...</p>
-         <time>18:07</time>
-       </div>
-     </li>
-     <li class="self">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil2.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <p>si, tengo tiempo sin comer pizza!... <emoji class="cryalot"/></p>
-         <time>18:08</time>
-       </div>
-     </li>
-     <li class="other">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <p><emoji class="pizza"/></p>
-         <time>18:08</time>
-       </div>
-     </li>
-     <li class="self">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil2.jpg'" draggable="false"/></div>
-       <div class="msg">
-         <p>que rico!!</p>
-         <p>Pizza Moai!</p>
-         <p><span><emoji class="moai"/></span><span><emoji class="moai"/></span><span><emoji class="moai"/></span><span><emoji class="moai"/></span><span><emoji class="moai"/></span><span><emoji class="moai"/></span></p>
-         <time>18:09</time>
-       </div>
-     </li>
-     <li class="other">
-         <div class="avatar"><img [src]="'./assets/images/foto-perfil.jpg'" draggable="false"/></div>
-       <div class="msg">
-           <p>que nombre tan gracioso!</p>
-         <p><emoji class="funny"/></p>
-         <time>18:08</time>
-       </div>
-     </li>
-     </ol>
-  <input class="textarea" type="text" placeholder="Type here!"/><div class="emojis"></div>
-       </main> -->
-       
-       
      </div>
 
 </div>

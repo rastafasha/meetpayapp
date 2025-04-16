@@ -13,7 +13,7 @@ import { SocketIoModule, SocketIoConfig, Socket, provideSocketIo } from 'ngx-soc
 // import { Socket } from 'socket.io-client';
 import { environment } from './environments/environment';
 
-const config: SocketIoConfig = { url: environment.soketServer, options: {} };
+const config: SocketIoConfig = { url: environment.wsUrl, options: {} };
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

@@ -48,3 +48,13 @@ export class Usuario {
   }
 
 }
+
+
+
+export class UsuarioChat{
+  public nombre!:string;
+
+  constructor(nombre:string){
+    this.nombre = nombre;
+} 
+}
